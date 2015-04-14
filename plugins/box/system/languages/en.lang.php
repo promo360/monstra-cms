@@ -15,8 +15,6 @@
             'Site Settings' => 'Site Settings',
             'System Settings' => 'System Settings',
             'Site Name' => 'Site Name',
-            'Site Description' => 'Site Description',
-            'Site Keywords' => 'Site Keywords',
             'Site Slogan' => 'Site Slogan',
             'Default Page' => 'Default Page',
             'Time zone' => 'Time zone',

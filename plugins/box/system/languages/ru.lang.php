@@ -15,8 +15,6 @@
             'Site Settings' => 'Настройки сайта',
             'System Settings' => 'Настройки системы',
             'Site Name' => 'Название сайта',
-            'Site Description' => 'Описание сайта',
-            'Site Keywords' => 'Ключевые слова',
             'Site Slogan' => 'Слоган',
             'Default Page' => 'Страница по умолчанию',
             'Time zone' => 'Временная зона',

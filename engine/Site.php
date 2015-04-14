@@ -106,7 +106,7 @@ class Site
      */
     public static function description()
     {
-        return (($description = trim(call_user_func(ucfirst(Uri::command()).'::description'))) == '') ? Html::toText(Option::get('description')) : Html::toText($description);
+        return (($description = trim(call_user_func(ucfirst(Uri::command()).'::description'))) == '') ? '' : Html::toText($description);
     }
 
     /**
@@ -120,7 +120,7 @@ class Site
      */
     public static function keywords()
     {
-        return (($keywords = trim(call_user_func(ucfirst(Uri::command()).'::keywords'))) == '') ? Html::toText(Option::get('keywords')) : Html::toText($keywords);
+        return (($keywords = trim(call_user_func(ucfirst(Uri::command()).'::keywords'))) == '') ? '' : Html::toText($keywords);
     }
 
     /**

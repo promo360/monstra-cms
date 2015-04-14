@@ -27,22 +27,6 @@
             ?>
             </div>
             <div class="form-group">
-            <?php 
-                echo (
-                    Form::label('site_description', __('Site Description', 'system')).
-                    Form::textarea('site_description', Option::get('description'), array('class' => 'form-control'))
-                );
-            ?>
-            </div>
-            <div class="form-group">
-            <?php
-                echo (
-                    Form::label('site_keywords', __('Site Keywords', 'system')).
-                    Form::input('site_keywords', Option::get('keywords'), array('class' => 'form-control'))
-                );
-            ?>
-            </div>
-            <div class="form-group">
             <?php
                 echo (
                     Form::label('site_slogan', __('Site Slogan', 'system')).

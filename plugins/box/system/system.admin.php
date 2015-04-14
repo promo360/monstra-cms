@@ -123,8 +123,6 @@ class SystemAdmin extends Backend
                     $_site_url = Request::post('system_url');
 
                     Option::update(array('sitename'          => Request::post('site_name'),
-                                       'keywords'            => Request::post('site_keywords'),
-                                       'description'         => Request::post('site_description'),
                                        'slogan'              => Request::post('site_slogan'),
                                        'defaultpage'         => Request::post('site_default_page'),
                                        'siteurl'             => $_site_url,
