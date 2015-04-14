@@ -3,7 +3,7 @@
 /**
  *  Breadcrumbs plugin
  *
- *  @package Promo360 CMS
+ *  @package Promo
  *  @subpackage Plugins
  *  @author Yudin Evgeniy / JINN
  *  @copyright 2014 Yudin Evgeniy / JINN
@@ -14,7 +14,7 @@
 // Register plugin
 Plugin::register( __FILE__,
                 __('Breadcrumbs', 'forms'),
-                __('Breadcrumbs plugin for Promo360', 'forms'),
+                __('Breadcrumbs plugin for Promo', 'forms'),
                 '1.0.0',
                 'JINN',
                 'http://cms.promo360.ru',
@@ -36,11 +36,11 @@ class Breadcrumbs
     public static $path = array();
     
     /**
-     *  Добавление хлебных крошек
+     *  Р”РѕР±Р°РІР»РµРЅРёРµ С…Р»РµР±РЅС‹С… РєСЂРѕС€РµРє
      *
      *  <code>
-     *      // Добавление новой ссылки
-     *      Breadcrumbs::add('http://site.ru/link', 'Заголовок');
+     *      // Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕР№ СЃСЃС‹Р»РєРё
+     *      Breadcrumbs::add('http://site.ru/link', 'Р—Р°РіРѕР»РѕРІРѕРє');
      *  </code>
      */
     public static function add($link, $name)
@@ -49,7 +49,7 @@ class Breadcrumbs
     }
     
     /**
-     *  Считаем, количество добавленных ссылок
+     *  РЎС‡РёС‚Р°РµРј, РєРѕР»РёС‡РµСЃС‚РІРѕ РґРѕР±Р°РІР»РµРЅРЅС‹С… СЃСЃС‹Р»РѕРє
      *
      *  <code>
      *      echo Breadcrumbs::count();
@@ -61,10 +61,10 @@ class Breadcrumbs
     }
     
     /**
-     * Вывод хлебных крошек
+     * Р’С‹РІРѕРґ С…Р»РµР±РЅС‹С… РєСЂРѕС€РµРє
      *
      *  <code>
-     *      // Выводим весь путь
+     *      // Р’С‹РІРѕРґРёРј РІРµСЃСЊ РїСѓС‚СЊ
      *      echo Breadcrumbs::get();
      *  </code>
      */
@@ -72,16 +72,16 @@ class Breadcrumbs
     {
         $count = count(Breadcrumbs::$path);
         
-        // Ссылка на главную
+        // РЎСЃС‹Р»РєР° РЅР° РіР»Р°РІРЅСѓСЋ
         if (empty($args['home_link'])) $args['home_link'] = Site::url();
         
-        // Название ссылки на главную, по умолчанию "Главная"
+        // РќР°Р·РІР°РЅРёРµ СЃСЃС‹Р»РєРё РЅР° РіР»Р°РІРЅСѓСЋ, РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ "Р“Р»Р°РІРЅР°СЏ"
         if (empty($args['home_name'])) $args['home_name'] = __('Home', 'breadcrumbs');
         
-        // Знак разделителя, между ссылками
+        // Р—РЅР°Рє СЂР°Р·РґРµР»РёС‚РµР»СЏ, РјРµР¶РґСѓ СЃСЃС‹Р»РєР°РјРё
         if (empty($args['divider'])) $args['divider'] = '&rarr;';
         
-        // Шаблон для хлебных крошек
+        // РЁР°Р±Р»РѕРЅ РґР»СЏ С…Р»РµР±РЅС‹С… РєСЂРѕС€РµРє
         if (empty($args['view'])) $args['view'] = 'breadcrumbs';
         
         if ($count > 0) {
