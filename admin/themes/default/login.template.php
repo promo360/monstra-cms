@@ -2,9 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Promo :: <?php echo __('Administration', 'system'); ?></title>
+        <title>Promo CMS :: <?php echo __('Administration', 'system'); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Promo Admin Area">
+        <meta name="description" content="">
         <link rel="icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
 
@@ -67,8 +67,8 @@
         ?>
 
         <div class="container form-signin">
-
-            <div class="text-center"><a class="brand" href="<?php echo Option::get('siteurl'); ?>/admin"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/promo-logo-256px.png" alt="promo" /></a></div>
+        
+            <div class="text-center"><a class="brand" href="<?php echo Option::get('siteurl'); ?>/admin"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/cms-logo-256px.png" alt="Promo360" /></a></div>
             <div class="administration-area well">
                 <div>
                     <form method="post">
@@ -128,7 +128,7 @@
             </div>
 
             <div class="text-center">
-                <span>© 2014 - 2015 <a href="http://cms.promo360.ru" class="small-grey-text" target="_blank">Promo</a> – <?php echo __('Version', 'system'); ?> <?php echo Promo::VERSION; ?></span>
+                <span>© 2014-<?php echo date('Y'); ?>, <a href="http://cms.promo360.ru" class="small-grey-text" target="_blank">Promo CMS</a> – <?php echo __('Version', 'system'); ?> <?php echo Promo::VERSION; ?></span>
             </div>
 
         </div>

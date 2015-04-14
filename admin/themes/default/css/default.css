@@ -1,6 +1,6 @@
 /************************************
   Promo
-  default.css
+  styles.css
 *************************************
   CONTENTS
     1. GENERAL
@@ -11,21 +11,49 @@
     1. GENERAL
 *************************************/
 
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('@site_url/public/assets/fonts/glyphicons-halflings-regular.eot');
-  src: url('@site_url/public/assets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-       url('@site_url/public/assets/fonts/glyphicons-halflings-regular.woff') format('woff'),
-       url('@site_url/public/assets/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
-       url('@site_url/public/assets/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+body {
+    background:url(@theme_admin_url/img/background.jpg);
 }
 
+.wrap-content {
+    border-radius: 3px;
+    box-shadow:1px 1px 3px rgba(0,0,0,.4);
+    background:#fff;
+    padding:20px;
+}
+
+html,
 body {
-    background: #FAFAFA;
+    height:100%;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -70px;
+}
+
+#push,
+footer {
+    height: 40px;
+    margin-top:30px;
+}
+footer {
+    border-top:1px solid #111;
+    background-color: #111;
+}
+footer div {
+    margin-top:10px;
 }
 
 h1,h2,h3,h4,h5 {
     color: #222;
+}
+
+h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .error-none {
@@ -62,29 +90,20 @@ a.btn-expand {
     font-size:12px;
 }
 
-footer {
-    margin-top: 40px;
-}
-
 footer,
 footer a {
     color:#777;
     font-size:12px;
 }
 
-footer span {
-    border-top: 1px solid #E0E0E0; 
-    padding-top: 10px;
-}
 
 /*************************************
     2. COMPONENTS
 *************************************/
 
 /* Well */
-.well {                                
+.well {
     border: none;
-    border-radius: 0px;
     background: #fff;
     color: #555;
     -webkit-font-smoothing: subpixel-antialiased;
@@ -111,7 +130,7 @@ footer span {
 }
 
 .form-signin {
-    margin-top: 40px;
+    padding-top:40px;
 }
 
 .form-signin .administration-area,
@@ -218,7 +237,6 @@ a.navbar-brand {
 .tooltip-inner,
 pre,
 code {
-    border-radius: 0px;
 }
 .badge,
 .tooltip,
@@ -288,13 +306,18 @@ input[type="color"]:focus,
 
 /* Breadcrumb */
 .breadcrumb {
-    background: #fff;
-    border-radius: 0px;
+    background:#fff;
+    padding:0;
+    margin:0;
+    font-size:12px;
 }
 
 /* Tabs */
+.nav-pills > li > a {
+    padding:9px 12px;
+}
 .nav-tabs > li > a {
-    border-radius: 0px;
+    padding:9px 12px;
 }
 
 .tab-page {
@@ -377,7 +400,8 @@ table {
 
 .table-bordered thead tr th {
     font-weight:bold;
-    background-color: #fff;
+    background-color: #333;
+    color: #fff;
 }
 
 .table-bordered thead:first-child tr:first-child > th:first-child,
@@ -403,11 +427,11 @@ table {
 .table-bordered th,
 .table-bordered td {
     border-left: none;
-    height: 50px;
+    /*height: 50px;*/
 }
 
 .table-bordered > thead > tr {
-    height: 45px;
+    /*height: 45px;*/
 }
 
 td, th {
@@ -581,7 +605,6 @@ td, th {
         margin-bottom: 20px;
     }
 }
-
 
 @media (max-width: 768px) {
     .nav > li > a {

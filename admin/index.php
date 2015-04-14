@@ -21,7 +21,7 @@ define('ROOT', rtrim(str_replace(array('admin'), array(''), dirname(__FILE__)), 
 define('BACKEND', true);
 define('PROMO_ACCESS', true);
 
-// Load Monstra engine _init.php file
+// Load Promo engine _init.php file
 require_once ROOT. DS .'engine'. DS .'_init.php';
 
 // Errors var when users login failed
@@ -171,9 +171,16 @@ if ($is_admin) {
 
     // Show plugins admin area only for registered plugins
     if (in_array($area, $plugins_registered_areas)) {
-        $plugin_admin_area = true;
+        if (is_callable(ucfirst(Plugin::$plugins[$area]['id']).'Admin::main')) {
+            ob_start();
+            call_user_func(ucfirst(Plugin::$plugins[$area]['id']).'Admin::main');
+            $admin_content = ob_get_contents();  
+            ob_end_clean(); 
+        } else {
+            Request::redirect('index.php');
+        }
     } else {
-        $plugin_admin_area = false;
+        Request::redirect('index.php');
     }
 
     // Backend pre render

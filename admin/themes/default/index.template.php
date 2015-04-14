@@ -1,5 +1,5 @@
 <?php if ( ! defined('PROMO_ACCESS')) exit('No direct script access allowed'); ?><!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     
@@ -8,9 +8,9 @@
     <link rel="dns-prefetch" href="//www.google-analytics.com" />
     <link rel="dns-prefetch" href="//www.gravatar.com" />
     
-    <title>Promo :: <?php echo __('Administration', 'system'); ?></title>
+    <title>PROMO CMS :: <?php echo __('Administration', 'system'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Promo Admin Area" />
+    <meta name="description" content="" />
     <link rel="icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
 
@@ -64,8 +64,10 @@
   </head>
 
   <body class="page-<?php echo Request::get('id'); ?>">
+  
+  <div id="wrap">
 
-    <nav class="navbar navbar-default navbar-inverse" role="navigation">      
+    <nav class="navbar navbar-default navbar-inverse" role="navigation">
       <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -74,12 +76,12 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo Site::url(); ?>/admin/index.php?id=dashboard">PROMO</a>
+            <a class="navbar-brand" href="<?php echo Site::url(); ?>/admin/index.php?id=dashboard">PROMO CMS</a>
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
             <ul class="nav navbar-nav">          
-              <li<?php if (Request::get('id') == 'dashboard') { ?> class="active"<?php } ?>><a href="<?php echo Site::url(); ?>/admin/index.php?id=dashboard"><?php echo __('Dashboard', 'dashboard'); ?></a></li>              
+              <!--<li<?php if (Request::get('id') == 'dashboard') { ?> class="active"<?php } ?>><a href="<?php echo Site::url(); ?>/admin/index.php?id=dashboard"><?php echo __('Dashboard', 'dashboard'); ?></a></li>-->
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Content', 'pages'); ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -90,24 +92,17 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Extends', 'system'); ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <?php Navigation::draw('extends'); ?>                      
+                    <?php Navigation::draw('extends'); ?>
                 </ul>
               </li>
               <?php } ?>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('System', 'system'); ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <?php Navigation::draw('system'); ?>                       
+                    <?php Navigation::draw('system'); ?>
                 </ul>
               </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Help', 'system'); ?> <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="http://cms.promo360.ru/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a></li>
-                    <li><a href="http://cms.promo360.ru/forum/" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a></li>
-                </ul>
-              </li>
-            </ul>        
+            </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="<?php echo Site::url(); ?>" target="_blank"><?php echo __('View Site', 'system'); ?></a></li>
               <li class="dropdown">
@@ -122,41 +117,38 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container wrap-content">
         
         <?php
-            // Promo Notifications
             Notification::get('success') AND Alert::success(Notification::get('success'));
             Notification::get('warning') AND Alert::warning(Notification::get('warning'));
             Notification::get('error')   AND Alert::error(Notification::get('error'));
         ?>
-
-        <div id="update-promo"></div>
+        
         <div><?php Action::run('admin_pre_template'); ?></div>
-        <div>
-            <?php
-                if ($plugin_admin_area) {
-                    if (is_callable(ucfirst(Plugin::$plugins[$area]['id']).'Admin::main')) {
-                        call_user_func(ucfirst(Plugin::$plugins[$area]['id']).'Admin::main');
-                    } else {
-                        echo '<div class="message-error">'.__('Plugin main admin function does not exist', 'system').'</div>';
-                    }
-                } else {
-                    echo '<div class="message-error">'.__('Plugin does not exist', 'system').'</div>';
-                }
-            ?>
-        </div>
+        
+        <?php if (Breadcrumbs::count() > 1) { ?>
+        <ol class="breadcrumb">
+            <?php echo Breadcrumbs::get(array('home_name'=>__('Dashboard', 'dashboard'), 'home_link'=>'index.php')); ?>
+        </ol>
+        <?php } ?>
+        
+        <div><?php echo $admin_content; ?></div>
         <div><?php Action::run('admin_post_template'); ?></div>
-      </div>
-      <div class="margin-top-1  margin-bottom-1 hidden-md"></div>
-      <footer class="container visible-md visible-lg">
-          <p class="pull-right">
-            <span>
+    </div>
+      
+     <div id="push"></div>
+  </div><!-- wrap -->
+      
+      <footer class="visible-md visible-lg">
+        <div class="container">
+            <span> 
               <a href="http://cms.promo360.ru/forum/" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
-              <a href="http://cms.promo360.ru/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
-              © 2014 - 2015 <a href="http://cms.promo360.ru" target="_blank">Promo</a> – <?php echo __('Version', 'system'); ?> <?php echo Promo::VERSION; ?>
+              <a href="http://cms.promo360.ru/docs" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
+              © 2014-<?php echo date('Y'); ?>, <a href="http://cms.promo360.ru" target="_blank">Promo CMS</a> – <?php echo __('Version', 'system'); ?> <?php echo Promo::VERSION; ?>
             </span>
-          </p>
-      </footer>
+        </div>
+    </footer>
+    
 </body>
 </html>
