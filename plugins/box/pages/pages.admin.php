@@ -2,7 +2,7 @@
 
 // Add plugin navigation link
 Navigation::add(__('Pages', 'pages'), 'content', 'pages', 1);
-Dashboard::addNewItem('pages', __('Page', 'pages'), 'index.php?id=pages&action=add_page', 1);
+Dashboard::addNewItem('pages', __('Pages', 'pages'), 'index.php?id=pages&action=add_page', 1);
 
 // Add action on admin_pre_render hook
 Action::add('admin_pre_render','PagesAdmin::_pageExpandAjax');
@@ -44,6 +44,8 @@ class PagesAdmin extends Backend
         $templates_path = THEMES_SITE;
 
         $errors = array();
+        
+        Breadcrumbs::add('index.php?id=pages', __('Pages', 'pages'));
 
         $pages = new Table('pages');
         PagesAdmin::$pages = $pages;
@@ -205,6 +207,8 @@ class PagesAdmin extends Backend
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
 
                     }
+                    
+                    Breadcrumbs::add('index.php?id=pages&action=add_page', __('New Page', 'pages'));
 
                     // Get all pages
                     $pages_list = $pages->select('[slug!="error404" and parent=""]');
@@ -387,6 +391,8 @@ class PagesAdmin extends Backend
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
+                    
+                    Breadcrumbs::add('index.php?id=pages&action=edit_page&name='.Security::safeName(Request::post('page_name'), '-', true), __('Edit Page', 'pages'));
 
                     // Get all pages
                     $pages_list = $pages->select();
@@ -589,7 +595,7 @@ class PagesAdmin extends Backend
                 $pages_array[$count]['_status'] = $page['status'];
                 $pages_array[$count]['_access'] = $page['access'];
                 $pages_array[$count]['status']  = $status_array[$page['status']];
-                $pages_array[$count]['access']  = isset($access_array[$page['access']]) ? $access_array[$page['access']] : $access_array['public']; // hack for old Monstra Versions
+                $pages_array[$count]['access']  = isset($access_array[$page['access']]) ? $access_array[$page['access']] : $access_array['public']; // hack for old Promo Versions
                 $pages_array[$count]['date']    = $page['date'];
                 $pages_array[$count]['author']  = $page['author'];
                 $pages_array[$count]['expand']  = $page['expand'];
@@ -613,7 +619,7 @@ class PagesAdmin extends Backend
                         $_title = '';
                     }
 
-                    $pages_array[$count]['sort'] = $_title . ' ' . $page['title'];
+                    $pages_array[$count]['sort'] = $_title . ' -' . $page['title'];
 
                 } else {
 

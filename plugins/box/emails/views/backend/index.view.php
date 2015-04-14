@@ -5,7 +5,7 @@
     <div class="text-right row-phone">
         <?php
             echo (
-                Html::anchor(__('Edit Layout', 'emails'), 'index.php?id=emails&action=edit_email_template&filename=layout', array('title' => __('Edit Layout', 'emails'), 'class' => 'btn btn-phone btn-primary'))
+                Html::anchor('<i class="glyphicon glyphicon-pencil"></i> '.__('Edit Layout', 'emails'), 'index.php?id=emails&action=edit_email_template&filename=layout', array('title' => __('Edit Layout', 'emails'), 'class' => 'btn btn-phone btn-primary'))
             );
         ?>
     </div>
@@ -26,7 +26,7 @@
             <td>
                 <div class="pull-right">            
                     <div class="btn-group">
-                        <?php echo Html::anchor(__('Edit', 'emails'), 'index.php?id=emails&action=edit_email_template&filename='.basename($email_template, '.email.php'), array('class' => 'btn btn-primary')); ?>
+                        <?php echo Html::anchor('<i class="glyphicon glyphicon-pencil"></i> '.__('Edit', 'emails'), 'index.php?id=emails&action=edit_email_template&filename='.basename($email_template, '.email.php'), array('class' => 'btn btn-xs btn-primary')); ?>
                     </div>         
                 </div>
             </td>

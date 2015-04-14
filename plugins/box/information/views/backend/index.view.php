@@ -1,12 +1,13 @@
 <h2 class="margin-bottom-1"><?php echo __('Information', 'information'); ?></h2>
 
 <div class="tabbable mobile-nav-tabs">
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-pills">
         <li class="active"><a href="#system" data-toggle="tab"><?php echo __('System', 'information'); ?></a></li>
         <li><a href="#server" data-toggle="tab"><?php echo __('Server', 'information'); ?></a></li>
         <li><a href="#directory-permissions" data-toggle="tab"><?php echo __('Directory Permissions', 'information'); ?></a></li>
         <li><a href="#security" data-toggle="tab"><?php echo __('Security', 'information'); ?></a></li>
     </ul>
+    <br>
 
     <div class="tab-content">
 
@@ -90,7 +91,7 @@
         </div>
 
         <div class="tab-pane" id="directory-permissions">
-
+            
             <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
@@ -127,6 +128,7 @@
                 </tbody>
             </table>
             </div>
+            
         </div>
 
         <div class="tab-pane" id="security">
@@ -161,7 +163,7 @@
                 </tbody>
             </table>
             </div>
-
+            
         </div>
 
      </div>

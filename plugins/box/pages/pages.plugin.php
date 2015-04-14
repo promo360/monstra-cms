@@ -95,17 +95,21 @@ class Pages extends Frontend
         if (count($data) >= 2) {
 
             // If exists parent file
-            if (count(Pages::$pages->select('[slug="'.$data[0].'"]')) !== 0) {
+            if (count($p_parent = Pages::$pages->select('[slug="'.$data[0].'"]')) !== 0) {
 
                 // Get child file and get parent page name
                 $child_page = Pages::$pages->select('[slug="'.$data[1].'"]', null);
-
+                
+                // by JINN
+                Breadcrumbs::add(Site::url().'/'.$p_parent[0]['slug'], $p_parent[0]['title']);
+                
                 // If child page parent is not empty then get his parent
                 if (count($child_page) == 0) {
                     $c_p = '';
                 } else {
                     if ($child_page['parent'] != '') {
                         $c_p = $child_page['parent'];
+                        Breadcrumbs::add(Site::url().'/'.$child_page['slug'], $child_page['title']);
                     } else {
                         $c_p = '';
                     }
@@ -171,13 +175,18 @@ class Pages extends Frontend
                 } else {
                     $c_p = '';
                 }
+                
+                // by JINN
+                if (isset($current_page['slug']) && $current_page['slug'] !== $defpage) {
+                    Breadcrumbs::add(Site::url().'/'.$current_page['slug'], $current_page['title']);
+                }
 
                 // Check if this page has parent
                 if ($c_p !== '') {
 
                     if ($c_p == $data[0]) {
                         if (count(Pages::$pages->select('[slug="'.$data[0].'"]', null)) != 0) {
-
+                
                             if ((($current_page['status'] == 'published') or
                                 (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor')))) and
                                 ($current_page['access'] == 'public')) {
@@ -435,39 +444,6 @@ class Page extends Pages
         View::factory('box/pages/views/frontend/available_pages')
                 ->assign('pages', $pages)
                 ->display();
-    }
-
-    /**
-     * Get page breadcrumbs
-     *
-     *  <code>
-     *      echo Page::breadcrumbs();
-     *  </code>
-     *
-     */
-    public static function breadcrumbs()
-    {
-        if (Uri::command() == 'pages') {
-            $current_page = Pages::$requested_page;
-            $parent_page = '';
-            if ($current_page !== 'error404') {
-                $page = Pages::$pages->select('[slug="'.$current_page.'"]', null);
-                if (trim($page['parent']) !== '') {
-                    $parent = true;
-                    $parent_page = Pages::$pages->select('[slug="'.$page['parent'].'"]', null);
-                } else {
-                    $parent = false;
-                }
-
-            // Display view
-            View::factory('box/pages/views/frontend/breadcrumbs')
-                    ->assign('current_page', $current_page)
-                    ->assign('page', $page)
-                    ->assign('parent', $parent)
-                    ->assign('parent_page', $parent_page)
-                    ->display();
-            }
-        }    
     }
 
     /**

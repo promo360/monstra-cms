@@ -5,8 +5,8 @@ $.promo.blocks = {
     init: function() { },
 
     showEmbedCodes: function(name) {
-        $('#shortcode').html('{block get="'+name+'"}');
-        $('#phpcode').html('&lt;?php echo Block::get("'+name+'"); ?&gt;');
+        $('#shortcode').val('{block get="'+name+'"}');
+        $('#phpcode').val('<?php echo Block::get("'+name+'"); ?>');
         $('#embedCodes').modal();
     }
 

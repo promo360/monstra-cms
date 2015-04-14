@@ -34,6 +34,8 @@ class MenuAdmin extends Backend
 
         // Create order array
         $menu_item_order_array = range(0, 40);
+        
+        Breadcrumbs::add('index.php?id=menu', __('Menu', 'menu'));
 
         // Check for get actions
         // ---------------------------------------------
@@ -57,6 +59,8 @@ class MenuAdmin extends Backend
                     $menu_item_order      = $item['order'];
 
                     $errors = array();
+                    
+                    Breadcrumbs::add('index.php?id=menu&action=edit&item_id='.Request::get('item_id'), __('Edit item', 'menu'));
 
                     // Edit current menu item
                     if (Request::post('menu_add_item')) {
@@ -120,6 +124,8 @@ class MenuAdmin extends Backend
 
                     // Get current category
                     $menu_item_category = $current_category = (Request::get('category')) ? Request::get('category') : '' ;
+                    
+                    Breadcrumbs::add('index.php?id=menu&action=add', __('New item', 'menu'));
 
                     // Add new menu item
                     if (Request::post('menu_add_item')) {

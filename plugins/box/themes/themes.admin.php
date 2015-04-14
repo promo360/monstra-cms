@@ -29,6 +29,8 @@ class ThemesAdmin extends Backend
         $template_path  = THEMES_SITE . DS . $current_site_theme . DS;
         $style_path     = THEMES_SITE . DS . $current_site_theme . DS . 'css' . DS;
         $script_path    = THEMES_SITE . DS . $current_site_theme . DS . 'js' . DS;
+        
+        Breadcrumbs::add('index.php?id=themes', __('Themes', 'themes'));
 
         // Save site theme
         if (Request::post('save_site_theme')) {
@@ -101,6 +103,8 @@ class ThemesAdmin extends Backend
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
+                    
+                    Breadcrumbs::add('index.php?id=themes&action=add_chunk', __('New Chunk', 'themes'));
 
                     // Save fields
                     if (Request::post('name')) $name = Request::post('name'); else $name = '';
@@ -141,6 +145,8 @@ class ThemesAdmin extends Backend
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
+                    
+                    Breadcrumbs::add('index.php?id=themes&action=add_template', __('New Template', 'themes'));
 
                     // Save fields
                     if (Request::post('name')) $name = Request::post('name'); else $name = '';
@@ -171,7 +177,7 @@ class ThemesAdmin extends Backend
                                 File::setContent($style_path.Security::safeName(Request::post('name'), null, false).'.css', Request::post('content'));
 
                                 Notification::set('success', __('Your changes to the styles <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name'), null, false))));
-
+                                
                                 // Clean Promo TMP folder.
                                 Promo::cleanTmp();
 
@@ -183,11 +189,12 @@ class ThemesAdmin extends Backend
                                 } else {
                                     Request::redirect('index.php?id=themes&action=edit_styles&filename='.Security::safeName(Request::post('name'), null, false));
                                 }
-
                             }
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
+                    
+                    Breadcrumbs::add('index.php?id=themes&action=add_styles', __('New Styles', 'themes'));
 
                     // Save fields
                     if (Request::post('name')) $name = Request::post('name'); else $name = '';
@@ -208,9 +215,8 @@ class ThemesAdmin extends Backend
                      if (Request::post('add_file') || Request::post('add_file_and_exit')) {
 
                         if (Security::check(Request::post('csrf'))) {
-
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
-                            if (file_exists($script_path.Security::safeName(Request::post('name'), null, false).'.js')) $errors['file_exists'] = __('This script already exists', 'themes');
+                            if (file_exists($script_path.Security::safeName(Request::post('name'), null, false).'.js')) $errors['file_exists'] = __('1This script already exists', 'themes');
 
                             if (count($errors) == 0) {
 
@@ -218,25 +224,24 @@ class ThemesAdmin extends Backend
                                 File::setContent($script_path.Security::safeName(Request::post('name'), null, false).'.js', Request::post('content'));
 
                                 Notification::set('success', __('Your changes to the script <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name'), null, false))));
-
-
+                                
                                 // Clean Promo TMP folder.
                                 Promo::cleanTmp();
 
                                 // Increment Javascript version
                                 Javascript::javascriptVersionIncrement();
 
-
                                 if (Request::post('add_file_and_exit')) {
                                     Request::redirect('index.php?id=themes');
                                 } else {
                                     Request::redirect('index.php?id=themes&action=edit_script&filename='.Security::safeName(Request::post('name'), null, false));
                                 }
-
                             }
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
+                    
+                    Breadcrumbs::add('index.php?id=themes&action=add_script', __('New Script', 'themes'));
 
                     // Save fields
                     if (Request::post('name')) $name = Request::post('name'); else $name = '';
@@ -294,6 +299,9 @@ class ThemesAdmin extends Backend
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
+                    
+                    Breadcrumbs::add('index.php?id=themes&action=edit_chunk&filename='.Request::get('filename'), __('Edit Chunk', 'themes'));
+                    
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     $content = File::getContent($chunk_path.Request::get('filename').'.chunk.php');
 
@@ -350,6 +358,9 @@ class ThemesAdmin extends Backend
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
+                    
+                    Breadcrumbs::add('index.php?id=themes&action=edit_template&filename='.Request::get('filename'), __('Edit Template', 'themes'));
+                    
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     $content = File::getContent($chunk_path.Request::get('filename').'.template.php');
 
@@ -396,7 +407,7 @@ class ThemesAdmin extends Backend
                                 File::setContent($save_filename, Request::post('content'));
 
                                 Notification::set('success', __('Your changes to the styles <i>:name</i> have been saved.', 'themes', array(':name' => basename($save_filename, '.css'))));
-
+                                
                                 // Clean Promo TMP folder.
                                 Promo::cleanTmp();
 
@@ -412,6 +423,9 @@ class ThemesAdmin extends Backend
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
+                    
+                    Breadcrumbs::add('index.php?id=themes&action=edit_styles&filename='.Request::get('filename'), __('Edit Styles', 'themes'));
+                    
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     $content = File::getContent($style_path.Request::get('filename').'.css');
 
@@ -435,6 +449,7 @@ class ThemesAdmin extends Backend
                         if (Security::check(Request::post('csrf'))) {
 
                             if (trim(Request::post('name')) == '') $errors['file_empty_name'] = __('Required field', 'themes');
+                            
                             if ((file_exists($script_path.Security::safeName(Request::post('name'), null, false).'.js')) and (Security::safeName(Request::post('script_old_name'), null, false)) !== Security::safeName(Request::post('name'), null, false)) $errors['file_exists'] = __('This script already exists', 'themes');
 
                             // Save fields
@@ -458,7 +473,7 @@ class ThemesAdmin extends Backend
                                 File::setContent($save_filename, Request::post('content'));
 
                                 Notification::set('success', __('Your changes to the script <i>:name</i> have been saved.', 'themes', array(':name' => basename($save_filename, '.js'))));
-
+                                
                                 // Clean Promo TMP folder.
                                 Promo::cleanTmp();
 
@@ -474,6 +489,9 @@ class ThemesAdmin extends Backend
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
+                    
+                    Breadcrumbs::add('index.php?id=themes&action=edit_script&filename='.Request::get('filename'), __('Edit Script', 'themes'));
+                    
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     $content = File::getContent($script_path.Request::get('filename').'.js');
 
@@ -509,7 +527,7 @@ class ThemesAdmin extends Backend
 
                         File::delete($style_path.Request::get('filename').'.css');
                         Notification::set('success', __('Styles <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
-
+                        
                         // Clean Promo TMP folder.
                         Promo::cleanTmp();
 
@@ -530,7 +548,7 @@ class ThemesAdmin extends Backend
 
                         File::delete($script_path.Request::get('filename').'.js');
                         Notification::set('success', __('Script <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
-
+                        
                         // Clean Promo TMP folder.
                         Promo::cleanTmp();
 
@@ -564,7 +582,7 @@ class ThemesAdmin extends Backend
 
                         File::setContent(THEMES_SITE . DS . $current_site_theme . DS . 'css' . DS . Request::get('filename') .'_clone_'.date("Ymd_His").'.css',
                                          File::getContent(THEMES_SITE . DS . $current_site_theme . DS . 'css' . DS . Request::get('filename') . '.css'));
-
+                        
                         // Clean Promo TMP folder.
                         Promo::cleanTmp();
 
@@ -585,13 +603,12 @@ class ThemesAdmin extends Backend
                         File::setContent(THEMES_SITE . DS . $current_site_theme . DS . 'js' . DS . Request::get('filename') .'_clone_'.date("Ymd_His").'.js',
                                          File::getContent(THEMES_SITE . DS . $current_site_theme . DS . 'js' . DS . Request::get('filename') . '.js'));
 
-
                         // Clean Promo TMP folder.
                         Promo::cleanTmp();
 
                         // Increment Javascript version
                         Javascript::javascriptVersionIncrement();
-                        
+
                         Request::redirect('index.php?id=themes');
                     }
 

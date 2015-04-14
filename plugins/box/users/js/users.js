@@ -7,13 +7,12 @@ $.promo.users = {
     },
 
     usersFrontendRegistration: function() {
-		$('#users_frontend_registration').on('ifChanged', function(event){
-			$("form[name=users_frontend]").submit();
-		});
+        $('#users_frontend_registration').on('ifChanged', function(event){
+            $("form[name=users_frontend]").submit();
+        });
     }
 
 };
-
 
 $(document).ready(function(){
     $.promo.users.init();

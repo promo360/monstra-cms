@@ -5,7 +5,7 @@
     <div class="text-right row-phone">
         <?php
             echo (
-                Html::anchor(__('Create New Block', 'blocks'), 'index.php?id=blocks&action=add_block', array('title' => __('Create New Block', 'blocks'), 'class' => 'btn btn-phone btn-primary'))
+                Html::anchor('<i class="glyphicon glyphicon-plus"></i> '.__('Create New Block', 'blocks'), 'index.php?id=blocks&action=add_block', array('title' => __('Create New Block', 'blocks'), 'class' => 'btn btn-phone btn-primary'))
             );
         ?>
     </div>
@@ -26,8 +26,8 @@
         <td>
             <div class="pull-right">            
                 <div class="btn-group">
-                    <?php echo Html::anchor(__('Edit', 'blocks'), 'index.php?id=blocks&action=edit_block&filename='.basename($block, '.block.html'), array('class' => 'btn btn-primary')); ?>
-                    <button type="button" class="btn dropdown-toggle btn-primary" data-toggle="dropdown">
+                    <?php echo Html::anchor('<i class="glyphicon glyphicon-pencil"></i> '.__('Edit', 'blocks'), 'index.php?id=blocks&action=edit_block&filename='.basename($block, '.block.html'), array('class' => 'btn btn-xs btn-primary')); ?>
+                    <button type="button" class="btn btn-xs dropdown-toggle btn-primary" data-toggle="dropdown">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
@@ -35,9 +35,9 @@
                         <li><?php echo Html::anchor(__('View Embed Code', 'blocks'), 'javascript:;', array('title' => __('View Embed Code', 'blocks'), 'onclick' => '$.promo.blocks.showEmbedCodes("'.basename($block, '.block.html').'");')); ?></li>
                     </ul>
                 </div>
-                <?php echo Html::anchor(__('Delete', 'blocks'),
+                <?php echo Html::anchor('<i class="glyphicon glyphicon-trash"></i> '.__('Delete', 'blocks'),
                           'index.php?id=blocks&action=delete_block&filename='.basename($block, '.block.html').'&token='.Security::token(),
-                           array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete block: :block', 'blocks', array(':block' => basename($block, '.block.html')))."')"));
+                           array('class' => 'btn btn-xs btn-danger', 'onclick' => "return confirmDelete('".__('Delete block: :block', 'blocks', array(':block' => basename($block, '.block.html')))."')"));
                 ?>            
             </div>
         </td>
@@ -56,10 +56,10 @@
             </div>
             <div class="modal-body">
                 <b><?php echo __('Shortcode', 'snippets'); ?></b><br>
-                <pre><code id="shortcode"></code></pre>
+                <input type="text" id="shortcode" class="form-control" onclick="this.select();">
                 <br>
                 <b><?php echo __('PHP Code', 'snippets'); ?></b><br>
-                <pre><code id="phpcode"></code></pre>
+                <input type="text" id="phpcode" class="form-control" onclick="this.select();">
             </div>
         </div>
     </div>

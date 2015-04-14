@@ -3,7 +3,7 @@
     return array(
         'system' => array(
             'System' => 'Система',
-            'Published a new version of the :promo' => 'Опубликована новая версия :promo',
+            'Published a new version of the :cms' => 'Опубликована новая версия :cms',
             'Sitemap created' => 'Карта сайта создана',
             'Create Sitemap' => 'Создать карту сайта',
             'on' => 'включен',
@@ -15,6 +15,8 @@
             'Site Settings' => 'Настройки сайта',
             'System Settings' => 'Настройки системы',
             'Site Name' => 'Название сайта',
+            'Site Description' => 'Описание сайта',
+            'Site Keywords' => 'Ключевые слова',
             'Site Slogan' => 'Слоган',
             'Default Page' => 'Страница по умолчанию',
             'Time zone' => 'Временная зона',
@@ -68,7 +70,7 @@
             'Field "Site url" is empty' => 'Поле "Адрес сайта" не заполнено',
             'Email not valid' => 'Эл. почта недействительна',
             'Install' => 'Установить',
-            '...Promo says...' => '...Promo говорит...',
+            '...CMS says...' => '...CMS говорит...',
             'Sitemap file writable' => 'Карта сайта доступна для записи',
             'Sitemap file not writable' => 'Карта сайта не доступна для записи',
             'Main .htaccess file writable' => 'Главный .htaccess файл доступен для записи',

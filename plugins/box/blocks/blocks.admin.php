@@ -18,6 +18,8 @@ class BlocksAdmin extends Backend
         $blocks_path = STORAGE . DS  . 'blocks' . DS;
         $blocks_list = array();
         $errors      = array();
+        
+        Breadcrumbs::add('index.php?id=blocks', __('Blocks', 'blocks'));
 
         // Check for get actions
          // -------------------------------------
@@ -54,6 +56,8 @@ class BlocksAdmin extends Backend
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
+                    
+                    Breadcrumbs::add('index.php?id=blocks&action=add_block', __('New Block', 'blocks'));
 
                     // Save fields
                     if (Request::post('name')) $name = Request::post('name'); else $name = '';
@@ -109,6 +113,9 @@ class BlocksAdmin extends Backend
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
+                    
+                    Breadcrumbs::add('index.php?id=blocks&action=edit_block&filename='.Request::get('filename'), __('Edit Block', 'blocks'));
+                    
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     if (Request::post('editor')) $content = Request::post('editor'); else $content = File::getContent($blocks_path.Request::get('filename').'.block.html');
 

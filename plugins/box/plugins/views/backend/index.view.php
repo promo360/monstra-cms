@@ -3,12 +3,12 @@
 <div class="tabbable mobile-nav-tabs">
 
     <!-- Plugins_tabs -->
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-pills">
         <li class="active"><a href="#installed" data-toggle="tab"><?php echo __('Installed', 'plugins'); ?></a></li>
         <li><a href="#installnew" data-toggle="tab"><?php echo __('Install New', 'plugins'); ?> <?php if (count($plugins_to_intall) > 0) { ?><span class="badge"><?php echo count($plugins_to_intall); ?></span><?php } ?></a></li>
-        <li><a href="http://cms.promo360.ru/download/plugins" target="_blank"><?php echo __('Get More Plugins', 'plugins'); ?></a></li>
     </ul>
     <!-- /Plugins_tabs -->
+    <br>
 
     <div class="tab-content">
 
@@ -42,14 +42,14 @@
                         <td>
                             <div class="pull-right">
                             <?php if (File::exists(PLUGINS . DS . $plugin['id'] . DS . 'README.md')) { ?>
-                            <?php echo Html::anchor(__('Info', 'plugins'),
+                            <?php echo Html::anchor('<i class="glyphicon glyphicon-info-sign"></i> '.__('Info', 'plugins'),
                                        '#',
-                                       array('class' => 'btn btn-info hidden-sm hidden-md readme_plugin', 'data-toggle' => 'modal', 'data-target' => '#readme', 'readme_plugin' => $plugin['id']));
+                                       array('class' => 'btn btn-xs btn-info hidden-sm hidden-md readme_plugin', 'data-toggle' => 'modal', 'data-target' => '#readme', 'readme_plugin' => $plugin['id']));
                             ?>
                             <?php } ?>
-                            <?php echo Html::anchor(__('Uninstall', 'plugins'),
+                            <?php echo Html::anchor('<i class="glyphicon glyphicon-trash"></i> '.__('Uninstall', 'plugins'),
                                        'index.php?id=plugins&delete_plugin='.$plugin['id'].'&token='.Security::token(),
-                                       array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' => $plugin['title']))."')"));
+                                       array('class' => 'btn btn-xs btn-danger', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' => $plugin['title']))."')"));
                             ?>
                             </div>
                         </td>
@@ -91,15 +91,15 @@
                         <td>
                             <div class="pull-right">
                             <?php if (File::exists(PLUGINS . DS . basename($plug['plugin'], '.manifest.xml') . DS . 'README.md')) { ?>
-                            <?php echo Html::anchor(__('Info', 'plugins'),
+                            <?php echo Html::anchor('<i class="glyphicon glyphicon-info-sign"></i> '.__('Info', 'plugins'),
                                        '#',
-                                       array('class' => 'btn btn-info readme_plugin', 'data-toggle' => 'modal', 'data-target' => '#readme', 'readme_plugin' => basename($plug['plugin'], '.manifest.xml')));
+                                       array('class' => 'btn btn-xs btn-info readme_plugin', 'data-toggle' => 'modal', 'data-target' => '#readme', 'readme_plugin' => basename($plug['plugin'], '.manifest.xml')));
                             ?>
                             <?php } ?>
-                            <?php echo Html::anchor(__('Install', 'plugins'), 'index.php?id=plugins&install='.$plug['plugin'].'&token='.Security::token(), array('class' => 'btn btn-primary')); ?>
-                            <?php echo Html::anchor(__('Delete', 'plugins'),
+                            <?php echo Html::anchor('<i class="glyphicon glyphicon-play"></i> '.__('Install', 'plugins'), 'index.php?id=plugins&install='.$plug['plugin'].'&token='.Security::token(), array('class' => 'btn btn-xs btn-primary')); ?>
+                            <?php echo Html::anchor('<i class="glyphicon glyphicon-trash"></i> '.__('Delete', 'plugins'),
                                        'index.php?id=plugins&delete_plugin_from_server='.Text::lowercase(basename($plug['path'],'.manifest.xml')).'&token='.Security::token(),
-                                       array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' => $plugin_xml->plugin_name))."')"));
+                                       array('class' => 'btn btn-xs btn-danger', 'onclick' => "return confirmDelete('".__('Delete plugin :plugin', 'plugins', array(':plugin' => $plugin_xml->plugin_name))."')"));
                              ?>
                             </div>
                         </td>
@@ -109,35 +109,35 @@
             </table>
             </div>
 
-		 <?php if (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN'): ?>
-			<div class="row">
-				<div class="col-md-12">
-					<?php
-						echo (
-							Form::open(null, array('enctype' => 'multipart/form-data', 'class' => 'form-inline')).
-							Form::hidden('csrf', Security::token())
-						);
-					?>
-					<div class="fileinput fileinput-new pull-left" data-provides="fileinput">
-						<span class="btn btn-default btn-file"><span class="fileinput-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileinput-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file"></span>
-							<?php
-								echo (
-									Form::submit('upload_file', __('Upload', 'plugins'), array('class' => 'btn btn-primary')).
-									Form::close()
-								);
-							?>
-						<span class="fileinput-filename"></span>
-					</div>
-					<div id="DgDfileUploader">
-						<div class="upload-area">
-							<div class="upload-progress"></div>
-							<div class="upload-file-pholder"><?php echo __('Drop File Here', 'plugins'); ?></div>
-						</div>
-						<div class="upload-file-info"></div>
-					</div>
-				</div>
-			</div>
-		 <?php endif; ?>
+        <?php if (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN'): ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <?php
+                        echo (
+                            Form::open(null, array('enctype' => 'multipart/form-data', 'class' => 'form-inline')).
+                            Form::hidden('csrf', Security::token())
+                        );
+                    ?>
+                    <div class="fileinput fileinput-new pull-left" data-provides="fileinput">
+                        <span class="btn btn-default btn-file"><span class="fileinput-new"><?php echo __('Select file', 'filesmanager'); ?></span><span class="fileinput-exists"><?php echo __('Change', 'filesmanager'); ?></span><input type="file" name="file"></span>
+                            <?php
+                                echo (
+                                    Form::submit('upload_file', __('Upload', 'plugins'), array('class' => 'btn btn-primary')).
+                                    Form::close()
+                                );
+                            ?>
+                        <span class="fileinput-filename"></span>
+                    </div>
+                    <div id="DgDfileUploader">
+                        <div class="upload-area">
+                            <div class="upload-progress"></div>
+                            <div class="upload-file-pholder"><?php echo __('Drop File Here', 'plugins'); ?></div>
+                        </div>
+                        <div class="upload-file-info"></div>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
 
         </div>
         <!-- /Plugins_to_install_list -->
@@ -158,11 +158,11 @@
                 }
             });
         });
-		$.promo.fileuploader.init($.extend({}, {uploaderId:'DgDfileUploader'}, <?php echo json_encode($fileuploader); ?>));
-		$(document).on('uploaded.fuploader', function(){
-			location.href = $.promo.fileuploader.conf.uploadUrl +'#installnew';
-			window.location.reload(true);
-		});
+        $.promo.fileuploader.init($.extend({}, {uploaderId:'DgDfileUploader'}, <?php echo json_encode($fileuploader); ?>));
+        $(document).on('uploaded.fuploader', function(){
+            location.href = $.promo.fileuploader.conf.uploadUrl +'#installnew';
+            window.location.reload(true);
+        });
     });
 </script>
 

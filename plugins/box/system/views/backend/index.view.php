@@ -16,40 +16,48 @@
             echo (
                 Form::open().
                 Form::hidden('csrf', Security::token())
-                );
-            ?>
-            <div class="form-group">
-            <?php
-                echo (
-                    Form::label('site_name', __('Site Name', 'system')).
-                    Form::input('site_name', Option::get('sitename'), array('class' => 'form-control'))
-                );
-            ?>
-            </div>
-            <div class="form-group">
-            <?php
-                echo (
-                    Form::label('site_slogan', __('Site Slogan', 'system')).
-                    Form::input('site_slogan', Option::get('slogan'), array('class' => 'form-control'))
-                );
-            ?>
-            </div>
-            <div class="form-group">
-            <?php 
-                echo (
-                    Form::label('site_default_page', __('Default Page', 'system')).
-                    Form::select('site_default_page', $pages_array, Option::get('defaultpage'), array('class' => 'form-control'))
-                );
-            ?>
+            );
+        ?>
+        <div class="form-group">
+        <?php
+            echo (
+                Form::label('site_name', __('Site Name', 'system')).
+                Form::input('site_name', Option::get('sitename'), array('class' => 'form-control'))
+            );
+        ?>
         </div>
-    </div>
-    <div class="col-md-6">
-        <h2 class="margin-bottom-1"><?php echo __('System Settings', 'system'); ?></h2>
+        <div class="form-group">
+        <?php
+            echo (
+                Form::label('site_slogan', __('Site Slogan', 'system')).
+                Form::input('site_slogan', Option::get('slogan'), array('class' => 'form-control'))
+            );
+        ?>
+        </div>
         <div class="form-group">
         <?php
             echo (
                 Form::label('system_url', __('Site Url', 'system')).
                 Form::input('system_url', Option::get('siteurl'), array('class' => 'form-control'))
+            );
+        ?>
+        </div>
+        <div class="form-group">
+        <?php
+            echo (
+                Form::label('system_email', __('Email', 'system')).
+                Form::input('system_email', Option::get('system_email'), array('class' => 'form-control'))
+            );
+        ?>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2 class="margin-bottom-1"><?php echo __('System Settings', 'system'); ?></h2>
+        <div class="form-group">
+        <?php 
+            echo (
+                Form::label('site_default_page', __('Default Page', 'system')).
+                Form::select('site_default_page', $pages_array, Option::get('defaultpage'), array('class' => 'form-control'))
             );
         ?>
         </div>
@@ -72,16 +80,8 @@
         <div class="form-group">
         <?php
             echo (
-                Form::label('system_email', __('Email', 'system')).
-                Form::input('system_email', Option::get('system_email'), array('class' => 'form-control'))
-            );
-        ?>
-        </div>
-        <div class="form-group">
-        <?php
-            echo (
                 Form::label('site_maintenance_message', __('Maintenance Mode', 'system')).
-                Form::textarea('site_maintenance_message', Html::toText(Option::get('maintenance_message')), array('class' => 'form-control', 'style' => 'height:160px;'))
+                Form::textarea('site_maintenance_message', Html::toText(Option::get('maintenance_message')), array('class' => 'form-control', 'style' => 'height:38px;'))
             );
         ?>
         </div>

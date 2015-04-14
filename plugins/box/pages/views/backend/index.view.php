@@ -5,20 +5,19 @@
     <div class="text-right row-phone">
         <?php
             echo (
-                Html::anchor(__('Create New Page', 'pages'), 'index.php?id=pages&action=add_page', array('title' => __('Create New Page', 'pages'), 'class' => 'btn btn-phone btn-primary')). Html::nbsp(3).
+                Html::anchor('<i class="glyphicon glyphicon-plus"></i> '.__('Create New Page', 'pages'), 'index.php?id=pages&action=add_page', array('title' => __('Create New Page', 'pages'), 'class' => 'btn btn-phone btn-primary')). Html::nbsp(3).
                 Html::anchor(__('Edit 404 Page', 'pages'), 'index.php?id=pages&action=edit_page&name=error404', array('title' => __('Create New Page', 'pages'), 'class' => 'btn btn-phone btn-default'))
             );
         ?>
     </div>
 </div>
 
-<div class="table-responsive">
 <table class="table table-bordered">
     <thead>
         <tr>
             <th width="3%"></th>
             <th><?php echo __('Name', 'pages'); ?></th>
-            <th class="visible-lg hidden-xs"><?php echo __('Author', 'pages'); ?></th>
+            <!--<th class="visible-lg hidden-xs"><?php echo __('Author', 'pages'); ?></th>-->
             <th class="visible-lg hidden-xs"><?php echo __('Status', 'pages'); ?></th>
             <th class="visible-lg"><?php echo __('Access', 'pages'); ?></th>
             <th class="visible-lg hidden-xs"><?php echo __('Date', 'pages'); ?></th>
@@ -53,12 +52,12 @@
                 $_parent = (trim($page['parent']) == '') ? '' : $page['parent'];
                 $parent  = (trim($page['parent']) == '') ? '' : $page['parent'].'/';
                 echo (trim($page['parent']) == '') ? '' : '&nbsp;';
-                echo $dash.Html::anchor(Html::toText($page['title']), $site_url.'/'.$parent.$page['slug'], array('target' => '_blank', 'rel' => 'children_'.$_parent));
-            ?>
+                echo $dash.Html::toText($page['title']).' <sup>'.Html::anchor('<i class="glyphicon glyphicon-new-window"></i>', $site_url.'/'.$parent.$page['slug'], array('target' => '_blank', 'rel' => 'children_'.$_parent)).'</sup>';
+            ?> 
         </td>
-        <td class="visible-lg hidden-xs">
+        <!--<td class="visible-lg hidden-xs">
             <?php echo $page['author']; ?>
-        </td>
+        </td>-->
         <td class="visible-lg hidden-xs">
             <?php echo $page['status']; ?>
         </td>
@@ -66,13 +65,13 @@
             <?php echo $page['access']; ?>
         </td>
         <td class="visible-lg hidden-xs">
-            <?php echo Date::format($page['date'], "j.n.Y"); ?>
+            <?php echo Date::format($page['date'], "d.m.Y"); ?>
         </td>
         <td>
             <div class="pull-right">
                 <div class="btn-group">
-                  <?php echo Html::anchor(__('Edit', 'pages'), 'index.php?id=pages&action=edit_page&name='.$page['slug'], array('class' => 'btn btn-primary')); ?>
-                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  <?php echo Html::anchor('<i class="glyphicon glyphicon-pencil"></i> '.__('Edit', 'pages'), 'index.php?id=pages&action=edit_page&name='.$page['slug'], array('class' => 'btn btn-xs btn-primary')); ?>
+                  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">
                     <span class="caret"></span>
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
@@ -91,9 +90,9 @@
                   </ul>
                 </div>
 
-                <?php echo Html::anchor(__('Delete', 'pages'),
+                <?php echo Html::anchor('<i class="glyphicon glyphicon-trash"></i> '.__('Delete', 'pages'),
                            'index.php?id=pages&action=delete_page&name='.$page['slug'].'&token='.Security::token(),
-                           array('class' => 'btn btn-danger btn-actions btn-actions-default', 'onclick' => "return confirmDelete('".__("Delete page: :page", 'pages', array(':page' => Html::toText($page['title'])))."')"));
+                           array('class' => 'btn btn-xs btn-danger btn-actions btn-actions-default', 'onclick' => "return confirmDelete('".__("Delete page: :page", 'pages', array(':page' => Html::toText($page['title'])))."')"));
                 ?>
             </div>
         </td>
@@ -106,7 +105,6 @@
     ?>
     </tbody>
 </table>
-</div>
 
 <form>
     <input type="hidden" name="url" value="<?php echo Option::get('siteurl'); ?>/admin/index.php?id=pages">

@@ -18,6 +18,8 @@ class SnippetsAdmin extends Backend
         $snippets_path = STORAGE . DS  . 'snippets' . DS;
         $snippets_list = array();
         $errors      = array();
+        
+        Breadcrumbs::add('index.php?id=snippets', __('Snippets', 'snippets'));
 
         // Check for get actions
          // -------------------------------------
@@ -53,6 +55,9 @@ class SnippetsAdmin extends Backend
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
+                    
+                    Breadcrumbs::add('index.php?id=snippets&action=add_snippet', __('New Snippet', 'snippets'));
+                    
                     // Save fields
                     if (Request::post('name')) $name = Request::post('name'); else $name = '';
                     if (Request::post('content')) $content = Request::post('content'); else $content = '';
@@ -107,6 +112,9 @@ class SnippetsAdmin extends Backend
 
                         } else { die('Request was denied because it contained an invalid security token. Please refresh the page and try again.'); }
                     }
+                    
+                    Breadcrumbs::add('index.php?id=snippets&action=edit_snippet&filename='.Request::get('filename'), __('Edit Snippet', 'snippets'));
+                    
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     $content = File::getContent($snippets_path.Request::get('filename').'.snippet.php');
 

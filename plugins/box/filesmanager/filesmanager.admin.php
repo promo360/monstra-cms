@@ -18,6 +18,8 @@ class FilesmanagerAdmin extends Backend
      */
     public static function main()
     {
+        Breadcrumbs::add('index.php?id=filesmanager', __('Files', 'filesmanager'));
+        
         // Array of forbidden types
         $forbidden_types = array('html', 'htm', 'js', 'jsb', 'mhtml', 'mht',
                                  'php', 'phtml', 'php3', 'php4', 'php5', 'phps',
@@ -60,6 +62,18 @@ class FilesmanagerAdmin extends Backend
         $files_path = ROOT . DS . 'public' . DS . $path;
         
         $current = explode('/', $path);
+        
+        if (count($current)>0) {
+            $s = '';
+            foreach ($current as $curr) {
+                if (!empty($curr)) {
+                    $s .= $curr.'/';
+                    if ($curr != 'uploads') {
+                        Breadcrumbs::add("index.php?id=filesmanager&path={$s}", $curr);
+                    }
+                }
+            }
+        }
 
         // Delete file
         // -------------------------------------

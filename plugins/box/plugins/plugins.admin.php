@@ -54,7 +54,6 @@ class PluginsAdmin extends Backend
                     // Clean Promo TMP folder.
                     Promo::cleanTmp();
 
-                    // Increment Styles and Javascript version
                     Stylesheet::stylesVersionIncrement();
                     Javascript::javascriptVersionIncrement();
 

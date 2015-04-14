@@ -16,6 +16,8 @@ class EmailsAdmin extends Backend
         // Init vars
         $email_templates_path = STORAGE . DS  . 'emails' . DS;
         $email_templates_list = array();
+        
+        Breadcrumbs::add('index.php?id=emails', __('Emails', 'emails'));
 
         // Check for get actions
         // -------------------------------------
@@ -28,6 +30,8 @@ class EmailsAdmin extends Backend
                 // Plugin action
                 // -------------------------------------
                 case "edit_email_template":
+                
+                    Breadcrumbs::add('index.php?id=emails&action=edit_email_template&filename='.Request::get('filename'), __('Edit Email Template', 'emails'));
 
                     if (Request::post('edit_email_template') || Request::post('edit_email_template_and_exit') ) {
                         

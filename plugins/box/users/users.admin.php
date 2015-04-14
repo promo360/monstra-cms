@@ -26,6 +26,8 @@ class UsersAdmin extends Backend
         } else {
             $users_frontend_registration = false;
         }
+        
+        Breadcrumbs::add('index.php?id=users', __('Users', 'users'));
 
         if (Request::post('users_frontend_submit')) {
 
@@ -55,7 +57,9 @@ class UsersAdmin extends Backend
                 // Add
                 // -------------------------------------
                 case "add":
-
+                    
+                    Breadcrumbs::add('index.php?id=users&action=add', __('New User Registration', 'users'));
+                    
                     if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) {
 
                         // Errors
@@ -109,6 +113,8 @@ class UsersAdmin extends Backend
                 // Edit
                 // -------------------------------------
                 case "edit":
+                    
+                    Breadcrumbs::add('index.php?id=users&action=edit&user_id='.Request::get('user_id'), __('Edit profile', 'users'));
 
                     // Get current user record
                     $user = $users->select("[id='".(int) Request::get('user_id')."']", null);

@@ -37,15 +37,15 @@
         <td>
             <div class="pull-right">
             <?php
-				if (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
-					echo Html::anchor(__('Restore', 'backup'),
-						'index.php?id=backup&restore='.$backup.'&token='.Security::token(),
-							  array('class' => 'btn btn-primary'));
-				}
+                if (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
+                    echo Html::anchor(__('Restore', 'backup'),
+                        'index.php?id=backup&restore='.$backup.'&token='.Security::token(),
+                        array('class' => 'btn btn-xs btn-primary'));
+                }
             ?>
-            <?php echo Html::anchor(__('Delete', 'backup'),
+            <?php echo Html::anchor('<i class="glyphicon glyphicon-trash"></i> '.__('Delete', 'backup'),
                       'index.php?id=backup&delete_file='.$backup.'&token='.Security::token(),
-                       array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete backup: :backup', 'backup', array(':backup' => Date::format($name, 'F jS, Y - g:i A')))."')"));
+                       array('class' => 'btn btn-xs btn-danger', 'onclick' => "return confirmDelete('".__('Delete backup: :backup', 'backup', array(':backup' => Date::format($name, 'F jS, Y - g:i A')))."')"));
             ?>
             </div>
         </td>

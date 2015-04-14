@@ -1,10 +1,10 @@
 <script type="text/javascript">
-	$(document).ready(function(){
-		$.promo.fileuploader.init($.extend({}, {uploaderId:'DgDfileUploader'}, <?php echo json_encode($fileuploader); ?>));
-		$(document).on('uploaded.fuploader', function(){
-			location.href = $.promo.fileuploader.conf.uploadUrl;
-		});
-	});
+    $(document).ready(function(){
+        $.promo.fileuploader.init($.extend({}, {uploaderId:'DgDfileUploader'}, <?php echo json_encode($fileuploader); ?>));
+        $(document).on('uploaded.fuploader', function(){
+            location.href = $.promo.fileuploader.conf.uploadUrl;
+        });
+    });
 </script>
 
 <h2 class="margin-bottom-1"><?php echo __('Files', 'filesmanager'); ?></h2>
@@ -31,49 +31,28 @@
       <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
     </div>
 
-	<div id="DgDfileUploader" class="hidden-xs">
-		<div class="upload-area">
-			<div class="upload-progress"></div>
-			<div class="upload-file-pholder"><?php echo __('Drop File Here', 'filesmanager'); ?></div>
-		</div>
-		<div class="upload-file-info"></div>
-		<div class="btn btn-link file-size-max-upload hidden-sm hidden-md">
-			<?php echo __('Maximum upload file size: :upload_max_filesize', 'filesmanager', array(':upload_max_filesize' => $upload_max_filesize)); ?>
-		</div>
-	</div>
+    <div id="DgDfileUploader" class="hidden-xs">
+        <div class="upload-area">
+            <div class="upload-progress"></div>
+            <div class="upload-file-pholder"><?php echo __('Drop File Here', 'filesmanager'); ?></div>
+        </div>
+        <div class="upload-file-info"></div>
+        <div class="btn btn-link file-size-max-upload hidden-sm hidden-md">
+            <?php echo __('Maximum upload file size: :upload_max_filesize', 'filesmanager', array(':upload_max_filesize' => $upload_max_filesize)); ?>
+        </div>
+    </div>
     </div>
     <div class="col-md-2">
         <div class="pull-right create-new-dir">
         <button class="btn btn-primary" data-toggle="modal" data-target="#createNewDirectory">
-          <?php echo __('Create New Directory', 'filesmanager'); ?>
+          <i class="glyphicon glyphicon-plus"></i> <?php echo __('Create New Directory', 'filesmanager'); ?>
         </button>
         </div>
     </div>
     </div>
 <!-- /Filesmanager_upload_files -->
 
-<!-- Filesmanger_path -->
-<ol class="breadcrumb margin-top-1">
-
-      <?php
-        $path_parts = explode ('/',$path);
-
-        foreach ($path_parts as $key => $value) {
-            if ($path_parts[$key] == '') {
-                unset($path_parts[$key]);
-            }
-        }
-
-        $s = '';
-
-        foreach ($path_parts as $p) {
-            $s .= $p.'/';
-            if($p == $current[count($current)-2]) $active = ' class="active"'; else $active = '';
-            echo '<li'.$active.'><a href="index.php?id=filesmanager&path='.$s.'">'.$p.'</a></li>';
-        }
-    ?>
-</ol>
-<!-- /Filesmanger_path -->
+<br>
 
 <div class="table-responsive">
 <table class="table table-bordered" id="filesDirsList">
@@ -87,9 +66,9 @@
     </thead>
     <tbody>
         <?php if (isset($dir_list)) foreach ($dir_list as $dir) { ?>
-        <tr>
+        <tr class="active">
             <td>
-                <b><?php echo Html::anchor($dir, 'index.php?id=filesmanager&path='.$path.$dir.'/'); ?></b>
+                <i class="glyphicon glyphicon-folder-close"></i> <b><?php echo Html::anchor($dir, 'index.php?id=filesmanager&path='.$path.$dir.'/'); ?></b>
             </td>
             <td>
 
@@ -99,12 +78,12 @@
             </td>
             <td>
             <div class="pull-right">
-                <button class="btn btn-primary js-rename-dir" data-dirname="<?php echo $dir; ?>" data-path="<?php echo $path; ?>">
-                    <?php echo __('Rename', 'filesmanager'); ?>
+                <button class="btn btn-xs btn-primary js-rename-dir" data-dirname="<?php echo $dir; ?>" data-path="<?php echo $path; ?>">
+                    <i class="glyphicon glyphicon-pencil"></i> <?php echo __('Rename', 'filesmanager'); ?>
                 </button>
-                <?php echo Html::anchor(__('Delete', 'filesmanager'),
+                <?php echo Html::anchor('<i class="glyphicon glyphicon-trash"></i> '.__('Delete', 'filesmanager'),
                            'index.php?id=filesmanager&delete_dir='.$dir.'&path='.$path.'&token='.Security::token(),
-                           array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete directory: :dir', 'filesmanager', array(':dir' => $dir))."')"));
+                           array('class' => 'btn btn-xs btn-danger', 'onclick' => "return confirmDelete('".__('Delete directory: :dir', 'filesmanager', array(':dir' => $dir))."')"));
                 ?>
             </div>
             </td>
@@ -112,14 +91,15 @@
         <?php } ?>
         <?php if (isset($files_list)) foreach ($files_list as $file) { $ext = File::ext($file); ?>
         <?php if ( ! in_array($ext, $forbidden_types)) {
-			$dimension = '';
-			if (in_array(strtolower($ext), $image_types)) {
-				$dim = getimagesize($files_path. DS .$file);
-				if (isset($dim[0]) && isset($dim[1])) { $dimension = $dim[1] .'x'. $dim[0] .' px'; }
-			}
-		?>
+            $dimension = '';
+            if (in_array(strtolower($ext), $image_types)) {
+                $dim = getimagesize($files_path. DS .$file);
+                if (isset($dim[0]) && isset($dim[1])) { $dimension = $dim[1] .'x'. $dim[0] .' px'; }
+            }
+        ?>
         <tr>
             <td<?php if (isset(File::$mime_types[$ext]) && preg_match('/image/', File::$mime_types[$ext])) echo ' class="image"'?>>
+                <i class="glyphicon glyphicon-file"></i> 
                 <?php if (isset(File::$mime_types[$ext]) && preg_match('/image/', File::$mime_types[$ext])) { ?>
                     <?php echo Html::anchor(File::name($file), $site_url.'/public/' . $path.$file, array('rel' => $site_url.'/public/' . $path.$file, 'class' => 'chocolat', 'data-toggle' => 'lightbox'));?>
                 <?php } else { ?>
@@ -134,21 +114,21 @@
             </td>
             <td>
             <div class="pull-right">
-				<button class="btn btn-info js-file-info"
-					data-filename="<?php echo str_replace('"', '\'', htmlentities($file)); ?>"
-					data-filetype="<?php echo $ext; ?>"
-					data-filesize="<?php echo Number::byteFormat(filesize($files_path. DS .$file)); ?>"
-					data-dimension="<?php echo htmlentities($dimension); ?>"
-					data-link="<?php echo $site_url.'/public/' . $path.$file; ?>"
-				>
-					<?php echo __('Info', 'filesmanager'); ?>
-				</button>
-                <button class="btn btn-primary js-rename-file" data-filename="<?php echo $file; ?>" data-path="<?php echo $path; ?>">
-                    <?php echo __('Rename', 'filesmanager'); ?>
+                <button class="btn btn-xs btn-info js-file-info"
+                    data-filename="<?php echo str_replace('"', '\'', htmlentities($file)); ?>"
+                    data-filetype="<?php echo $ext; ?>"
+                    data-filesize="<?php echo Number::byteFormat(filesize($files_path. DS .$file)); ?>"
+                    data-dimension="<?php echo htmlentities($dimension); ?>"
+                    data-link="<?php echo $site_url.'/public/' . $path.$file; ?>"
+                >
+                    <i class="glyphicon glyphicon-info-sign"></i> <?php echo __('Info', 'filesmanager'); ?>
                 </button>
-            <?php echo Html::anchor(__('Delete', 'filesmanager'),
+                <button class="btn btn-xs btn-primary js-rename-file" data-filename="<?php echo $file; ?>" data-path="<?php echo $path; ?>">
+                    <i class="glyphicon glyphicon-pencil"></i> <?php echo __('Rename', 'filesmanager'); ?>
+                </button>
+            <?php echo Html::anchor('<i class="glyphicon glyphicon-trash"></i> '.__('Delete', 'filesmanager'),
                        'index.php?id=filesmanager&delete_file='.$file.'&path='.$path.'&token='.Security::token(),
-                       array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete file: :file', 'filesmanager', array(':file' => $file))."')"));
+                       array('class' => 'btn btn-xs btn-danger', 'onclick' => "return confirmDelete('".__('Delete file: :file', 'filesmanager', array(':file' => $file))."')"));
             ?>
             </div>
             </td>
@@ -211,34 +191,34 @@
 </div>
 
 <div id="fileInfoDialog" class="modal fade" tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<div class="close" data-dismiss="modal">&times;</div>
-				<h4 class="modal-title"><?php echo __('File Information', 'filesmanager'); ?></h4>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-md-3"><?php echo __('Filename', 'filesmanager'); ?>:</div>
-					<div class="col-md-9 js-filename"></div>
-				</div>
-				<div class="row">
-					<div class="col-md-3"><?php echo __('Filetype', 'filesmanager'); ?>:</div>
-					<div class="col-md-9 js-filetype"></div>
-				</div>
-				<div class="row">
-					<div class="col-md-3"><?php echo __('Filesize', 'filesmanager'); ?>:</div>
-					<div class="col-md-9 js-filesize"></div>
-				</div>
-				<div class="row js-dimension-blck">
-					<div class="col-md-3"><?php echo __('Dimension', 'filesmanager'); ?>:</div>
-					<div class="col-md-9 js-dimension"></div>
-				</div>
-				<div class="row">
-					<div class="col-md-3"><?php echo __('Link', 'filesmanager'); ?>:</div>
-					<div class="col-md-9 js-link"></div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="close" data-dismiss="modal">&times;</div>
+                <h4 class="modal-title"><?php echo __('File Information', 'filesmanager'); ?></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3"><?php echo __('Filename', 'filesmanager'); ?>:</div>
+                    <div class="col-md-9 js-filename"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><?php echo __('Filetype', 'filesmanager'); ?>:</div>
+                    <div class="col-md-9 js-filetype"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><?php echo __('Filesize', 'filesmanager'); ?>:</div>
+                    <div class="col-md-9 js-filesize"></div>
+                </div>
+                <div class="row js-dimension-blck">
+                    <div class="col-md-3"><?php echo __('Dimension', 'filesmanager'); ?>:</div>
+                    <div class="col-md-9 js-dimension"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><h6><?php echo __('Link', 'filesmanager'); ?>:</h6></div>
+                    <div class="col-md-9 js-link"><input type="text" class="form-control input-sm" onclick="this.select();"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

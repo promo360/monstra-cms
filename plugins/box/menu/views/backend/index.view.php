@@ -1,4 +1,4 @@
-<h2 class="margin-bottom-1"><?php echo __('Menu', 'menu'); ?></h2>
+<h2><?php echo __('Menu', 'menu'); ?></h2>
 
 <?php if ($menu->count() == 0) { ?>
 <div class="vertical-align margin-bottom-1">
@@ -29,7 +29,7 @@
         <br>
         <?php
             echo (
-                Html::anchor(__('Create New Item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-phone btn-primary'))
+                Html::anchor('<i class="glyphicon glyphicon-plus"></i> '.__('Create New Item', 'menu'), 'index.php?id=menu&action=add'.$category_to_add , array('title' => __('Create New Item', 'menu'), 'class' => 'btn btn-phone btn-primary'))
             );
         ?>
     </div>
@@ -59,17 +59,17 @@
         ?>
         <tr>
             <td>
-                <a target="_blank" href="<?php echo $link; ?>"><?php echo $item['name']; ?></a>
+                <?php echo $item['name']; ?> <sup><a target="_blank" href="<?php echo $link; ?>"><i class="glyphicon glyphicon-new-window"></i></a></sup>
             </td>
             <td>
                 <?php echo $item['order']; ?>
             </td>
             <td>
                 <div class="pull-right">
-                <?php echo Html::anchor(__('Edit', 'menu'), 'index.php?id=menu&action=edit&item_id='.$item['id'], array('class' => 'btn btn-primary')); ?>
-                <?php echo Html::anchor(__('Delete', 'menu'),
+                <?php echo Html::anchor('<i class="glyphicon glyphicon-pencil"></i> '.__('Edit', 'menu'), 'index.php?id=menu&action=edit&item_id='.$item['id'], array('class' => 'btn btn-xs btn-primary')); ?>
+                <?php echo Html::anchor('<i class="glyphicon glyphicon-trash"></i> '.__('Delete', 'menu'),
                            'index.php?id=menu&delete_item='.$item['id'],
-                           array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete item :name', 'menu', array(':name' => $item['name']))."')"));
+                           array('class' => 'btn btn-xs btn-danger', 'onclick' => "return confirmDelete('".__('Delete item :name', 'menu', array(':name' => $item['name']))."')"));
                  ?>
              </div>
             </td>

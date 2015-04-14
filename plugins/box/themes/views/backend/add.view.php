@@ -2,7 +2,6 @@
 <?php if ($action == 'template') { ?><h2 class="margin-bottom-1"><?php echo __('New Template', 'themes'); ?></h2><?php } ?>
 <?php if ($action == 'styles') { ?><h2 class="margin-bottom-1"><?php echo __('New Styles', 'themes'); ?></h2><?php } ?>
 <?php if ($action == 'script') { ?><h2 class="margin-bottom-1"><?php echo __('New Script', 'themes'); ?></h2><?php } ?>
-<br>
 
 <?php if (isset($errors['file_empty_name']) || isset($errors['file_exists'])) $error_class = 'error'; else $error_class = ''; ?>
 

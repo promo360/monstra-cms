@@ -19,7 +19,7 @@ $.promo.ganalytics = {
         $.extend(this.conf, data);
         $('.gaSettingsLink').click(function(){
             $.promo.ganalytics.show('#gaSettings,#gaHelpLink');
-			$('.gaSettingsLink').hide();
+            $('.gaSettingsLink').hide();
         });
     },
     
@@ -48,7 +48,7 @@ $.promo.ganalytics = {
             || $.promo.ganalytics.conf.viewId == ''
         ) {
             $.promo.ganalytics.show('#gaSettings,#gaHelpLink');
-			$('.gaSettingsLink').hide();
+            $('.gaSettingsLink').hide();
             return false;
         }
         gapi.client.setApiKey(this.conf.apiKey);
@@ -145,20 +145,20 @@ $.promo.ganalytics = {
     },
 
     show: function(selector){
-		$('.gaSettingsLink').show();
+        $('.gaSettingsLink').show();
         $('#gaAlerts').html('');
         $($.promo.ganalytics._gaAreas).addClass('hide');
         $(selector).removeClass('hide').show();
     },
 
     showError: function(msg, errCode){
-		if (typeof errCode !== 'undefined' && errCode == 403) {
-			$.promo.ganalytics.show('#reauthError,#gaHelpLink');
-		} else {
-			$.promo.ganalytics.show('#gaHelpLink');
-		}
+        if (typeof errCode !== 'undefined' && errCode == 403) {
+            $.promo.ganalytics.show('#reauthError,#gaHelpLink');
+        } else {
+            $.promo.ganalytics.show('#gaHelpLink');
+        }
         $('#gaAlerts').html(msg);
-		$('#authOk').addClass('hide');
+        $('#authOk').addClass('hide');
     },
     
     setVisits: function(val){
@@ -180,4 +180,3 @@ $(document).ready(function(){
         $.promo.ganalytics.init($.parseJSON($val_gaInitData));
     }
 });
-

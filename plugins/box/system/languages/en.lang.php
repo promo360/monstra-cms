@@ -3,7 +3,7 @@
     return array(
         'system' => array(
             'System' => 'System',
-            'Published a new version of the :promo' => 'Published a new version of the :promo',
+            'Published a new version of the :cms' => 'Published a new version of the :cms',
             'Sitemap created' => 'Sitemap created',
             'Create Sitemap' => 'Create Sitemap',
             'on' => 'on',
@@ -15,6 +15,8 @@
             'Site Settings' => 'Site Settings',
             'System Settings' => 'System Settings',
             'Site Name' => 'Site Name',
+            'Site Description' => 'Site Description',
+            'Site Keywords' => 'Site Keywords',
             'Site Slogan' => 'Site Slogan',
             'Default Page' => 'Default Page',
             'Time zone' => 'Time zone',
@@ -69,7 +71,7 @@
             'Email not valid' => 'Email not valid',
             'Continue' => 'Continue',
             'Install' => 'Install',
-            '...Promo says...' => '...Promo says...',
+            '...CMS says...' => '...CMS says...',
             'Sitemap file writable' => 'Sitemap file writable',
             'Sitemap file not writable' => 'Sitemap file not writable',
             'Main .htaccess file writable' => 'Main .htaccess file writable',

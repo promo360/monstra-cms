@@ -5,7 +5,7 @@ $.promo.fileuploader = {
     conf: {
         uploadUrl: '',
         csrf: '',
-		errorMsg: '',
+        errorMsg: '',
         uploaderId: ''
     },
 
@@ -53,7 +53,7 @@ $.promo.fileuploader = {
             var fd = new FormData();
             fd.append('file', files[i]);
             fd.append('upload_file', 'upload_file');
-			fd.append('dragndrop', '1');
+            fd.append('dragndrop', '1');
             fd.append('csrf', $.promo.fileuploader.conf.csrf);
             //this.setFileNameSize(files[i].name, files[i].size);
             
@@ -88,15 +88,15 @@ $.promo.fileuploader = {
                 $.promo.fileuploader.setProgress(100);
                 $.event.trigger('uploaded.fuploader');
             },
-			error: function(){
-				Messenger().post({
-					type: 'error',
-					message : $.promo.fileuploader.conf.errorMsg,
-					hideAfter: 3
-				});
+            error: function(){
+                Messenger().post({
+                    type: 'error',
+                    message : $.promo.fileuploader.conf.errorMsg,
+                    hideAfter: 3
+                });
                 this._uploaderObj.find('.upload-progress').animate({ width: 0 }, 1);
                 this._uploaderObj.find('.upload-file-pholder').show();
-			}
+            }
         });
     },
     

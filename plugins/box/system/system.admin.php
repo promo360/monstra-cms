@@ -1,30 +1,5 @@
 <?php
 
-// Add Promo check action
-if (CHECK_PROMO_VERSION) {
-    Action::add('admin_post_template', 'checkPromoVersion', 9999);
-}
-
-/**
- * Check Promo version
- */
-function checkPromoVersion()
-{
-    echo ('
-            <script type="text/javascript">
-                $.getJSON("http://cms.promo360.ru/api/version.php?jsoncallback=?",
-                    function(data){
-                        var current_promo_version = "'.Promo::VERSION.'";
-                        var stable_promo_version = data.version;
-                        if (current_promoa_version < stable_promo_version) {
-                            $("#update-promo").addClass("alert alert-info").html("'.__("Published a new version of the :promo", "system", array(":promo" => "<a target='_blank' href='http://cms.promo360.ru/download'>Promo</a>")).'");
-                        }
-                    }
-                );
-            </script>
-    ');
-}
-
 /**
  * System Admin
  */

@@ -5,7 +5,7 @@
     <div class="text-right row-phone">
         <?php
             echo (
-                Html::anchor(__('Create New Snippet', 'snippets'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Create New Snippet', 'snippets'), 'class' => 'btn btn-phone btn-primary'))
+                Html::anchor('<i class="glyphicon glyphicon-plus"></i> '.__('Create New Snippet', 'snippets'), 'index.php?id=snippets&action=add_snippet', array('title' => __('Create New Snippet', 'snippets'), 'class' => 'btn btn-phone btn-primary'))
             );
         ?>
     </div>
@@ -26,8 +26,8 @@
         <td>
             <div class="pull-right">            
                 <div class="btn-group">
-                    <?php echo Html::anchor(__('Edit', 'snippets'), 'index.php?id=snippets&action=edit_snippet&filename='.basename($snippet, '.snippet.php'), array('class' => 'btn btn-primary')); ?>
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <?php echo Html::anchor('<i class="glyphicon glyphicon-pencil"></i> '.__('Edit', 'snippets'), 'index.php?id=snippets&action=edit_snippet&filename='.basename($snippet, '.snippet.php'), array('class' => 'btn btn-xs btn-primary')); ?>
+                    <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
@@ -35,9 +35,9 @@
                         <li><?php echo Html::anchor(__('View Embed Code', 'snippets'), 'javascript:;', array('title' => __('View Embed Code', 'snippets'), 'onclick' => '$.promo.snippets.showEmbedCodes("'.basename($snippet, '.snippet.php').'");')); ?></li>
                     </ul>
                 </div>   
-                <?php echo Html::anchor(__('Delete', 'snippets'),
+                <?php echo Html::anchor('<i class="glyphicon glyphicon-trash"></i> '.__('Delete', 'snippets'),
                     'index.php?id=snippets&action=delete_snippet&filename='.basename($snippet, '.snippet.php').'&token='.Security::token(),
-                    array('class' => 'btn btn-danger', 'onclick' => "return confirmDelete('".__('Delete snippet: :snippet', 'snippets', array(':snippet' => basename($snippet, '.snippet.php')))."')"));
+                    array('class' => 'btn btn-xs btn-danger', 'onclick' => "return confirmDelete('".__('Delete snippet: :snippet', 'snippets', array(':snippet' => basename($snippet, '.snippet.php')))."')"));
                 ?>
             </div>
         </td>
@@ -56,10 +56,10 @@
             </div>
             <div class="modal-body">
                 <b><?php echo __('Shortcode', 'snippets'); ?></b><br>
-                <pre><code id="shortcode"></code></pre>
+                <input type="text" id="shortcode" class="form-control" onclick="this.select();">
                 <br>
                 <b><?php echo __('PHP Code', 'snippets'); ?></b><br>
-                <pre><code id="phpcode"></code></pre>
+                <input type="text" id="phpcode" class="form-control" onclick="this.select();">
             </div>
         </div>
     </div>
