@@ -46,8 +46,8 @@
         <div class="col-md-3">
             <h3><?php echo __('Help', 'system'); ?></h3>
             <ul class="list-unstyled">
-                <li><a href="http://cms.promo360.ru/docs" target="_blank"><?php echo __('Documentation', 'system'); ?></a></li>              
-                <li><a href="http://forum.promo360.ru" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a></li>
+                <li><a href="http://cms.promo360.ru/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a></li>              
+                <li><a href="http://cms.promo360.ru/forum/" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a></li>
             </ul>
         </div>
     </div>
