@@ -144,8 +144,8 @@
         <div class="container">
             <span> 
               <a href="http://cms.promo360.ru/forum/" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
-              <a href="http://cms.promo360.ru/docs" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
-              © 2014-<?php echo date('Y'); ?>, <a href="http://cms.promo360.ru" target="_blank">Promo CMS</a> – <?php echo __('Version', 'system'); ?> <?php echo Promo::VERSION; ?>
+              <a href="http://cms.promo360.ru/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
+              © 2014-2015, <a href="http://cms.promo360.ru" target="_blank">Promo CMS</a> – <?php echo __('Version', 'system'); ?> <?php echo Promo::VERSION; ?>
             </span>
         </div>
     </footer>

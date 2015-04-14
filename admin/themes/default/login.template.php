@@ -128,7 +128,7 @@
             </div>
 
             <div class="text-center">
-                <span>© 2014-<?php echo date('Y'); ?>, <a href="http://cms.promo360.ru" class="small-grey-text" target="_blank">Promo CMS</a> – <?php echo __('Version', 'system'); ?> <?php echo Promo::VERSION; ?></span>
+                <span>© 2014-2015, <a href="http://cms.promo360.ru" class="small-grey-text" target="_blank">Promo CMS</a> – <?php echo __('Version', 'system'); ?> <?php echo Promo::VERSION; ?></span>
             </div>
 
         </div>
