@@ -1,4 +1,4 @@
-<div id="update-cms"></div>
+<div id="update-promo"></div>
 
 <div class="well dashboard-well">
     <div class="row">

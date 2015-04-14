@@ -6,24 +6,24 @@ Javascript::add('public/assets/js/moment.min.js', 'backend', 11);
 Javascript::add('public/assets/js/daterangepicker.js', 'backend', 12);
 Javascript::add('plugins/box/dashboard/js/ganalytics.js', 'backend', 13);
 
-// Add CMS check action
-if (CHECK_CMS_VERSION) {
-    Action::add('admin_post_template', 'checkCMSVersion', 9999);
+// Add Promo check action
+if (CHECK_PROMO_VERSION) {
+    Action::add('admin_post_template', 'checkPromoVersion', 9999);
 }
 
 /**
- * Check CMS version
+ * Check Promo version
  */
-function checkCMSVersion()
+function checkPromoVersion()
 {
     echo ('
             <script type="text/javascript">
                 $.getJSON("http://cms.promo360.ru/api/version.php?jsoncallback=?",
                     function(data){
-                        var current_cms_version = "'.Promo::VERSION.'";
-                        var stable_cms_version = data.version;
-                        if (current_cms_version < stable_cms_version) {
-                            $("#update-cms").addClass("alert alert-info").html("'.__("Published a new version of the :cms", "system", array(":cms" => "<a target='_blank' href='http://cms.promo360.ru/download'>Promo CMS</a>")).'");
+                        var current_promo_version = "'.Promo::VERSION.'";
+                        var stable_promo_version = data.version;
+                        if (current_promo_version < stable_promo_version) {
+                            $("#update-promo").addClass("alert alert-info").html("'.__("Published a new version of the :promo", "system", array(":promo" => "<a target='_blank' href='http://cms.promo360.ru/download'>Promo CMS</a>")).'");
                         }
                     }
                 );
