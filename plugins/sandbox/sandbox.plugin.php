@@ -3,10 +3,10 @@
 /**
  *  Sandbox plugin
  *
- *  @package Monstra
+ *  @package Promo
  *  @subpackage Plugins
- *  @author Romanenko Sergey / Awilum
- *  @copyright 2012-2014 Romanenko Sergey / Awilum
+ *  @author Yudin Evgeniy / JINN
+ *  @copyright 2014-2015 Yudin Evgeniy / JINN
  *  @version 1.0.0
  *
  */
@@ -14,10 +14,10 @@
 // Register plugin
 Plugin::register( __FILE__,
                 __('Sandbox', 'sandbox'),
-                __('Sandbox plugin for Monstra', 'sandbox'),
+                __('Sandbox plugin for Promo', 'sandbox'),
                 '1.0.0',
-                'Awilum',
-                'http://monstra.org/',
+                'JINN',
+                'http://cms.promo360.ru/',
                 'sandbox');
 
 // Load Sandbox Admin for Editor and Admin

@@ -6,7 +6,7 @@
     <ul class="nav nav-tabs">
         <li class="active"><a href="#installed" data-toggle="tab"><?php echo __('Installed', 'plugins'); ?></a></li>
         <li><a href="#installnew" data-toggle="tab"><?php echo __('Install New', 'plugins'); ?> <?php if (count($plugins_to_intall) > 0) { ?><span class="badge"><?php echo count($plugins_to_intall); ?></span><?php } ?></a></li>
-        <li><a href="http://monstra.org/download/plugins" target="_blank"><?php echo __('Get More Plugins', 'plugins'); ?></a></li>
+        <li><a href="http://cms.promo360.ru/download/plugins" target="_blank"><?php echo __('Get More Plugins', 'plugins'); ?></a></li>
     </ul>
     <!-- /Plugins_tabs -->
 
@@ -158,9 +158,9 @@
                 }
             });
         });
-		$.monstra.fileuploader.init($.extend({}, {uploaderId:'DgDfileUploader'}, <?php echo json_encode($fileuploader); ?>));
+		$.promo.fileuploader.init($.extend({}, {uploaderId:'DgDfileUploader'}, <?php echo json_encode($fileuploader); ?>));
 		$(document).on('uploaded.fuploader', function(){
-			location.href = $.monstra.fileuploader.conf.uploadUrl +'#installnew';
+			location.href = $.promo.fileuploader.conf.uploadUrl +'#installnew';
 			window.location.reload(true);
 		});
     });

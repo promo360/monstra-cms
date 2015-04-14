@@ -37,8 +37,8 @@ class ThemesAdmin extends Backend
 
                 Option::update('theme_site_name', Request::post('themes'));
 
-                // Clean Monstra TMP folder.
-                Monstra::cleanTmp();
+                // Clean Promo TMP folder.
+                Promo::cleanTmp();
 
                 // Increment Styles and Javascript version
                 Stylesheet::stylesVersionIncrement();
@@ -56,8 +56,8 @@ class ThemesAdmin extends Backend
 
                 Option::update('theme_admin_name', Request::post('themes'));
 
-                // Clean Monstra TMP folder.
-                Monstra::cleanTmp();
+                // Clean Promo TMP folder.
+                Promo::cleanTmp();
 
                 Request::redirect('index.php?id=themes');
 
@@ -172,8 +172,8 @@ class ThemesAdmin extends Backend
 
                                 Notification::set('success', __('Your changes to the styles <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name'), null, false))));
 
-                                // Clean Monstra TMP folder.
-                                Monstra::cleanTmp();
+                                // Clean Promo TMP folder.
+                                Promo::cleanTmp();
 
                                 // Increment Styles version
                                 Stylesheet::stylesVersionIncrement();
@@ -220,8 +220,8 @@ class ThemesAdmin extends Backend
                                 Notification::set('success', __('Your changes to the script <i>:name</i> have been saved.', 'themes', array(':name' => Security::safeName(Request::post('name'), null, false))));
 
 
-                                // Clean Monstra TMP folder.
-                                Monstra::cleanTmp();
+                                // Clean Promo TMP folder.
+                                Promo::cleanTmp();
 
                                 // Increment Javascript version
                                 Javascript::javascriptVersionIncrement();
@@ -397,8 +397,8 @@ class ThemesAdmin extends Backend
 
                                 Notification::set('success', __('Your changes to the styles <i>:name</i> have been saved.', 'themes', array(':name' => basename($save_filename, '.css'))));
 
-                                // Clean Monstra TMP folder.
-                                Monstra::cleanTmp();
+                                // Clean Promo TMP folder.
+                                Promo::cleanTmp();
 
                                 // Increment Styles version
                                 Stylesheet::stylesVersionIncrement();
@@ -459,8 +459,8 @@ class ThemesAdmin extends Backend
 
                                 Notification::set('success', __('Your changes to the script <i>:name</i> have been saved.', 'themes', array(':name' => basename($save_filename, '.js'))));
 
-                                // Clean Monstra TMP folder.
-                                Monstra::cleanTmp();
+                                // Clean Promo TMP folder.
+                                Promo::cleanTmp();
 
                                 // Increment Javascript version
                                 Javascript::javascriptVersionIncrement();
@@ -510,8 +510,8 @@ class ThemesAdmin extends Backend
                         File::delete($style_path.Request::get('filename').'.css');
                         Notification::set('success', __('Styles <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
 
-                        // Clean Monstra TMP folder.
-                        Monstra::cleanTmp();
+                        // Clean Promo TMP folder.
+                        Promo::cleanTmp();
 
                         // Increment Styles version
                         Stylesheet::stylesVersionIncrement();
@@ -531,8 +531,8 @@ class ThemesAdmin extends Backend
                         File::delete($script_path.Request::get('filename').'.js');
                         Notification::set('success', __('Script <i>:name</i> deleted', 'themes', array(':name' => File::name(Request::get('filename')))));
 
-                        // Clean Monstra TMP folder.
-                        Monstra::cleanTmp();
+                        // Clean Promo TMP folder.
+                        Promo::cleanTmp();
 
                         // Increment Javascript version
                         Javascript::javascriptVersionIncrement();
@@ -565,8 +565,8 @@ class ThemesAdmin extends Backend
                         File::setContent(THEMES_SITE . DS . $current_site_theme . DS . 'css' . DS . Request::get('filename') .'_clone_'.date("Ymd_His").'.css',
                                          File::getContent(THEMES_SITE . DS . $current_site_theme . DS . 'css' . DS . Request::get('filename') . '.css'));
 
-                        // Clean Monstra TMP folder.
-                        Monstra::cleanTmp();
+                        // Clean Promo TMP folder.
+                        Promo::cleanTmp();
 
                         // Increment Styles version
                         Stylesheet::stylesVersionIncrement();
@@ -586,8 +586,8 @@ class ThemesAdmin extends Backend
                                          File::getContent(THEMES_SITE . DS . $current_site_theme . DS . 'js' . DS . Request::get('filename') . '.js'));
 
 
-                        // Clean Monstra TMP folder.
-                        Monstra::cleanTmp();
+                        // Clean Promo TMP folder.
+                        Promo::cleanTmp();
 
                         // Increment Javascript version
                         Javascript::javascriptVersionIncrement();

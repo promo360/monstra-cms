@@ -1,7 +1,7 @@
-<?php defined('MONSTRA_ACCESS') or die('No direct script access.');
+<?php defined('PROMO_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra CMS Defines
+ * Promo CMS Defines
  */
 
 /**
@@ -63,31 +63,31 @@ define('UPLOADS', ROOT . DS . 'public' . DS . 'uploads');
 /**
  * Set password salt
  */
-define('MONSTRA_PASSWORD_SALT', 'YOUR_SALT_HERE');
+define('PROMO_PASSWORD_SALT', 'YOUR_SALT_HERE');
 
 /**
  * Set date format
  */
-define('MONSTRA_DATE_FORMAT', 'Y-m-d / H:i:s');
+define('PROMO_DATE_FORMAT', 'Y-m-d / H:i:s');
 
 /**
  * Set eval php
  */
-define('MONSTRA_EVAL_PHP', false);
+define('PROMO_EVAL_PHP', false);
 
 /**
- * Check Monstra CMS version
+ * Check Promo CMS version
  */
-define('CHECK_MONSTRA_VERSION', true);
+define('CHECK_PROMO_VERSION', true);
 
 /**
  * Set gzip output
  */
-define('MONSTRA_GZIP', false);
+define('PROMO_GZIP', false);
 
 /**
- * Monstra database settings
+ * Promo database settings
  */
-//define('MONSTRA_DB_DSN', 'mysql:dbname=monstra;host=localhost;port=3306');
-//define('MONSTRA_DB_USER', 'root');
-//define('MONSTRA_DB_PASSWORD', 'password');
+//define('PROMO_DB_DSN', 'mysql:dbname=promo;host=localhost;port=3306');
+//define('PROMO_DB_USER', 'root');
+//define('PROMO_DB_PASSWORD', 'password');

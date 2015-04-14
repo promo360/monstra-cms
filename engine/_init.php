@@ -1,38 +1,38 @@
-<?php defined('MONSTRA_ACCESS') or die('No direct script access.');
+<?php defined('PROMO_ACCESS') or die('No direct script access.');
 
 /**
- *  Monstra requires PHP 5.3.0 or greater
+ *  Promo requires PHP 5.3.0 or greater
  */
 if (version_compare(PHP_VERSION, "5.3.0", "<")) {
-    exit("Monstra requires PHP 5.3.0 or greater.");
+    exit("Promo requires PHP 5.3.0 or greater.");
 }
 
 /**
- *  Include Monstra Engine
+ *  Include Promo Engine
  */
-include ROOT . DS .'engine'. DS .'Monstra.php';
+include ROOT . DS .'engine'. DS .'Promo.php';
 
 /**
- * Set Monstra Environment
+ * Set Promo Environment
  *
- * Monstra has four predefined environments:
- *   Monstra::DEVELOPMENT - The development environment.
- *   Monstra::TESTING     - The test environment.
- *   Monstra::STAGING     - The staging environment.
- *   Monstra::PRODUCTION  - The production environment.
+ * Promo has four predefined environments:
+ *   Promo::DEVELOPMENT - The development environment.
+ *   Promo::TESTING     - The test environment.
+ *   Promo::STAGING     - The staging environment.
+ *   Promo::PRODUCTION  - The production environment.
  */
-Monstra::$environment = Monstra::PRODUCTION;
+Promo::$environment = Promo::PRODUCTION;
 
 /**
  * Report Errors
  */
-if (Monstra::$environment == Monstra::PRODUCTION) {
+if (Promo::$environment == Promo::PRODUCTION) {
     error_reporting(0); 
 } else {
     error_reporting(-1);
 }
 
 /**
- * Initialize Monstra
+ * Initialize Promo
  */
-Monstra::init();
+Promo::init();

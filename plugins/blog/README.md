@@ -31,10 +31,3 @@ Get Post Title
 
 #### Divided post into 2 parts (short and full)
 	{cut}
-
-Example:
-
-	<p>Best free themes for Monstra CMS at monstrathemes.com</p>
-	{cut}
-	<p>There is going to display your content as blog post =)</p>
- 

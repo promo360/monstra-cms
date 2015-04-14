@@ -1,6 +1,6 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
+if (typeof $.promo == 'undefined') $.promo = {};
 
-$.monstra.pages = {
+$.promo.pages = {
 
     init: function() { 
         this.pagesExpandProcess();
@@ -19,11 +19,11 @@ $.monstra.pages = {
             if ($(this).html() == "-") {
                 $('[rel="children_' + $(this).attr('rel')+'"]').hide();                                
                 $(this).html("+");
-                $.monstra.pages.pageExpand($(this).attr("rel"), "1", $(this).attr("token"));
+                $.promo.pages.pageExpand($(this).attr("rel"), "1", $(this).attr("token"));
             } else {
                 $('[rel="children_' + $(this).attr('rel')+'"]').show();
                 $(this).html("-");
-                $.monstra.pages.pageExpand($(this).attr("rel"), "0", $(this).attr("token"));
+                $.promo.pages.pageExpand($(this).attr("rel"), "0", $(this).attr("token"));
             }
         });
     }
@@ -32,5 +32,5 @@ $.monstra.pages = {
 
 
 $(document).ready(function(){
-    $.monstra.pages.init();
+    $.promo.pages.init();
 });

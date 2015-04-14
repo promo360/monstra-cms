@@ -224,7 +224,7 @@ class Date
         // Redefine vars
         $format = (string) $format;
 
-        if ($format != '') { return date($format); } else { return date(MONSTRA_DATE_FORMAT); }
+        if ($format != '') { return date($format); } else { return date(PROMO_DATE_FORMAT); }
     }
 
     /**
@@ -242,7 +242,7 @@ class Date
         // Redefine vars
         $format = (string) $format;
 
-        if ($format != '') { return date($format, strtotime("-1 day")); } else { return date(MONSTRA_DATE_FORMAT, strtotime("-1 day")); }
+        if ($format != '') { return date($format, strtotime("-1 day")); } else { return date(PROMO_DATE_FORMAT, strtotime("-1 day")); }
     }
 
     /**
@@ -260,7 +260,7 @@ class Date
         // Redefine vars
         $format = (string) $format;
 
-        if ($format != '') { return date($format, strtotime("+1 day")); } else { return date(MONSTRA_DATE_FORMAT, strtotime("-1 day")); }
+        if ($format != '') { return date($format, strtotime("+1 day")); } else { return date(PROMO_DATE_FORMAT, strtotime("-1 day")); }
     }
 
     /**

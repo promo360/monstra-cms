@@ -1,4 +1,4 @@
-<?php defined('MONSTRA_ACCESS') or die('No direct script access.');
+<?php defined('PROMO_ACCESS') or die('No direct script access.');
 
 /**
  * Monstra Engine
@@ -218,7 +218,7 @@ class Site
      */
     public static function powered()
     {
-        return __('Powered by', 'system').' <a href="http://monstra.org" target="_blank">Monstra</a> ' . Monstra::VERSION;
+        return __('Powered by', 'system').' <a href="http://cms.promo360.ru" target="_blank">Promo</a> ' . Promo::VERSION;
     }
 
 }

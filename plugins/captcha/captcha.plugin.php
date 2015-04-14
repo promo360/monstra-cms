@@ -14,7 +14,7 @@
 // Register plugin
 Plugin::register( __FILE__,
                 __('Captcha', 'captcha'),
-                __('Captcha plugin for Monstra', 'captcha'),
+                __('Captcha plugin for Promo', 'captcha'),
                 '1.0.0',
                 'Awilum',
                 'http://monstra.org/');

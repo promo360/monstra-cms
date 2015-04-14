@@ -1,10 +1,10 @@
-<?php  if ( ! defined('MONSTRA_ACCESS')) exit('No direct script access allowed'); ?><!DOCTYPE html>
+<?php  if ( ! defined('PROMO_ACCESS')) exit('No direct script access allowed'); ?><!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Monstra :: <?php echo __('Administration', 'system'); ?></title>
+        <title>Promo :: <?php echo __('Administration', 'system'); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Monstra Admin Area">
+        <meta name="description" content="Promo Admin Area">
         <link rel="icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
 
@@ -60,7 +60,7 @@
     <body class="login-body">
 
         <?php
-            // Monstra Notifications
+            // Promo Notifications
             Notification::get('success') AND Alert::success(Notification::get('success'));
             Notification::get('warning') AND Alert::warning(Notification::get('warning'));
             Notification::get('error')   AND Alert::error(Notification::get('error'));
@@ -68,7 +68,7 @@
 
         <div class="container form-signin">
 
-            <div class="text-center"><a class="brand" href="<?php echo Option::get('siteurl'); ?>/admin"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/monstra-logo-256px.png" alt="monstra" /></a></div>
+            <div class="text-center"><a class="brand" href="<?php echo Option::get('siteurl'); ?>/admin"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/promo-logo-256px.png" alt="promo" /></a></div>
             <div class="administration-area well">
                 <div>
                     <form method="post">
@@ -128,7 +128,7 @@
             </div>
 
             <div class="text-center">
-                <span>© 2012 - 2014 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
+                <span>© 2014 - 2015 <a href="http://cms.promo360.ru" class="small-grey-text" target="_blank">Promo</a> – <?php echo __('Version', 'system'); ?> <?php echo Promo::VERSION; ?></span>
             </div>
 
         </div>

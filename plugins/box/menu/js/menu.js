@@ -1,6 +1,6 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
+if (typeof $.promo == 'undefined') $.promo = {};
 
-$.monstra.menu = {
+$.promo.menu = {
 
     init: function() { },
 
@@ -19,5 +19,5 @@ $.monstra.menu = {
 
 
 $(document).ready(function(){
-    $.monstra.menu.init();
+    $.promo.menu.init();
 });

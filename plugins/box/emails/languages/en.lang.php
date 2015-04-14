@@ -3,7 +3,7 @@
     return array(
         'emails' => array(
             'Emails' => 'Emails',
-            'Emails plugin for Monstra' => 'Emails plugin for Monstra',
+            'Emails plugin for Promo' => 'Emails plugin for Promo',
             'Edit Layout' => 'Edit Layout',
             'Email templates' => 'Email templates',
             'Edit' => 'Edit',

@@ -1,8 +1,8 @@
 <script type="text/javascript">
 	$(document).ready(function(){
-		$.monstra.fileuploader.init($.extend({}, {uploaderId:'DgDfileUploader'}, <?php echo json_encode($fileuploader); ?>));
+		$.promo.fileuploader.init($.extend({}, {uploaderId:'DgDfileUploader'}, <?php echo json_encode($fileuploader); ?>));
 		$(document).on('uploaded.fuploader', function(){
-			location.href = $.monstra.fileuploader.conf.uploadUrl;
+			location.href = $.promo.fileuploader.conf.uploadUrl;
 		});
 	});
 </script>

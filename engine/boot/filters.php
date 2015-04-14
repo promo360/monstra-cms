@@ -1,9 +1,9 @@
-<?php defined('MONSTRA_ACCESS') or die('No direct script access.');
+<?php defined('PROMO_ACCESS') or die('No direct script access.');
 
 /**
  * Evaluate a string as PHP code
  */
-if (MONSTRA_EVAL_PHP) Filter::add('content', 'evalPHP');
+if (PROMO_EVAL_PHP) Filter::add('content', 'evalPHP');
 function obEval($mathes)
 {
     ob_start();

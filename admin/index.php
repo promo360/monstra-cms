@@ -19,7 +19,7 @@
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', rtrim(str_replace(array('admin'), array(''), dirname(__FILE__)), '\\/'));
 define('BACKEND', true);
-define('MONSTRA_ACCESS', true);
+define('PROMO_ACCESS', true);
 
 // Load Monstra engine _init.php file
 require_once ROOT. DS .'engine'. DS .'_init.php';

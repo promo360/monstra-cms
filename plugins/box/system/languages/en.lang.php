@@ -3,7 +3,7 @@
     return array(
         'system' => array(
             'System' => 'System',
-            'Published a new version of the :monstra' => 'Published a new version of the :monstra',
+            'Published a new version of the :promo' => 'Published a new version of the :promo',
             'Sitemap created' => 'Sitemap created',
             'Create Sitemap' => 'Create Sitemap',
             'on' => 'on',
@@ -71,7 +71,7 @@
             'Email not valid' => 'Email not valid',
             'Continue' => 'Continue',
             'Install' => 'Install',
-            '...Monstra says...' => '...Monstra says...',
+            '...Promo says...' => '...Promo says...',
             'Sitemap file writable' => 'Sitemap file writable',
             'Sitemap file not writable' => 'Sitemap file not writable',
             'Main .htaccess file writable' => 'Main .htaccess file writable',

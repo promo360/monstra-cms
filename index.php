@@ -19,7 +19,7 @@
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', rtrim(dirname(__FILE__), '\\/'));
 define('BACKEND', false);
-define('MONSTRA_ACCESS', true);
+define('PROMO_ACCESS', true);
 
 // First check for installer then go
 if (file_exists('install.php')) {
@@ -43,7 +43,7 @@ if (file_exists('install.php')) {
 
         // Set maintenance mode for all except admin and editor
         if ((Session::exists('user_role')) and (Session::get('user_role') == 'admin' or Session::get('user_role') == 'editor')) {
-            // Monstra show this page :)
+            // Promo show this page :)
         } else {
             header('HTTP/1.1 503 Service Temporarily Unavailable');
             header('Status: 503 Service Temporarily Unavailable');

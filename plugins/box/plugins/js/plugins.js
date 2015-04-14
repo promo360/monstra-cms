@@ -1,6 +1,6 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
+if (typeof $.promo == 'undefined') $.promo = {};
 
-$.monstra.plugins = {
+$.promo.plugins = {
 
     init: function(){
         if (window.location.hash && $('a[href="'+ window.location.hash +'"]')) {
@@ -11,5 +11,5 @@ $.monstra.plugins = {
 };
 
 $(document).ready(function(){
-    $.monstra.plugins.init();
+    $.promo.plugins.init();
 });

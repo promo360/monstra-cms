@@ -1,14 +1,14 @@
 <?php
 
     /**
-     * Monstra :: Installator
+     * Promo :: Installator
      */
 
     // Main engine defines
     if ( ! defined('DS')) define('DS', DIRECTORY_SEPARATOR);
     if ( ! defined('ROOT')) define('ROOT', rtrim(dirname(__FILE__), '\\/'));
     if ( ! defined('BACKEND')) define('BACKEND', false);
-    if ( ! defined('MONSTRA_ACCESS')) define('MONSTRA_ACCESS', true);
+    if ( ! defined('PROMO_ACCESS')) define('PROMO_ACCESS', true);
 
     // Load bootstrap file
     require_once(ROOT . DS . 'engine' . DS . '_init.php');
@@ -37,7 +37,7 @@
     // Languages array
     $languages_array = array('ru', 'en');
 
-    // Select Monstra language
+    // Select Promo language
     if (Request::get('language')) {
         if (Request::get('action') && Request::get('action') == 'install') {
             $action = '?action=install';
@@ -119,9 +119,9 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Monstra :: Install</title>
+        <title>Promo :: Install</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Monstra Install Area">
+        <meta name="description" content="Promo Install Area">
         <link rel="icon" href="<?php echo $site_url; ?>/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="<?php echo $site_url; ?>/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="<?php echo $site_url; ?>/public/assets/css/bootstrap.css" media="all" type="text/css" />
@@ -141,7 +141,7 @@
             }
 
             .install-block,
-            .monstra-dialog,
+            .promo-dialog,
             .install-block-footer {
                 margin: 0 auto;
                 width: 600px;                
@@ -167,7 +167,7 @@
                 border-radius: 0px;
             }
 
-            .monstra-says {
+            .promo-says {
                 margin: 20px;
             }
 
@@ -284,7 +284,7 @@
         }
     ?>
 
-        <div class="text-center"><a class="brand" href="<?php echo Html::toText($site_url); ?>"><img src="<?php echo $site_url; ?>/public/assets/img/monstra-logo-256px.png" alt="Monstra"></a></div>
+        <div class="text-center"><a class="brand" href="<?php echo Html::toText($site_url); ?>"><img src="<?php echo $site_url; ?>/public/assets/img/promo-logo-256px.png" alt="Promo"></a></div>
 
         <div class="install-languages">
             <?php
@@ -303,7 +303,7 @@
 
             <ul class="list-unstyled">
             <?php
-                // Monstra Notifications
+                // Promo Notifications
                 if (Notification::get('errors') && count(Notification::get('errors') > 0)) {
                     foreach (Notification::get('errors') as $error) {
             ?>
@@ -452,7 +452,7 @@
             </div>
         </div>
 
-        <div class="monstra-dialog <?php if(Request::get('action') && Request::get('action') == 'install') { ?>hide<?php } ?>">
+        <div class="promo-dialog <?php if(Request::get('action') && Request::get('action') == 'install') { ?>hide<?php } ?>">
             <ul class="list-unstyled">
             <?php
 
@@ -523,7 +523,7 @@
     
         <div class="install-block-footer login-footer">
             <div class="text-center">
-                <span>© 2012 - 2014 <a href="http://monstra.org" class="small-grey-text" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?></span>
+                <span>© 2014 - 2015 <a href="http://cms.promo360.ru" class="small-grey-text" target="_blank">Promo</a> – <?php echo __('Version', 'system'); ?> <?php echo Promo::VERSION; ?></span>
             </div>
         </div>
 
@@ -532,7 +532,7 @@
         
             $(document).ready(function() {
                 $('.continue').click(function() {
-                    $('.monstra-dialog').addClass('hide');
+                    $('.promo-dialog').addClass('hide');
                     $('.install-block').removeClass('hide');
                 });
             });

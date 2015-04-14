@@ -1,4 +1,4 @@
-<?php defined('MONSTRA_ACCESS') or die('No direct script access.');
+<?php defined('PROMO_ACCESS') or die('No direct script access.');
 
 /**
  * Monstra Engine
@@ -100,7 +100,7 @@ class Security
      */
     public static function encryptPassword($password)
     {
-       return md5(md5(trim($password) . MONSTRA_PASSWORD_SALT));
+       return md5(md5(trim($password) . PROMO_PASSWORD_SALT));
     }
 
     /**

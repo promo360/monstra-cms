@@ -1,6 +1,6 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
+if (typeof $.promo == 'undefined') $.promo = {};
 
-$.monstra.users = {
+$.promo.users = {
 
     init: function() {
         this.usersFrontendRegistration();
@@ -16,5 +16,5 @@ $.monstra.users = {
 
 
 $(document).ready(function(){
-    $.monstra.users.init();
+    $.promo.users.init();
 });

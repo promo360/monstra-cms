@@ -1,8 +1,8 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
+if (typeof $.promo == 'undefined') $.promo = {};
 
-function glibOnloadHandle(){$.monstra.ganalytics.libOnloadHandle();}
+function glibOnloadHandle(){$.promo.ganalytics.libOnloadHandle();}
 
-$.monstra.ganalytics = {
+$.promo.ganalytics = {
 
     conf: {
         clientId: '',
@@ -18,7 +18,7 @@ $.monstra.ganalytics = {
     init: function(data){
         $.extend(this.conf, data);
         $('.gaSettingsLink').click(function(){
-            $.monstra.ganalytics.show('#gaSettings,#gaHelpLink');
+            $.promo.ganalytics.show('#gaSettings,#gaHelpLink');
 			$('.gaSettingsLink').hide();
         });
     },
@@ -33,51 +33,51 @@ $.monstra.ganalytics = {
                  'This Month': [moment().startOf('month'), moment().endOf('month')],
                  'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
               },
-              startDate: $.monstra.ganalytics._startDate,
-              endDate: $.monstra.ganalytics._endDate
+              startDate: $.promo.ganalytics._startDate,
+              endDate: $.promo.ganalytics._endDate
             },function(start, end) {
-                $.monstra.ganalytics.getAnalyticsInfo(start._d, end._d);
+                $.promo.ganalytics.getAnalyticsInfo(start._d, end._d);
             }
         );
-        $.monstra.ganalytics.getAnalyticsInfo($.monstra.ganalytics._startDate._d, $.monstra.ganalytics._endDate._d);
+        $.promo.ganalytics.getAnalyticsInfo($.promo.ganalytics._startDate._d, $.promo.ganalytics._endDate._d);
     },
     
     libOnloadHandle: function(){
-        if ($.monstra.ganalytics.conf.clientId == '' 
-            || $.monstra.ganalytics.conf.apiKey == '' 
-            || $.monstra.ganalytics.conf.viewId == ''
+        if ($.promo.ganalytics.conf.clientId == '' 
+            || $.promo.ganalytics.conf.apiKey == '' 
+            || $.promo.ganalytics.conf.viewId == ''
         ) {
-            $.monstra.ganalytics.show('#gaSettings,#gaHelpLink');
+            $.promo.ganalytics.show('#gaSettings,#gaHelpLink');
 			$('.gaSettingsLink').hide();
             return false;
         }
         gapi.client.setApiKey(this.conf.apiKey);
         window.setTimeout(function(){
-            $.monstra.ganalytics.checkAuth(true);
+            $.promo.ganalytics.checkAuth(true);
         },1);
     },
 
     checkAuth: function(immediate){
         gapi.auth.authorize({
-            client_id: $.monstra.ganalytics.conf.clientId,
-            scope: $.monstra.ganalytics.conf.authScopes,
+            client_id: $.promo.ganalytics.conf.clientId,
+            scope: $.promo.ganalytics.conf.authScopes,
             immediate: immediate
-        }, $.monstra.ganalytics.handleAuthResult);
+        }, $.promo.ganalytics.handleAuthResult);
         return immediate;
     },
 
     handleAuthResult: function(authResult){
         if (authResult && !authResult.error) {
-            $.monstra.ganalytics.show('#authOk');
-            $.monstra.ganalytics.initDateRangePicker();
+            $.promo.ganalytics.show('#authOk');
+            $.promo.ganalytics.initDateRangePicker();
         } else {
-            $.monstra.ganalytics.show('#authFail');
+            $.promo.ganalytics.show('#authFail');
             if (authResult && typeof authResult.error != 'undefined') {
-                $.monstra.ganalytics.showError(authResult.error.message);
+                $.promo.ganalytics.showError(authResult.error.message);
             }
             
             $('#authorizeButton').on('click', function(e){
-                $.monstra.ganalytics.checkAuth(false);
+                $.promo.ganalytics.checkAuth(false);
             });
         }
     },
@@ -85,18 +85,18 @@ $.monstra.ganalytics = {
     getAnalyticsInfo: function(startDate, endDate) {
         gapi.client.load('analytics', 'v3', function(){
             gapi.client.analytics.data.ga.get({
-                'ids': 'ga:'+ $.monstra.ganalytics.conf.viewId,
-                'start-date': $.monstra.ganalytics.formatDate(startDate),
-                'end-date': $.monstra.ganalytics.formatDate(endDate),
+                'ids': 'ga:'+ $.promo.ganalytics.conf.viewId,
+                'start-date': $.promo.ganalytics.formatDate(startDate),
+                'end-date': $.promo.ganalytics.formatDate(endDate),
                 'metrics': 'ga:visits,ga:pageviews,ga:visitors',
                 'dimensions': 'ga:date'
-            }).execute($.monstra.ganalytics.gaReportingResults);
+            }).execute($.promo.ganalytics.gaReportingResults);
         });
     },
 
     gaReportingResults: function(res){
         if (typeof res.error != 'undefined' && typeof res.error.message != 'undefined') {
-            $.monstra.ganalytics.showError(res.error.message, res.error.code);
+            $.promo.ganalytics.showError(res.error.message, res.error.code);
             return;
         }
         
@@ -114,9 +114,9 @@ $.monstra.ganalytics = {
                 
                 if (res.rows.length == (parseInt(r)+1)) {
                     switch(res.columnHeaders[h].name) {
-                        case 'ga:visits': $.monstra.ganalytics.setVisits(res.rows[r][h]); break;
-                        case 'ga:pageviews': $.monstra.ganalytics.setPageviews(res.rows[r][h]); break;
-                        case 'ga:visitors': $.monstra.ganalytics.setVisitors(res.rows[r][h]); break;
+                        case 'ga:visits': $.promo.ganalytics.setVisits(res.rows[r][h]); break;
+                        case 'ga:pageviews': $.promo.ganalytics.setPageviews(res.rows[r][h]); break;
+                        case 'ga:visitors': $.promo.ganalytics.setVisitors(res.rows[r][h]); break;
                     }
                 }
             }
@@ -147,15 +147,15 @@ $.monstra.ganalytics = {
     show: function(selector){
 		$('.gaSettingsLink').show();
         $('#gaAlerts').html('');
-        $($.monstra.ganalytics._gaAreas).addClass('hide');
+        $($.promo.ganalytics._gaAreas).addClass('hide');
         $(selector).removeClass('hide').show();
     },
 
     showError: function(msg, errCode){
 		if (typeof errCode !== 'undefined' && errCode == 403) {
-			$.monstra.ganalytics.show('#reauthError,#gaHelpLink');
+			$.promo.ganalytics.show('#reauthError,#gaHelpLink');
 		} else {
-			$.monstra.ganalytics.show('#gaHelpLink');
+			$.promo.ganalytics.show('#gaHelpLink');
 		}
         $('#gaAlerts').html(msg);
 		$('#authOk').addClass('hide');
@@ -177,7 +177,7 @@ $.monstra.ganalytics = {
 $(document).ready(function(){
     $val_gaInitData = $('#gaInitData').val();
     if ($val_gaInitData !== undefined) {
-        $.monstra.ganalytics.init($.parseJSON($val_gaInitData));
+        $.promo.ganalytics.init($.parseJSON($val_gaInitData));
     }
 });
 

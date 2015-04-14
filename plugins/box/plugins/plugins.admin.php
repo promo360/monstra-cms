@@ -51,8 +51,8 @@ class PluginsAdmin extends Backend
                         include PLUGINS . DS . $plugin_name . DS . 'install' . DS . $plugin_name . '.uninstall.php';
                     }
 
-                    // Clean Monstra TMP folder.
-                    Monstra::cleanTmp();
+                    // Clean Promo TMP folder.
+                    Promo::cleanTmp();
 
                     // Increment Styles and Javascript version
                     Stylesheet::stylesVersionIncrement();
@@ -83,8 +83,8 @@ class PluginsAdmin extends Backend
                                        'status'   => (string) $plugin_xml->plugin_status,
                                        'priority' => (int) $plugin_xml->plugin_priority));
 
-                // Clean Monstra TMP folder.
-                Monstra::cleanTmp();
+                // Clean Promo TMP folder.
+                Promo::cleanTmp();
 
                 Stylesheet::stylesVersionIncrement();
                 Javascript::javascriptVersionIncrement();
@@ -106,8 +106,8 @@ class PluginsAdmin extends Backend
 
             if (Security::check(Request::get('token'))) {
 
-                // Clean Monstra TMP folder.
-                Monstra::cleanTmp();
+                // Clean Promo TMP folder.
+                Promo::cleanTmp();
                 
                 Stylesheet::stylesVersionIncrement();
                 Javascript::javascriptVersionIncrement();

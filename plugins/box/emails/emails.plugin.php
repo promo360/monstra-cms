@@ -14,7 +14,7 @@
 // Register plugin
 Plugin::register( __FILE__,
                 __('Emails', 'emails'),
-                __('Emails plugin for Monstra', 'emails'),
+                __('Emails plugin for Promo', 'emails'),
                 '1.0.0',
                 'Awilum',
                 'http://monstra.org/',

@@ -1,4 +1,4 @@
-<?php defined('MONSTRA_ACCESS') or die('No direct script access.');
+<?php defined('PROMO_ACCESS') or die('No direct script access.');
 
 /**
  * Monstra Engine
@@ -19,10 +19,10 @@
  * file that was distributed with this source code.
  */
 
-class Monstra
+class Promo
 {
     /**
-     * An instance of the Monstra class
+     * An instance of the Promo class
      *
      * @var core
      */
@@ -37,28 +37,28 @@ class Monstra
     const DEVELOPMENT = 4;
 
     /**
-     * The version of Monstra
+     * The version of Promo
      */
     const VERSION = '3.0.1';
 
 
     /**
-     * Monstra environment
+     * Promo environment
      *
      * @var string
      */
-    public static $environment = Monstra::PRODUCTION;
+    public static $environment = Promo::PRODUCTION;
 
     /**
-     * Monstra environment names
+     * Promo environment names
      *
      * @var array
      */
     public static $environment_names = array(
-        Monstra::PRODUCTION  => 'production',
-        Monstra::STAGING     => 'staging',
-        Monstra::TESTING     => 'testing',
-        Monstra::DEVELOPMENT => 'development',
+        Promo::PRODUCTION  => 'production',
+        Promo::STAGING     => 'staging',
+        Promo::TESTING     => 'testing',
+        Promo::DEVELOPMENT => 'development',
     );
 
     /**
@@ -79,12 +79,12 @@ class Monstra
         /**
          * Load core defines
          */
-        Monstra::loadDefines();
+        Promo::loadDefines();
 
         /**
          * Compress HTML with gzip
          */
-        if (MONSTRA_GZIP) {
+        if (PROMO_GZIP) {
             if ( ! ob_start("ob_gzhandler")) ob_start();
         } else {
             ob_start();
@@ -113,12 +113,12 @@ class Monstra
         /**
          * Set Gelato Display Errors to False for Production environment.
          */
-        if (Monstra::$environment == Monstra::PRODUCTION) {
+        if (Promo::$environment == Promo::PRODUCTION) {
             define('GELATO_DEVELOPMENT', false);
         }
 
         /**
-         * Define Monstra Folder for Gelato Logs
+         * Define Promo Folder for Gelato Logs
          */
         define ('GELATO_LOGS_PATH', LOGS);
 
@@ -128,12 +128,12 @@ class Monstra
         include ROOT . DS . 'libraries'. DS .'Gelato'. DS .'Gelato.php';
 
         /**
-         * Map Monstra Engine Directory
+         * Map Promo Engine Directory
          */
         ClassLoader::directory(ROOT . DS . 'engine' . DS);
 
         /**
-         * Map all Monstra Classes
+         * Map all Promo Classes
          */
         ClassLoader::mapClasses(array(
 
@@ -181,18 +181,18 @@ class Monstra
         /**
          * Init Idiorm
          */
-        if (defined('MONSTRA_DB_DSN')) {
-            ORM::configure(MONSTRA_DB_DSN);
-            ORM::configure('username', MONSTRA_DB_USER);
-            ORM::configure('password',  MONSTRA_DB_PASSWORD);
+        if (defined('PROMO_DB_DSN')) {
+            ORM::configure(PROMO_DB_DSN);
+            ORM::configure('username', PROMO_DB_USER);
+            ORM::configure('password',  PROMO_DB_PASSWORD);
             ORM::configure('driver_options', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
         }
 
         /**
          * Auto cleanup if DEVELOPMENT environment
          */
-        if (Monstra::$environment == Monstra::DEVELOPMENT) {
-            Monstra::cleanTmp();
+        if (Promo::$environment == Promo::DEVELOPMENT) {
+            Promo::cleanTmp();
         }
 
         /**
@@ -219,7 +219,7 @@ class Monstra
         /**
          * Load default
          */
-        Monstra::loadPluggable();
+        Promo::loadPluggable();
 
         /**
          * Init I18n
@@ -248,15 +248,15 @@ class Monstra
     protected static function loadDefines()
     {
         $root_defines         = ROOT . DS . 'boot' . DS . 'defines.php';
-        $environment_defines  = ROOT . DS . 'boot' . DS . Monstra::$environment_names[Monstra::$environment] . DS . 'defines.php';
-        $monstra_defines      = ROOT . DS . 'engine' . DS . 'boot' . DS . 'defines.php';
+        $environment_defines  = ROOT . DS . 'boot' . DS . Promo::$environment_names[Promo::$environment] . DS . 'defines.php';
+        $promo_defines      = ROOT . DS . 'engine' . DS . 'boot' . DS . 'defines.php';
 
         if (file_exists($root_defines)) {
             include $root_defines;
         } elseif (file_exists($environment_defines)) {
             include $environment_defines;
-        } elseif (file_exists($monstra_defines)) {
-            include $monstra_defines;
+        } elseif (file_exists($promo_defines)) {
+            include $promo_defines;
         } else {
             throw new RuntimeException("The defines file does not exist.");
         }
@@ -268,15 +268,15 @@ class Monstra
     protected static function loadPluggable()
     {
         $root_pluggable         = ROOT . DS . 'boot';
-        $environment_pluggable  = ROOT . DS . 'boot' . DS . Monstra::$environment_names[Monstra::$environment];
-        $monstra_pluggable      = ROOT . DS . 'engine' . DS . 'boot';
+        $environment_pluggable  = ROOT . DS . 'boot' . DS . Promo::$environment_names[Promo::$environment];
+        $promo_pluggable      = ROOT . DS . 'engine' . DS . 'boot';
 
         if (file_exists($root_pluggable . DS . 'filters.php')) {
             include $root_pluggable . DS . 'filters.php';
         } elseif (file_exists($environment_pluggable . DS . 'filters.php')) {
             include $environment_pluggable . DS . 'filters.php';
-        } elseif (file_exists($monstra_pluggable . DS . 'filters.php')) {
-            include $monstra_pluggable . DS . 'filters.php';
+        } elseif (file_exists($promo_pluggable . DS . 'filters.php')) {
+            include $promo_pluggable . DS . 'filters.php';
         } else {
             throw new RuntimeException("The pluggable filters.php file does not exist.");
         }
@@ -285,8 +285,8 @@ class Monstra
             include $root_pluggable . DS . 'actions.php';
         } elseif (file_exists($environment_pluggable . DS . 'actions.php')) {
             include $environment_pluggable . DS . 'actions.php';
-        } elseif (file_exists($monstra_pluggable . DS . 'actions.php')) {
-            include $monstra_pluggable . DS . 'actions.php';
+        } elseif (file_exists($promo_pluggable . DS . 'actions.php')) {
+            include $promo_pluggable . DS . 'actions.php';
         } else {
             throw new RuntimeException("The pluggable actions.php file does not exist.");
         }
@@ -295,8 +295,8 @@ class Monstra
             include $root_pluggable . DS . 'shortcodes.php';
         } elseif (file_exists($environment_pluggable . DS . 'shortcodes.php')) {
             include $environment_pluggable . DS . 'shortcodes.php';
-        } elseif (file_exists($monstra_pluggable . DS . 'shortcodes.php')) {
-            include $monstra_pluggable . DS . 'shortcodes.php';
+        } elseif (file_exists($promo_pluggable . DS . 'shortcodes.php')) {
+            include $promo_pluggable . DS . 'shortcodes.php';
         } else {
             throw new RuntimeException("The pluggable shortcodes.php file does not exist.");
         }
@@ -304,7 +304,7 @@ class Monstra
     }
 
     /**
-     * Clean Monstra TMP folder.
+     * Clean Promo TMP folder.
      */
     public static function cleanTmp()
     {
@@ -316,13 +316,13 @@ class Monstra
     }
 
     /**
-     * Initialize Monstra Engine
+     * Initialize Promo Engine
      *
-     * @return Monstra
+     * @return Promo
      */
     public static function init()
     {
-        if ( ! isset(self::$instance)) self::$instance = new Monstra();
+        if ( ! isset(self::$instance)) self::$instance = new Promo();
         return self::$instance;
     }
 

@@ -1,6 +1,6 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
+if (typeof $.promo == 'undefined') $.promo = {};
 
-$.monstra.fileuploader = {
+$.promo.fileuploader = {
     
     conf: {
         uploadUrl: '',
@@ -31,7 +31,7 @@ $.monstra.fileuploader = {
             $(this).removeClass('upload-area-dragenter').removeClass('upload-area-dragover').addClass('upload-area-drop');
             e.preventDefault();
             var files = e.originalEvent.dataTransfer.files;
-            $.monstra.fileuploader.uploadFileHandle(files, area);
+            $.promo.fileuploader.uploadFileHandle(files, area);
         });
         $(document).off('dragover.fuploader').on('dragover.fuploader', function(e){
             e.stopPropagation();
@@ -54,7 +54,7 @@ $.monstra.fileuploader = {
             fd.append('file', files[i]);
             fd.append('upload_file', 'upload_file');
 			fd.append('dragndrop', '1');
-            fd.append('csrf', $.monstra.fileuploader.conf.csrf);
+            fd.append('csrf', $.promo.fileuploader.conf.csrf);
             //this.setFileNameSize(files[i].name, files[i].size);
             
             this.uploadFile(fd, status);
@@ -63,7 +63,7 @@ $.monstra.fileuploader = {
     
     uploadFile: function(formData, status){
         var jqXHR = $.ajax({
-            url: $.monstra.fileuploader.conf.uploadUrl,
+            url: $.promo.fileuploader.conf.uploadUrl,
             type: 'POST',
             contentType: false,
             processData: false,
@@ -79,19 +79,19 @@ $.monstra.fileuploader = {
                         if (event.lengthComputable) {
                             percent = Math.ceil(position / total * 100);
                         }
-                        $.monstra.fileuploader.setProgress(percent);
+                        $.promo.fileuploader.setProgress(percent);
                     }, false);
                 }
                 return xhrobj;
             },
             success: function(data){
-                $.monstra.fileuploader.setProgress(100);
+                $.promo.fileuploader.setProgress(100);
                 $.event.trigger('uploaded.fuploader');
             },
 			error: function(){
 				Messenger().post({
 					type: 'error',
-					message : $.monstra.fileuploader.conf.errorMsg,
+					message : $.promo.fileuploader.conf.errorMsg,
 					hideAfter: 3
 				});
                 this._uploaderObj.find('.upload-progress').animate({ width: 0 }, 1);

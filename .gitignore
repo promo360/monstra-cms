@@ -13,7 +13,7 @@ Thumbs.db
 /sitemap.xml
 
 # ignore user defines
-/monstra/boot/defines.php
+/promo/boot/defines.php
 
 # ignore debug and custom themes
 /public/themes/*

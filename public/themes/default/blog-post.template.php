@@ -12,10 +12,10 @@
 
         <div class="row">
             <div class="col-xs-12">
-                <div class="monstra-blog-post">
+                <div class="promo-blog-post">
                     <?php echo Blog::getPost(); ?>
                 </div>
-                <small class="monstra-blog-date"><?php echo Blog::getPostDate('d M Y'); ?> / <?php echo Blog::getPostAuthor(); ?></small>
+                <small class="promo-blog-date"><?php echo Blog::getPostDate('d M Y'); ?> / <?php echo Blog::getPostAuthor(); ?></small>
             </div>
         </div>
 

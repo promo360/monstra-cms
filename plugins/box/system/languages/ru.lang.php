@@ -3,7 +3,7 @@
     return array(
         'system' => array(
             'System' => 'Система',
-            'Published a new version of the :monstra' => 'Опубликована новая версия :monstra',
+            'Published a new version of the :promo' => 'Опубликована новая версия :promo',
             'Sitemap created' => 'Карта сайта создана',
             'Create Sitemap' => 'Создать карту сайта',
             'on' => 'включен',
@@ -70,7 +70,7 @@
             'Field "Site url" is empty' => 'Поле "Адрес сайта" не заполнено',
             'Email not valid' => 'Эл. почта недействительна',
             'Install' => 'Установить',
-            '...Monstra says...' => '...Monstra говорит...',
+            '...Promo says...' => '...Promo говорит...',
             'Sitemap file writable' => 'Карта сайта доступна для записи',
             'Sitemap file not writable' => 'Карта сайта не доступна для записи',
             'Main .htaccess file writable' => 'Главный .htaccess файл доступен для записи',

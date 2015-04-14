@@ -14,7 +14,7 @@
 // Register plugin
 Plugin::register( __FILE__,
                 __('Dashboard', 'dashboard'),
-                __('Dashboard plugin for Monstra', 'dashboard'),
+                __('Dashboard plugin for Promo', 'dashboard'),
                 '1.0.0',
                 'Awilum',
                 'http://monstra.org/',

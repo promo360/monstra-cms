@@ -1,7 +1,7 @@
 <div class="row">	
 	<div class="col-md-12">		
 	    <?php
-            // Monstra Notifications
+            // Promo Notifications
 	     	$success = Notification::get('success') ?: '';
 	     	($success != '') AND print('<div class="success margin-bottom-1">'.$success.'</div>');
         ?>

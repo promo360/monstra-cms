@@ -277,7 +277,7 @@ body {
     </table>
     </div>
     <div style="padding-top:20px;padding-bottom:20px; padding-left:10px;">
-        <a href="http://monstra.org">MONSTRA</a>
+        <a href="http://cms.promo360.ru">PROMO</a>
         <a href="http://gelato.monstra.org">GELATO</a>
     </div>
 </div>

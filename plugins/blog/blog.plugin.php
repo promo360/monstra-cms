@@ -15,7 +15,7 @@
 // Register plugin
 Plugin::register( __FILE__,                    
                 __('Blog', 'blog'),
-                __('Blog plugin for Monstra', 'blog'),  
+                __('Blog plugin for Promo', 'blog'),  
                 '1.7.3',
                 'Awilum',            
                 'http://monstra.org/');

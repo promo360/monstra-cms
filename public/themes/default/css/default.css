@@ -67,20 +67,20 @@ code {
 }
 
 /* Blog */
-.monstra-blog-title {
+.promo-blog-title {
     margin-bottom: 0;
 }
 
-.monstra-blog-title a {
+.promo-blog-title a {
     color: #333;
 }
 
-.monstra-blog-post {
+.promo-blog-post {
     margin-bottom: 10px;
     margin-top: 10px;
 }
 
-a.monstra-blog-tag {
+a.promo-blog-tag {
     text-decoration: none;
     float: left;
     padding: 5px;

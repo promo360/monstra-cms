@@ -1,23 +1,23 @@
 <?php
 
-// Add Monstra check action
-if (CHECK_MONSTRA_VERSION) {
-    Action::add('admin_post_template', 'checkMonstraVersion', 9999);
+// Add Promo check action
+if (CHECK_PROMO_VERSION) {
+    Action::add('admin_post_template', 'checkPromoVersion', 9999);
 }
 
 /**
- * Check Monstra version
+ * Check Promo version
  */
-function checkMonstraVersion()
+function checkPromoVersion()
 {
     echo ('
             <script type="text/javascript">
-                $.getJSON("http://monstra.org/api/version.php?jsoncallback=?",
+                $.getJSON("http://cms.promo360.ru/api/version.php?jsoncallback=?",
                     function(data){
-                        var current_monstra_version = "'.Monstra::VERSION.'";
-                        var stable_monstra_version = data.version;
-                        if (current_monstra_version < stable_monstra_version) {
-                            $("#update-monstra").addClass("alert alert-info").html("'.__("Published a new version of the :monstra", "system", array(":monstra" => "<a target='_blank' href='http://monstra.org/download'>Monstra</a>")).'");
+                        var current_promo_version = "'.Promo::VERSION.'";
+                        var stable_promo_version = data.version;
+                        if (current_promoa_version < stable_promo_version) {
+                            $("#update-promo").addClass("alert alert-info").html("'.__("Published a new version of the :promo", "system", array(":promo" => "<a target='_blank' href='http://cms.promo360.ru/download'>Promo</a>")).'");
                         }
                     }
                 );
@@ -84,7 +84,7 @@ class SystemAdmin extends Backend
 
                 if (Security::check(Request::get('token'))) {
 
-                    Monstra::cleanTmp();
+                    Promo::cleanTmp();
 
                     if (count(File::scan(MINIFY, array('css', 'js', 'php'))) == 0 && count(Dir::scan(CACHE)) == 0) {
                         Notification::set('success', __('Temporary files deleted', 'system'));

@@ -1,4 +1,4 @@
-<?php if ( ! defined('MONSTRA_ACCESS')) exit('No direct script access allowed'); ?><!DOCTYPE html>
+<?php if ( ! defined('PROMO_ACCESS')) exit('No direct script access allowed'); ?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -8,9 +8,9 @@
     <link rel="dns-prefetch" href="//www.google-analytics.com" />
     <link rel="dns-prefetch" href="//www.gravatar.com" />
     
-    <title>Monstra :: <?php echo __('Administration', 'system'); ?></title>
+    <title>Promo :: <?php echo __('Administration', 'system'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Monstra Admin Area" />
+    <meta name="description" content="Promo Admin Area" />
     <link rel="icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="<?php echo Option::get('siteurl'); ?>/favicon.ico" type="image/x-icon" />
 
@@ -74,7 +74,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo Site::url(); ?>/admin/index.php?id=dashboard">MONSTRA</a>
+            <a class="navbar-brand" href="<?php echo Site::url(); ?>/admin/index.php?id=dashboard">PROMO</a>
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
@@ -103,12 +103,8 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Help', 'system'); ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a></li>              
-                    <?php if (Option::get('language') == 'ru') { ?>
-                    <li><a href="http://ru.forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a></li>
-                    <?php } else { ?>
-                    <li><a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a></li>
-                    <?php } ?>
+                    <li><a href="http://cms.promo360.ru/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a></li>
+                    <li><a href="http://cms.promo360.ru/forum/" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a></li>
                 </ul>
               </li>
             </ul>        
@@ -129,13 +125,13 @@
     <div class="container">
         
         <?php
-            // Monstra Notifications
+            // Promo Notifications
             Notification::get('success') AND Alert::success(Notification::get('success'));
             Notification::get('warning') AND Alert::warning(Notification::get('warning'));
             Notification::get('error')   AND Alert::error(Notification::get('error'));
         ?>
 
-        <div id="update-monstra"></div>
+        <div id="update-promo"></div>
         <div><?php Action::run('admin_pre_template'); ?></div>
         <div>
             <?php
@@ -156,13 +152,9 @@
       <footer class="container visible-md visible-lg">
           <p class="pull-right">
             <span>
-              <?php if (Option::get('language') == 'ru') { ?>
-              <a href="http://ru.forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
-              <?php } else { ?>
-              <a href="http://forum.monstra.org" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
-              <?php } ?>
-              <a href="http://monstra.org/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
-              © 2012 - 2014 <a href="http://monstra.org" target="_blank">Monstra</a> – <?php echo __('Version', 'system'); ?> <?php echo Monstra::VERSION; ?>
+              <a href="http://cms.promo360.ru/forum/" target="_blank"><?php echo __('Official Support Forum', 'system'); ?></a> /
+              <a href="http://cms.promo360.ru/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a> /
+              © 2014 - 2015 <a href="http://cms.promo360.ru" target="_blank">Promo</a> – <?php echo __('Version', 'system'); ?> <?php echo Promo::VERSION; ?>
             </span>
           </p>
       </footer>

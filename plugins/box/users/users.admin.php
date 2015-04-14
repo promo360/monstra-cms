@@ -184,7 +184,7 @@ class UsersAdmin extends Backend
                                     ->display();
 
                         } else {
-                            echo __('Monstra says: This is not your profile...', 'users');
+                            echo __('Promo says: This is not your profile...', 'users');
                         }
 
                     }

@@ -493,7 +493,7 @@ class Users extends Frontend
      * Get Gravatar
      *
      *  <code>
-     *      <img src="<?php echo Users::getGravatarURL('monstra@monstra.org', 64); ?>" alt="">
+     *      <img src="<?php echo Users::getGravatarURL('promo@promo360.ru', 64); ?>" alt="">
      *  </code>
      *
      * @param string  $email  Email

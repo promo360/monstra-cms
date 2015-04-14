@@ -1,6 +1,6 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
+if (typeof $.promo == 'undefined') $.promo = {};
 
-$.monstra.snippets = {
+$.promo.snippets = {
 
     init: function() { },
 
@@ -14,5 +14,5 @@ $.monstra.snippets = {
 
 
 $(document).ready(function(){
-    $.monstra.snippets.init();
+    $.promo.snippets.init();
 });

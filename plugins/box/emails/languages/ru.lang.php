@@ -3,7 +3,7 @@
     return array(
         'emails' => array(
             'Emails' => 'Письма',
-            'Emails plugin for Monstra' => 'Плагин emails для Monstra',
+            'Emails plugin for Promo' => 'Плагин emails для Promo',
             'Edit Layout' => 'Редактировать Шаблон',
             'Email templates' => 'Шаблоны Писем',
             'Edit' => 'Редактировать',

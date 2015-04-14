@@ -52,7 +52,7 @@
             'New Password' => 'New Password',
             'Forgot your password?' => 'Forgot your password?',
             'New password has been sent' => 'New password has been sent',
-            'Monstra says: This is not your profile...' => 'Monstra says: This is not your profile...',
+            'Promo says: This is not your profile...' => 'Promo says: This is not your profile...',
             'User registration is closed.' => 'User registration is closed.',
             'Allow user registration' => 'Allow user registration',
             'Required field' => 'Required field',

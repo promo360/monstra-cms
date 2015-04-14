@@ -50,7 +50,7 @@
             'New Password' => 'Новый пароль',
             'Forgot your password?' => 'Забыли пароль?',
             'New password has been sent' => 'Новый пароль был отправлен',
-            'Monstra says: This is not your profile...' => 'Монстра говорит: Это не твой профиль...',
+            'Promo says: This is not your profile...' => 'Promo говорит: Это не твой профиль...',
             'User registration is closed.' => 'Регистрация пользователей закрыта.',
             'Allow user registration' => 'Разрешить регистрацию пользователей.',
             'Required field' => 'Обязательное поле',

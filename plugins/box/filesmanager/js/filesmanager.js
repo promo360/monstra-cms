@@ -1,24 +1,24 @@
-if (typeof $.monstra == 'undefined') $.monstra = {};
+if (typeof $.promo == 'undefined') $.promo = {};
 
-$.monstra.filesmanager = {
+$.promo.filesmanager = {
 
 	init: function(){
 		$('#filesDirsList').on('click', '.js-rename-dir', function(e){
-			$.monstra.filesmanager.showRenameDialog(
+			$.promo.filesmanager.showRenameDialog(
 				'dir',
 				$(e.currentTarget).attr('data-dirname'),
 				$(e.currentTarget).attr('data-path')
 			);
 		});
 		$('#filesDirsList').on('click', '.js-rename-file', function(e){
-			$.monstra.filesmanager.showRenameDialog(
+			$.promo.filesmanager.showRenameDialog(
 				'file',
 				$(e.currentTarget).attr('data-filename'),
 				$(e.currentTarget).attr('data-path')
 			);
 		});
         $('#filesDirsList').on('click', '.js-file-info', function(e, el){
-            $.monstra.filesmanager.showInfoDialog(e.currentTarget);
+            $.promo.filesmanager.showInfoDialog(e.currentTarget);
         });
 	},
 
@@ -50,5 +50,5 @@ $.monstra.filesmanager = {
 };
 
 $(document).ready(function(){
-	$.monstra.filesmanager.init();
+	$.promo.filesmanager.init();
 });

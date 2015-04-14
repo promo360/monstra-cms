@@ -3,7 +3,7 @@
     return array(
         'blog' => array(
             'Blog' => 'Blog',
-            'Blog plugin for Monstra' => 'Blog plugin for Monstra',
+            'Blog plugin for Promo' => 'Blog plugin for Promo',
             'begin' => 'begin',
             'end' => 'end',
             'prev' => 'prev',
