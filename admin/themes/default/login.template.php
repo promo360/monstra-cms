@@ -1,5 +1,5 @@
 <?php  if ( ! defined('PROMO_ACCESS')) exit('No direct script access allowed'); ?><!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
     <head>
         <meta charset="utf-8">
         <title>Promo CMS :: <?php echo __('Administration', 'system'); ?></title>
@@ -68,7 +68,7 @@
 
         <div class="container form-signin">
         
-            <div class="text-center"><a class="brand" href="<?php echo Option::get('siteurl'); ?>/admin"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/cms-logo-256px.png" alt="Promo360" /></a></div>
+            <div class="text-center"><a class="brand" href="<?php echo Option::get('siteurl'); ?>/admin"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/promo-logo-256px.png" alt="Promo360" /></a></div>
             <div class="administration-area well">
                 <div>
                     <form method="post">
