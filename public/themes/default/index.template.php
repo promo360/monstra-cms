@@ -11,6 +11,9 @@
 
         <div class="row">
             <div class="col-xs-12">
+                <?php if (Breadcrumbs::count() > 0) { ?>
+                    <div class="breadcrumbs"><?php echo Breadcrumbs::get(); ?></div>
+                <?php } ?>
                 <?php echo Site::content(); ?>
             </div>
         </div>
