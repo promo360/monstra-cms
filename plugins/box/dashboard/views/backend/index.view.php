@@ -25,25 +25,25 @@
 
 <div class="well dashboard-well">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-xs-3">
             <h3><?php echo __('Content', 'pages'); ?></h3>
             <ul class="list-unstyled">
                 <?php Navigation::draw('content'); ?>
             </ul>
         </div>
-        <div class="col-md-3">            
+        <div class="col-xs-3">
             <h3><?php echo __('Extends', 'system'); ?></h3>
             <ul class="list-unstyled">
                 <?php Navigation::draw('extends'); ?>
             </ul>
         </div>            
-        <div class="col-md-3">
+        <div class="col-xs-3">
             <h3><?php echo __('System', 'system'); ?></h3>
             <ul class="list-unstyled">
                 <?php Navigation::draw('system'); ?>
             </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-xs-3">
             <h3><?php echo __('Help', 'system'); ?></h3>
             <ul class="list-unstyled">
                 <li><a href="http://cms.promo360.ru/documentation" target="_blank"><?php echo __('Documentation', 'system'); ?></a></li>              
