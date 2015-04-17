@@ -1,8 +1,6 @@
-Welcome to <?php echo $site_name; ?>!
+<?php echo $user_login; ?>, добро пожаловать на сайт <?php echo $site_url; ?>!
 <br><br>
-Dear <?php echo $user_login; ?>,
+Благодарим за регистрацию на сайте <?php echo $site_url; ?>!<br> Мы рады, что Вы решили быть частью нашего сообщества. Мы надеемся, что Вам у нас понравится.
 <br><br>
-Thanks for registering at <?php echo $site_name; ?>!<br> We are glad you have chosen to be a part of our community and we hope you enjoy your stay.
-<br><br>
-All the best,<br>
+Всего наилучшего,<br>
 <?php echo $site_name; ?>
