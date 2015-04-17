@@ -7,7 +7,7 @@
             'Actions' => 'Actions',
             'Delete' => 'Delete',
             'Edit' => 'Edit',
-            'Name' => 'Name',
+            'Name' => 'Slug',
             'Create New Snippet' => 'Create New Snippet',
             'New Snippet' => 'New Snippet',
             'Edit Snippet' => 'Edit Snippet',
@@ -26,5 +26,6 @@
             'Shortcode' => 'Shortcode',
             'PHP Code' => 'PHP Code',
             'Cancel' => 'Cancel',
+            'Title' => 'Title',
         )
     );

@@ -22,22 +22,22 @@
     <tbody>
     <?php if (count($snippets_list) != 0) foreach ($snippets_list as $snippet) { ?>
     <tr>
-        <td><?php echo basename($snippet, '.snippet.php'); ?></td>
+        <td><?php echo $snippet['title']; ?> <small><i>/ <?php echo $snippet['name']; ?></i></small></td>
         <td>
             <div class="pull-right">            
                 <div class="btn-group">
-                    <?php echo Html::anchor('<i class="glyphicon glyphicon-pencil"></i> '.__('Edit', 'snippets'), 'index.php?id=snippets&action=edit_snippet&filename='.basename($snippet, '.snippet.php'), array('class' => 'btn btn-xs btn-primary')); ?>
+                    <?php echo Html::anchor('<i class="glyphicon glyphicon-pencil"></i> '.__('Edit', 'snippets'), 'index.php?id=snippets&action=edit_snippet&filename='.$snippet['name'], array('class' => 'btn btn-xs btn-primary')); ?>
                     <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                        <li><?php echo Html::anchor(__('View Embed Code', 'snippets'), 'javascript:;', array('title' => __('View Embed Code', 'snippets'), 'onclick' => '$.promo.snippets.showEmbedCodes("'.basename($snippet, '.snippet.php').'");')); ?></li>
+                        <li><?php echo Html::anchor(__('View Embed Code', 'snippets'), 'javascript:;', array('title' => __('View Embed Code', 'snippets'), 'onclick' => '$.promo.snippets.showEmbedCodes("'.$snippet['name'].'");')); ?></li>
                     </ul>
                 </div>   
                 <?php echo Html::anchor('<i class="glyphicon glyphicon-trash"></i> '.__('Delete', 'snippets'),
-                    'index.php?id=snippets&action=delete_snippet&filename='.basename($snippet, '.snippet.php').'&token='.Security::token(),
-                    array('class' => 'btn btn-xs btn-danger', 'onclick' => "return confirmDelete('".__('Delete snippet: :snippet', 'snippets', array(':snippet' => basename($snippet, '.snippet.php')))."')"));
+                    'index.php?id=snippets&action=delete_snippet&filename='.$snippet['name'].'&token='.Security::token(),
+                    array('class' => 'btn btn-xs btn-danger', 'onclick' => "return confirmDelete('".__('Delete snippet: :snippet', 'snippets', array(':snippet' => $snippet['title']))."')"));
                 ?>
             </div>
         </td>

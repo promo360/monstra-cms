@@ -2,9 +2,14 @@
 
 <?php if (isset($errors['snippets_empty_name']) or isset($errors['snippets_exists'])) $error_class = 'error'; else $error_class = ''; ?>
 
-<?php echo (Form::open(null, array('class' => 'form-horizontal'))); ?>
+<?php echo (Form::open()); ?>
 
 <?php echo (Form::hidden('csrf', Security::token())); ?>
+
+<div class="form-group margin-bottom-1">
+  <?php echo (Form::label('title', __('Title', 'snippets'))); ?>
+  <?php echo (Form::input('title', $title, array('class' => 'form-control'))); ?>
+</div>
 
 <?php echo (Form::label('name', __('Name', 'snippets'))); ?>
 <div class="input-group">

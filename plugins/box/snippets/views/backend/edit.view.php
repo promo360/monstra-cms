@@ -5,7 +5,7 @@
 
         if (isset($errors['snippets_empty_name']) or isset($errors['snippets_exists'])) $error_class = 'error'; else $error_class = '';
 
-        echo (Form::open(null, array('class' => 'form-horizontal')));
+        echo (Form::open());
 
         echo (Form::hidden('csrf', Security::token()));
 
@@ -13,8 +13,13 @@
 
 ?>
 
-    <?php echo (Form::label('name', __('Name', 'snippets'))); ?>
+<div class="form-group margin-bottom-1">
+          <?php echo (Form::label('title', __('Title', 'snippets'))); ?>
+          <?php echo (Form::input('title', $title, array('class' => 'form-control'))); ?>
+        </div>
 
+    <?php echo (Form::label('name', __('Name', 'snippets'))); ?>
+        
         <div class="input-group">
             <?php echo (Form::input('name', $name, array('class' => (isset($errors['snippets_empty_name']) || isset($errors['snippets_exists'])) ? 'form-control error-field' : 'form-control'))); ?><span class="input-group-addon">.snippet.php</span>
         </div>

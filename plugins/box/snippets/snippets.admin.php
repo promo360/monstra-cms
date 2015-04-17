@@ -20,6 +20,9 @@ class SnippetsAdmin extends Backend
         $errors      = array();
         
         Breadcrumbs::add('index.php?id=snippets', __('Snippets', 'snippets'));
+        
+        // Get snippets table
+        $snippets = new Table('snippets');
 
         // Check for get actions
          // -------------------------------------
@@ -43,6 +46,9 @@ class SnippetsAdmin extends Backend
 
                                 // Save snippet
                                 File::setContent($snippets_path.Security::safeName(Request::post('name')).'.snippet.php', Request::post('content'));
+                                
+                                $snippets->insert(array('name'  => Security::safeName(Request::post('name')),
+                                                        'title' => Request::post('title')));
 
                                 Notification::set('success', __('Your changes to the snippet <i>:name</i> have been saved.', 'snippets', array(':name' => Security::safeName(Request::post('name')))));
 
@@ -59,6 +65,7 @@ class SnippetsAdmin extends Backend
                     Breadcrumbs::add('index.php?id=snippets&action=add_snippet', __('New Snippet', 'snippets'));
                     
                     // Save fields
+                    if (Request::post('title')) $title = Request::post('title'); else $title = '';
                     if (Request::post('name')) $name = Request::post('name'); else $name = '';
                     if (Request::post('content')) $content = Request::post('content'); else $content = '';
 
@@ -66,6 +73,7 @@ class SnippetsAdmin extends Backend
                     View::factory('box/snippets/views/backend/add')
                             ->assign('content', $content)
                             ->assign('name', $name)
+                            ->assign('title', $title)
                             ->assign('errors', $errors)
                             ->display();
                 break;
@@ -100,6 +108,10 @@ class SnippetsAdmin extends Backend
 
                                 // Save snippet
                                 File::setContent($save_filename, Request::post('content'));
+                                
+                                $snippets->updateWhere('[name="'.Security::safeName(Request::post('snippets_old_name')).'"]', 
+                                    array('name'  => Security::safeName(Request::post('name')),
+                                          'title' => Request::post('title')));
 
                                 Notification::set('success', __('Your changes to the snippet <i>:name</i> have been saved.', 'snippets', array(':name' => basename($save_filename, '.snippet.php'))));
 
@@ -115,6 +127,11 @@ class SnippetsAdmin extends Backend
                     
                     Breadcrumbs::add('index.php?id=snippets&action=edit_snippet&filename='.Request::get('filename'), __('Edit Snippet', 'snippets'));
                     
+                    if (Request::post('title')) $title = Request::post('title'); else {
+                        $snippet = $snippets->select('[name="'.Request::get('filename').'"]', null);
+                        $title = $snippet['title'];
+                    }
+                    
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     $content = File::getContent($snippets_path.Request::get('filename').'.snippet.php');
 
@@ -122,6 +139,7 @@ class SnippetsAdmin extends Backend
                     View::factory('box/snippets/views/backend/edit')
                             ->assign('content', $content)
                             ->assign('name', $name)
+                            ->assign('title', $title)
                             ->assign('errors', $errors)
                             ->display();
                 break;
@@ -130,6 +148,9 @@ class SnippetsAdmin extends Backend
                     if (Security::check(Request::get('token'))) {
 
                         File::delete($snippets_path.Request::get('filename').'.snippet.php');
+                        
+                        $snippets->deleteWhere('[name="'.Request::get('filename').'"]');
+                        
                         Notification::set('success', __('Snippet <i>:name</i> deleted', 'snippets', array(':name' => File::name(Request::get('filename')))));
                         Request::redirect('index.php?id=snippets');
 
@@ -140,7 +161,9 @@ class SnippetsAdmin extends Backend
         } else {
 
             // Get snippets
-            $snippets_list = File::scan($snippets_path, '.snippet.php');
+            //$snippets_list = File::scan($snippets_path, '.snippet.php');
+            
+            $snippets_list = $snippets->select();
 
             // Display view
             View::factory('box/snippets/views/backend/index')
