@@ -1,12 +1,12 @@
 <?php defined('PROMO_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Monstra and Promo Engine
  *
  * This source file is part of the Monstra Engine. More information,
  * documentation and tutorials can be found at http://monstra.org
  *
- * @package     Monstra
+ * @package     Promo CMS
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
  * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
@@ -23,6 +23,13 @@ class Navigation
      * @var array
      */
     public static $items = array();
+    
+    /**
+     * Categories
+     *
+     * @var array
+     */
+    public static $categories = array(); // @JINN for Promo CMS
 
     /**
      * Navigation types
@@ -190,6 +197,53 @@ class Navigation
                 }
             }
         }
+    }
+    
+    /**
+     * Добавление новой категории меню
+     *
+     *  <code>
+     *      Navigation::addCategory(__('System', 'system'), 'system', 11, array('admin', 'editor'));
+     *  <code>
+     *
+     * @param string  $name         Название на русском
+     * @param string  $slug         Название на английском
+     * @param integer $priority     Приоритет. По умолчанию 10
+     * @param array   $access_role  Какой группе пользователей разрешен доступ. Варианты: editor (только редактору), admin (только админу), если ничего не указано, то доступно и редактору, и админу
+     */
+    public static function addCategory($name, $slug, $priority = 10, $access_role = array())
+    {
+        // Если категория доступна только определенным группам пользователей, 
+        // то добавляем категорию только для них
+        if (count($access_role) > 0) {
+            if (!Session::exists('user_role') || !in_array(Session::get('user_role'), $access_role)) {
+                return;
+            }
+        }
+
+        Navigation::$categories[$slug] = array(
+            'name'      => (string) $name,
+            'slug'      => (string) $slug,
+            'priority'  => (int) $priority,
+            'access_role' => (string) $access_role,
+        );
+    }
+    
+    /**
+     * Получение отсортированного массива категорий
+     *
+     *  <code>
+     *      print_r(Navigation::getCategories());
+     *  <code>
+     *
+     * @param string  $name     Название на русском
+     * @param string  $slug     Название на английском
+     * @param integer $priority Приоритет. По умолчанию 10
+     */
+    public static function getCategories()
+    {
+        // Сортируем по приоритету
+        return Arr::subvalSort(Navigation::$categories, 'priority');
     }
 
 }

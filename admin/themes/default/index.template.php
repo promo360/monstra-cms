@@ -80,28 +80,15 @@
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
-            <ul class="nav navbar-nav">          
-              <!--<li<?php if (Request::get('id') == 'dashboard') { ?> class="active"<?php } ?>><a href="<?php echo Site::url(); ?>/admin/index.php?id=dashboard"><?php echo __('Dashboard', 'dashboard'); ?></a></li>-->
+            <ul class="nav navbar-nav">
+            <?php $categories = Navigation::getCategories(); foreach ($categories as $category) { ?>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Content', 'pages'); ?> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <?php Navigation::draw('content'); ?>
+                    <?php Navigation::draw($category['slug']); ?>
                 </ul>
               </li>
-              <?php if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin'))) { ?>               
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Extends', 'system'); ?> <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <?php Navigation::draw('extends'); ?>
-                </ul>
-              </li>
-              <?php } ?>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('System', 'system'); ?> <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <?php Navigation::draw('system'); ?>
-                </ul>
-              </li>
+            <?php } ?>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="<?php echo Site::url(); ?>" target="_blank"><?php echo __('View Site', 'system'); ?></a></li>

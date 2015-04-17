@@ -22,6 +22,9 @@ Plugin::register( __FILE__,
                 'box');
 
 if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor'))) {
+    
+    Navigation::addCategory(__('Extends', 'system'), 'extends', 20, array('admin'));
+    Navigation::addCategory(__('System', 'system'), 'system', 30);
 
     // Admin top navigation
     Navigation::add(__('Welcome, :username', 'system', array(':username' => Session::get('user_login'))), 'top', 'users&action=edit&user_id='.Session::get('user_id'), 1, Navigation::TOP, false);

@@ -1,6 +1,7 @@
 <?php
 
 // Add plugin navigation link
+Navigation::addCategory(__('Content', 'pages'), 'content', 10);
 Navigation::add(__('Pages', 'pages'), 'content', 'pages', 1);
 Dashboard::addNewItem('pages', __('Pages', 'pages'), 'index.php?id=pages&action=add_page', 1);
 
