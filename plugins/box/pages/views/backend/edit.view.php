@@ -1,4 +1,6 @@
-<h2 class="margin-bottom-1"><?php if (Request::get('name') == 'error404') { echo __('Edit 404 Page', 'pages'); } else { echo __('Edit Page', 'pages'); } ?></h2>
+<?php $parent  = (trim($page['parent']) == '') ? '' : $page['parent'].'/'; ?>
+
+<h2 class="margin-bottom-1"><?php if (Request::get('name') == 'error404') { echo __('Edit 404 Page', 'pages'); } else { echo __('Edit Page', 'pages').' <small><sup>'.Html::anchor('<i class="glyphicon glyphicon-new-window"></i>', Site::url().'/'.$parent.$page['slug'], array('target' => '_blank')).'</sup></small>'; } ?></h2>
 
 <?php
     echo (
