@@ -49,7 +49,12 @@ if (Request::post('login_submit')) {
                         Session::set('user_login', (string) $user['login']);
                         Session::set('user_role', (string) $user['role']);
                         Session::set('user_email', (string) $user['email']);
-                        Request::redirect('index.php');
+                        
+                        if (Request::get('id')) {
+                            Request::redirect('index.php?id='.Request::get('id'));
+                        } else {
+                            Request::redirect('index.php');
+                        }
                     }
                 } else {
                     $login_error = __('Wrong <b>username</b> or <b>password</b>', 'users');

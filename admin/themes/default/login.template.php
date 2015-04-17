@@ -68,7 +68,7 @@
 
         <div class="container form-signin">
         
-            <div class="text-center"><a class="brand" href="<?php echo Option::get('siteurl'); ?>/admin"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/promo-logo-256px.png" alt="Promo360" /></a></div>
+            <div class="text-center"><a class="brand" href="<?php echo Option::get('siteurl'); ?>/admin"><img src="<?php echo Option::get('siteurl'); ?>/public/assets/img/promo-logo-256px.png" alt="Promo CMS" /></a></div>
             <div class="administration-area well">
                 <div>
                     <form method="post">
