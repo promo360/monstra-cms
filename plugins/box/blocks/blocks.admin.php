@@ -19,6 +19,9 @@ class BlocksAdmin extends Backend
         $blocks_list = array();
         $errors      = array();
         
+        // Get blocks table
+        $blocks = new Table('blocks');
+        
         Breadcrumbs::add('index.php?id=blocks', __('Blocks', 'blocks'));
 
         // Check for get actions
@@ -44,6 +47,9 @@ class BlocksAdmin extends Backend
 
                                 // Save block
                                 File::setContent($blocks_path.Security::safeName(Request::post('name')).'.block.html', XML::safe(Request::post('editor')));
+                                
+                                $blocks->insert(array('name'  => Security::safeName(Request::post('name')),
+                                                      'title' => Request::post('title')));
 
                                 Notification::set('success', __('Your changes to the block <i>:name</i> have been saved.', 'blocks', array(':name' => Security::safeName(Request::post('name')))));
 
@@ -60,6 +66,7 @@ class BlocksAdmin extends Backend
                     Breadcrumbs::add('index.php?id=blocks&action=add_block', __('New Block', 'blocks'));
 
                     // Save fields
+                    if (Request::post('title')) $title = Request::post('title'); else $title = '';
                     if (Request::post('name')) $name = Request::post('name'); else $name = '';
                     if (Request::post('editor')) $content = Request::post('editor'); else $content = '';
 
@@ -67,6 +74,7 @@ class BlocksAdmin extends Backend
                     View::factory('box/blocks/views/backend/add')
                             ->assign('content', $content)
                             ->assign('name', $name)
+                            ->assign('title', $title)
                             ->assign('errors', $errors)
                             ->display();
                 break;
@@ -101,6 +109,9 @@ class BlocksAdmin extends Backend
 
                                 // Save block
                                 File::setContent($save_filename, XML::safe(Request::post('editor')));
+                                $blocks->updateWhere('[name="'.Security::safeName(Request::post('blocks_old_name')).'"]', 
+                                    array('name'  => Security::safeName(Request::post('name')),
+                                          'title' => Request::post('title')));
 
                                 Notification::set('success', __('Your changes to the block <i>:name</i> have been saved.', 'blocks', array(':name' => basename($save_filename, '.block.html'))));
 
@@ -116,6 +127,11 @@ class BlocksAdmin extends Backend
                     
                     Breadcrumbs::add('index.php?id=blocks&action=edit_block&filename='.Request::get('filename'), __('Edit Block', 'blocks'));
                     
+                    if (Request::post('title')) $title = Request::post('title'); else {
+                        $block = $blocks->select('[name="'.Request::get('filename').'"]', null);
+                        $title = $block['title'];
+                    }
+                    
                     if (Request::post('name')) $name = Request::post('name'); else $name = File::name(Request::get('filename'));
                     if (Request::post('editor')) $content = Request::post('editor'); else $content = File::getContent($blocks_path.Request::get('filename').'.block.html');
 
@@ -123,6 +139,7 @@ class BlocksAdmin extends Backend
                     View::factory('box/blocks/views/backend/edit')
                             ->assign('content', Text::toHtml($content))
                             ->assign('name', $name)
+                            ->assign('title', $title)
                             ->assign('errors', $errors)
                             ->display();
                 break;
@@ -131,6 +148,9 @@ class BlocksAdmin extends Backend
                     if (Security::check(Request::get('token'))) {
 
                         File::delete($blocks_path.Request::get('filename').'.block.html');
+                        
+                        $blocks->deleteWhere('[name="'.Request::get('filename').'"]');
+                        
                         Notification::set('success', __('Block <i>:name</i> deleted', 'blocks', array(':name' => File::name(Request::get('filename')))));
                         Request::redirect('index.php?id=blocks');
 
@@ -141,7 +161,9 @@ class BlocksAdmin extends Backend
         } else {
 
             // Get blocks
-            $blocks_list = File::scan($blocks_path, '.block.html');
+            //$blocks_list = File::scan($blocks_path, '.block.html');
+            
+            $blocks_list = $blocks->select();
 
             // Display view
             View::factory('box/blocks/views/backend/index')

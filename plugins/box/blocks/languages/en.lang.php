@@ -6,7 +6,7 @@
             'Blocks manager' => 'Blocks manager',
             'Delete' => 'Delete',
             'Edit' => 'Edit',
-            'Name' => 'Name',
+            'Name' => 'Slug',
             'Create New Block' => 'Create New Block',
             'New Block' => 'New Block',
             'Edit Block' => 'Edit Block',
@@ -26,5 +26,6 @@
             'Shortcode' => 'Shortcode',
             'PHP Code' => 'PHP Code',
             'Cancel' => 'Cancel',
+            'Title' => 'Title',
         )
     );

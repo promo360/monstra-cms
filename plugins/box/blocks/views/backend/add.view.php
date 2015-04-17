@@ -7,6 +7,11 @@
 <?php echo (Form::hidden('csrf', Security::token())); ?>
 
 <div class="form-group margin-bottom-1">
+  <?php echo (Form::label('title', __('Title', 'blocks'))); ?>
+  <?php echo (Form::input('title', $title, array('class' => 'form-control'))); ?>
+</div>
+
+<div class="form-group margin-bottom-1">
   <?php echo (Form::label('name', __('Name', 'blocks'))); ?>
   <?php echo (Form::input('name', $name, array('class' => (isset($errors['blocks_empty_name']) || isset($errors['blocks_exists'])) ? 'form-control error-field' : 'form-control'))); ?>
   <?php

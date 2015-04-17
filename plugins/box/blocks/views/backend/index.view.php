@@ -22,22 +22,22 @@
     <tbody>
     <?php if (count($blocks_list) != 0) foreach ($blocks_list as $block) { ?>
     <tr>
-        <td><?php echo basename($block, '.block.html'); ?></td>
+        <td><?php echo $block['title']; ?> <small><i>/ <?php echo $block['name']; ?></i></small></td>
         <td>
             <div class="pull-right">            
                 <div class="btn-group">
-                    <?php echo Html::anchor('<i class="glyphicon glyphicon-pencil"></i> '.__('Edit', 'blocks'), 'index.php?id=blocks&action=edit_block&filename='.basename($block, '.block.html'), array('class' => 'btn btn-xs btn-primary')); ?>
+                    <?php echo Html::anchor('<i class="glyphicon glyphicon-pencil"></i> '.__('Edit', 'blocks'), 'index.php?id=blocks&action=edit_block&filename='.$block['name'], array('class' => 'btn btn-xs btn-primary')); ?>
                     <button type="button" class="btn btn-xs dropdown-toggle btn-primary" data-toggle="dropdown">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                        <li><?php echo Html::anchor(__('View Embed Code', 'blocks'), 'javascript:;', array('title' => __('View Embed Code', 'blocks'), 'onclick' => '$.promo.blocks.showEmbedCodes("'.basename($block, '.block.html').'");')); ?></li>
+                        <li><?php echo Html::anchor(__('View Embed Code', 'blocks'), 'javascript:;', array('title' => __('View Embed Code', 'blocks'), 'onclick' => '$.promo.blocks.showEmbedCodes("'.$block['name'].'");')); ?></li>
                     </ul>
                 </div>
                 <?php echo Html::anchor('<i class="glyphicon glyphicon-trash"></i> '.__('Delete', 'blocks'),
-                          'index.php?id=blocks&action=delete_block&filename='.basename($block, '.block.html').'&token='.Security::token(),
-                           array('class' => 'btn btn-xs btn-danger', 'onclick' => "return confirmDelete('".__('Delete block: :block', 'blocks', array(':block' => basename($block, '.block.html')))."')"));
+                          'index.php?id=blocks&action=delete_block&filename='.$block['name'].'&token='.Security::token(),
+                           array('class' => 'btn btn-xs btn-danger', 'onclick' => "return confirmDelete('".__('Delete block: :block', 'blocks', array(':block' => $block['title']))."')"));
                 ?>            
             </div>
         </td>
