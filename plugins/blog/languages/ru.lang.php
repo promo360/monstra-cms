@@ -3,7 +3,7 @@
     return array(
         'blog' => array(
             'Blog' => 'Блог',
-            'Blog plugin for Promo' => 'Плагин блога для Promo',
+            'Blog plugin for Promo' => 'Данный плагин позволяет создать простой блог на основе текстовых страниц',
             'begin' => 'начало',
             'end' => 'конец',
             'prev' => 'назад',

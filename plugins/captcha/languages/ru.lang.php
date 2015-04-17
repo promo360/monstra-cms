@@ -2,8 +2,8 @@
 
     return array(
         'captcha' => array(
-            'Captcha' => 'Captcha',
-            'Captcha plugin for Promo' => 'Captcha плагин для Promo',
+            'Captcha' => 'Капча',
+            'Captcha plugin for Promo' => 'Плагин подключает текстовое поле и картинку к формам на сайте для защиты от спам-ботов',
             'Captcha code is wrong' => 'Captcha код неправильный',
         )
     );

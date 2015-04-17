@@ -13,8 +13,8 @@
 
 // Register plugin
 Plugin::register( __FILE__,                    
-                __('Markdown'),
-                __('Markdown markup language plugin for Promo'),  
+                __('Markdown', 'markdown'),
+                __('Markdown markup language plugin for Promo', 'markdown'),  
                 '1.0.0',
                 'Awilum',    
                 'http://monstra.org/');
