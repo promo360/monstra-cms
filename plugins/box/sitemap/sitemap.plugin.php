@@ -111,6 +111,7 @@ class Sitemap extends Frontend
 
         if (count(Plugin::$components) > 0) {
             foreach (Plugin::$components as $component) {
+                if ($component == 'users') continue;
                 if ( ! in_array($component, Sitemap::$forbidden_components)) $components[] = Text::lowercase($component);
             }
         }

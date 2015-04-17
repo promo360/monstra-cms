@@ -63,5 +63,7 @@
             'Profile' => 'Профиль',
             'You are banned for 10 minutes. Try again later' => 'Вы заблокированы на 10 минут. Попробуйте позже',
             'Cancel' => 'Отмена',
+            'This users doesnt exists' => 'Данного пользователя не существует',
+            'You do not have access to the profile of this user' => 'У вас нет доступа к профилю этого пользователя',
         )
     );

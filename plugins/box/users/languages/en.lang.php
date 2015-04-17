@@ -65,5 +65,7 @@
             'Profile' => 'Profile',
             'You are banned for 10 minutes. Try again later' => 'You are banned for 10 minutes. Try again later',
             'Cancel' => 'Cancel',
+            'This users doesnt exists' => 'This users doesnt exists',
+            'You do not have access to the profile of this user' => 'You do not have access to the profile of this user',
         )
     );

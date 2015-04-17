@@ -3,3 +3,4 @@ Disallow: /admin/
 Disallow: /engine/
 Disallow: /libraries/
 Disallow: /plugins/
+Disallow: /users
