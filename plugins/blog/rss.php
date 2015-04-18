@@ -11,14 +11,14 @@ ob_end_clean();
 <?php echo'<?xml version="1.0" encoding="utf-8"?>'."\n"; ?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-<title>PromoCMS::BLOG::RSS</title>
+<title>Promo CMS::BLOG::RSS</title>
 <link><?php echo Option::get('siteurl'); ?>/blog</link>
 <description>The latest updates for <?php echo Option::get('sitename'); ?>.</description>
 <language>en-us</language>
 <pubDate><?php echo $now; ?></pubDate>
 <lastBuildDate><?php echo $now; ?></lastBuildDate>
 <atom:link href="<?php echo Option::get('siteurl'); ?>/rss.php" rel="self" type="application/rss+xml" />
-<generator>Promo</generator>
+<generator>Promo CMS</generator>
 <?php foreach ($posts as $post) { ?>
 <item>
 <title><?php echo $post['title']; ?></title>

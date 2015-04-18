@@ -1,33 +1,31 @@
-Blog
+Блог
 ================
 
-### Usage
-
-#### Get Post
+#### Получить пост
 	<?php echo Blog::getPost(); ?>
 
-#### Get Posts
+#### Получить посты
 	<?php echo Blog::getPosts(); ?>
 
-#### Get 5 Posts (could be any amount, 5 or 1 or 25):
+#### Получить 5 постов (может быть любое количество, 5, 1 или 25):
 	<?php echo Blog::getPosts(5); ?>
 
-#### Get related Posts
+#### Получить связанные посты
 	<?php echo Blog::getRelatedPosts(); ?>
 
-#### Get 4 latest posts from Blog
+#### Получить последние 4 поста
 	<?php echo Blog::getPostsBlock(4); ?>
 
-#### Get Tags&Keywords
+#### Получить теги
 	<?php Blog::getTags(); ?>
 
-#### Get Tags&Keywords for current page
+#### Получить теги для текущей страницы
 	<?php Blog::getTags(Page::slug()); ?>
 
-Get Post Title
+#### Получить заголовок поста
 	<?php echo Blog::getPostTitle(); ?>
 
-### Shortcode for content 
+### Шорткод для вставки в контент
 
-#### Divided post into 2 parts (short and full)
+#### Разбиение поста на 2 части (короткую и полную)
 	{cut}
