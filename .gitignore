@@ -7,22 +7,22 @@ Thumbs.db
 *.sublime-workspace
 
 # ignore user .htaccess
-/.htaccess
+#/.htaccess
 
 # ignore user sitemap
-/sitemap.xml
+#/sitemap.xml
 
 # ignore user defines
-/promo/boot/defines.php
+#/promo/boot/defines.php
 
 # ignore debug and custom themes
-/public/themes/*
-/admin/themes/*
+#/public/themes/*
+#/admin/themes/*
 !/public/themes/default
 !/admin/themes/default
 
 # ignore user plugins
-/plugins/*
+#/plugins/*
 !/plugins/box
 !/plugins/captcha
 !/plugins/markitup
@@ -32,6 +32,6 @@ Thumbs.db
 
 # ignore user files and folders
 /backups/*
-/public/*
-/storage/*
+#/public/*
+#/storage/*
 /tmp/*
