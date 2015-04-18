@@ -39,7 +39,7 @@ class Promo
     /**
      * The version of Promo
      */
-    const VERSION = '1.0.0 beta';
+    const VERSION = '0.9.0';
 
 
     /**
