@@ -1,5 +1,5 @@
 Markdown
 ======================
 
-Документация: 
+Р”РѕРєСѓРјРµРЅС‚Р°С†РёСЏ: 
 [http://daringfireball.net/projects/markdown/syntax](http://daringfireball.net/projects/markdown/syntax)
