@@ -225,7 +225,7 @@ class Navigation
             'name'      => (string) $name,
             'slug'      => (string) $slug,
             'priority'  => (int) $priority,
-            'access_role' => (string) $access_role,
+            'access_role' => (array) $access_role,
         );
     }
     
