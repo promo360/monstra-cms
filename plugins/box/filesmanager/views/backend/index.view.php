@@ -89,7 +89,7 @@
             </td>
         </tr>
         <?php } ?>
-        <?php if (isset($files_list)) foreach ($files_list as $file) { $ext = File::ext($file); ?>
+        <?php if (isset($files_list)) foreach ($files_list as $file) { $ext = mb_strtolower(File::ext($file)); ?>
         <?php if ( ! in_array($ext, $forbidden_types)) {
             $dimension = '';
             if (in_array(strtolower($ext), $image_types)) {
