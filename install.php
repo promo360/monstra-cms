@@ -119,9 +119,9 @@
 <html lang="ru">
     <head>
         <meta charset="utf-8">
-        <title>Promo :: Install</title>
+        <title>PROMO CMS :: Установка</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Promo Install Area">
+        <meta name="description" content="">
         <link rel="icon" href="<?php echo $site_url; ?>/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="<?php echo $site_url; ?>/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="<?php echo $site_url; ?>/public/assets/css/bootstrap.css" media="all" type="text/css" />
@@ -523,7 +523,7 @@
     
         <div class="install-block-footer login-footer">
             <div class="text-center">
-                <span>© 2014 - 2015 <a href="http://cms.promo360.ru" class="small-grey-text" target="_blank">Promo</a> – <?php echo __('Version', 'system'); ?> <?php echo Promo::VERSION; ?></span>
+                <span>© 2014 - 2015 <a href="http://cms.promo360.ru" class="small-grey-text" target="_blank">Promo CMS</a> – <?php echo __('Version', 'system'); ?> <?php echo Promo::VERSION; ?></span>
             </div>
         </div>
 
