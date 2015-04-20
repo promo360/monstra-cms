@@ -31,14 +31,14 @@ class Date
      * Get format date
      *
      *  <code>
-     *      echo Date::format($date, 'j.n.Y');
+     *      echo Date::format($date, 'd.m.Y');
      *  </code>
      *
      * @param  integer $date   Unix timestamp
      * @param  string  $format Date format
      * @return integer
      */
-    public static function format($date, $format = 'j.n.Y')
+    public static function format($date, $format = 'd.m.Y')
     {
         // Redefine vars
         $format = (string) $format;

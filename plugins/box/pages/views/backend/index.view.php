@@ -65,7 +65,7 @@
             <?php echo $page['access']; ?>
         </td>
         <td class="visible-lg hidden-xs">
-            <?php echo Date::format($page['date'], "d.m.Y"); ?>
+            <?php echo Date::format($page['date']); ?>
         </td>
         <td>
             <div class="pull-right">

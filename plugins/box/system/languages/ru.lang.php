@@ -18,6 +18,7 @@
             'Site Description' => 'Описание сайта',
             'Site Keywords' => 'Ключевые слова',
             'Site Slogan' => 'Слоган',
+            'Site slogan' => 'Направление деятельности или девиз',
             'Default Page' => 'Страница по умолчанию',
             'Time zone' => 'Временная зона',
             'Language' => 'Язык',
