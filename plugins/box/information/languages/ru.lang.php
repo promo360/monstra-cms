@@ -27,7 +27,7 @@
             'Главный index.php файл доступен для записи. Мы рекомендуем вам удалить права записи на главный index.php файл. <br> Вы можете сделать это на UNIX системах так: <code>chmod -R a-w :path</code>',
             'Due to the type and amount of information an error might give intruders when Promo::$environment = Promo::DEVELOPMENT, we strongly advise setting Promo::PRODUCTION in production systems.' =>
             'Система работает в режиме Promo::DEVELOPMENT Мы рекомендуем вам установить режим Promo::PRODUCTION на живом сайте.',
-            'Promo version' => 'Promo Версия',
+            'Promo version' => 'Promo CMS Версия',
             'Directory Permissions' => 'Права доступа',
             'Directory' => 'Каталог',
             'Writable' => 'Доступна для записи',
