@@ -44,8 +44,10 @@ class MinifyCSS
     /**
      * Minify a CSS string
      *
-     * @param string $css CSS
+     * @param string $css
+     *
      * @param array $options (currently ignored)
+     *
      * @return string
      */
     public static function process($css, $options = array())
@@ -59,6 +61,7 @@ class MinifyCSS
      * Minify a CSS string
      *
      * @param string $css
+     *
      * @return string
      */
     protected function _process($css)
@@ -106,23 +109,9 @@ class MinifyCSS
                 (\\b|[#\'"-])        # 3 = first character of a value
             /x', '$1$2:$3', $css);
 
-        // remove ws in selectors
-        $css = preg_replace_callback('/
-                (?:              # non-capture
-                    \\s*
-                    [^~>+,\\s]+  # selector part
-                    \\s*
-                    [,>+~]       # combinators
-                )+
-                \\s*
-                [^~>+,\\s]+      # selector part
-                {                # open declaration block
-            /x'
-            ,array($this, '_selectorsCB'), $css);
-
         // minimize hex colors
-        $css = preg_replace('/([^=])#([a-f\\d])\\2([a-f\\d])\\3([a-f\\d])\\4([\\s;\\}])/i'
-            , '$1#$2$3$4$5', $css);
+        /*$css = preg_replace('/([^=])#([a-f\\d])\\2([a-f\\d])\\3([a-f\\d])\\4([\\s;\\}])/i'
+            , '$1#$2$3$4$5', $css);*/
 
         // remove spaces between font families
         $css = preg_replace_callback('/font-family:([^;}]+)([;}])/'
