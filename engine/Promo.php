@@ -123,9 +123,9 @@ class Promo
         define ('GELATO_LOGS_PATH', LOGS);
 
         /**
-         * Include Gelato Library
+         * Include pGelato Library
          */
-        include ROOT . DS . 'libraries'. DS .'Gelato'. DS .'Gelato.php';
+        include ROOT . DS . 'libraries'. DS .'pGelato'. DS .'pGelato.php';
 
         /**
          * Map Promo Engine Directory

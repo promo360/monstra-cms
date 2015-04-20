@@ -24,7 +24,7 @@ class MinifyJS
      *      echo MinifyJS::process($js);
      *  </code>
      *
-     * @param  string $buffer html
+     * @param  string $js JS
      * @return string
      */
     public static function process($js)

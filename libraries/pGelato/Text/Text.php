@@ -459,9 +459,9 @@ class Text
     /**
      * Convert plain text to html
      *
-     *	<code>
-     *  	echo Text::toHtml('test');
-     * 	</code>
+     *  <code>
+     *      echo Text::toHtml('test');
+     *  </code>
      *
      * @param  string $str String
      * @return string
@@ -472,6 +472,22 @@ class Text
         $str = (string) $str;
 
         return html_entity_decode($str, ENT_QUOTES, 'utf-8');
+    }
+    
+    /**
+    * Склонение существительных с числительными
+    *
+    *   <code>
+    *       echo Text::ending($number, array('день', 'дня', 'дней'));
+    *   </code>
+    *
+    * @param $number int число чего-либо
+    * @param $titles array варианты написания для количества 1, 2 и 5
+    * @return string
+    */
+    function ending($number, $titles=array('комментарий','комментария','комментариев')){
+        $cases = array (2, 0, 1, 1, 1, 2);
+        return $number.' '.$titles[ ($number%100 >4 && $number%100< 20)? 2 : $cases[min($number%10, 5)] ];
     }
 
 }

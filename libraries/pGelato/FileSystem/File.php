@@ -297,11 +297,11 @@ class File
     /**
      * Writes a string to a file.
      *
-     * @param  string  $filename   The path of the file.
-     * @param  string  $content    The content that should be written.
-     * @param  boolean $createFile Should the file be created if it doesn't exists?
-     * @param  boolean $append     Should the content be appended if the file already exists?
-     * @param  integer $chmod      Mode that should be applied on the file.
+     * @param  string  $filename    The path of the file.
+     * @param  string  $content     The content that should be written.
+     * @param  boolean $create_file Should the file be created if it doesn't exists?
+     * @param  boolean $append      Should the content be appended if the file already exists?
+     * @param  integer $chmod       Mode that should be applied on the file.
      * @return boolean
      */
     public static function setContent($filename, $content, $create_file = true, $append = false, $chmod = 0666)

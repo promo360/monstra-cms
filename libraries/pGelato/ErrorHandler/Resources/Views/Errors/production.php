@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>Error</title>
+<title>Ошибка</title>
 <style type="text/css">
 body {
     height:100%;
@@ -43,9 +43,9 @@ hr {
 </head>
 <body>
     <div id="message">
-        <h1>Error</h1>
+        <h1>Ошибка!</h1>
         <hr>
-        <p>Aw, snap! An error has occurred while processing your request.</p>
+        <p>Произошла ошибка при обработке вашего запроса.</p>
     </div>
 </body>
 </html>

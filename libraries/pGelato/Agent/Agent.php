@@ -71,12 +71,6 @@ class Agent
         'infoseek',
         'lycos',
         'ia_archiver',
-        'yandex',
-        'mail.ru',
-        'ask.com',
-        'Copyscape.com',
-        'bing.com',
-
     );
 
     /**

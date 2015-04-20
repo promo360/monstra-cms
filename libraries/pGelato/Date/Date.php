@@ -160,17 +160,7 @@ class Date
         $month = (int) $month;
         $year   = ! empty($year) ? (int) $year : (int) date('Y');
 
-        if ($month < 1 or $month > 12) {
-            return false;
-        } elseif ($month == 2) {
-            if ($year % 400 == 0 or ($year % 4 == 0 and $year % 100 != 0)) {
-                return 29;
-            }
-        }
-
-        $days_in_month = array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
-
-        return $days_in_month[$month-1];
+        return (int) date('t', mktime(0, 0, 0, $month, 1, $year));
     }
 
     /**
@@ -180,8 +170,8 @@ class Date
      *      $years = Date::years();
      *  </code>
      *
-     * @param  integer $long  Start value
-     * @param  integer $start End value
+     * @param  integer $start  Start value
+     * @param  integer $end    End value
      * @return array
      */
     public static function years($start = 1980, $end = 2024)

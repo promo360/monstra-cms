@@ -88,7 +88,7 @@ class Notification
      *      Notification::setNow('success', 'Success!');
      *  </code>
      *
-     * @param string $var   Variable name
+     * @param string $key   Variable name
      * @param mixed  $value Variable value
      */
     public static function setNow($key, $value)

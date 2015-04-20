@@ -48,28 +48,6 @@ class Number
     }
 
     /**
-     * Convert 'KB','MB','GB' in bytes
-     *
-     *  <code>
-     *      echo Number::convertToBytes('10MB');
-     *  </code>
-     *
-     * @param  string $num Number to convert
-     * @return int
-     */
-    public static function convertToBytes( $num ) {
-        $num  = strtolower( $num );
-        $bytes = (int) $num;
-        if ( strpos( $num, 'k' ) !== false )
-            $bytes = intval( $num ) * 1024;
-        elseif ( strpos( $num, 'm' ) !== false )
-            $bytes = intval($num) * 1024 * 1024;
-        elseif ( strpos( $num, 'g' ) !== false )
-            $bytes = intval( $num ) * 1024 * 1024 * 1024;
-        return $bytes;
-    }
-
-    /**
      * Converts a number into a more readable human-type number.
      *
      *  <code>
