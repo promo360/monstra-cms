@@ -80,8 +80,6 @@
             Option::update(array('maintenance_status' => 'off',
                                  'sitename'           => Request::post('sitename'),
                                  'siteurl'            => Request::post('siteurl'),
-                                 'description'        => __('Site description', 'system'),
-                                 'keywords'           => __('Site keywords', 'system'),
                                  'slogan'             => __('Site slogan', 'system'),
                                  'defaultpage'        => 'home',
                                  'timezone'           => Request::post('timezone'),
