@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Gelato Library
+ * pGelato Library
  *
- * This source file is part of the Gelato Library. More information,
+ * This source file is part of the pGelato Library. More information,
  * documentation and tutorials can be found at http://gelato.monstra.org
  *
- * @package     Gelato
+ * @package     pGelato
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
  * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
@@ -53,7 +53,7 @@ class Html
      *
      *      // Registering a Html macro
      *      Html::macro('my_element', function() {
-     *          return '<element id="monstra">';
+     *          return '<element id="promo">';
      *      });
      *
      *      // Calling a custom Html macro
@@ -66,7 +66,7 @@ class Html
      *      });
      *
      *      // Calling a custom Html macro with parameters
-     *      echo Html::my_element('monstra');
+     *      echo Html::my_element('promo');
      *
      *  </code>
      *
@@ -292,7 +292,7 @@ class Html
 	 * Obfuscate an e-mail address to prevent spam-bots from sniffing it.
      *
      *  <code>
-     *  	echo Html::email('gelato@monstra.org');
+     *  	echo Html::email('mail@example.org');
      * 	</code>
      *
 	 * @param  string  $email
@@ -311,7 +311,7 @@ class Html
      * bot from sniffing the randomly obfuscated letters.
      *
      *  <code>
-     *  	echo Html::obfuscate('gelato@monstra.org');
+     *  	echo Html::obfuscate('mail@example.org');
      * 	</code>
      *
 	 * @param  string  $value

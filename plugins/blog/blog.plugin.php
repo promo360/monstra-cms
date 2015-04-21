@@ -3,7 +3,7 @@
 /**
  *  Blog plugin
  *
- *  @package Monstra
+ *  @package Promo
  *  @subpackage Plugins
  *  @author Romanenko Sergey / Awilum
  *  @copyright 2012 Romanenko Sergey / Awilum
@@ -13,11 +13,11 @@
 
 
 // Register plugin
-Plugin::register( __FILE__,                    
+Plugin::register( __FILE__,
                 __('Blog', 'blog'),
                 __('Blog plugin for Promo', 'blog'),  
                 '1.7.3',
-                'Awilum',            
+                'Awilum',
                 'http://monstra.org/');
 
 // Add action

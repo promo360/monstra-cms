@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Gelato Library
+ * pGelato Library
  *
- * This source file is part of the Gelato Library. More information,
+ * This source file is part of the pGelato Library. More information,
  * documentation and tutorials can be found at http://gelato.monstra.org
  *
- * @package     Gelato
+ * @package     pGelato
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
  * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
@@ -16,9 +16,9 @@
  */
 
 /**
- * The version of Gelato
+ * The version of pGelato
  */
-define('PGELATO_VERSION', '1.0.1');
+define('PGELATO_VERSION', '1.0.0');
 
 /** 
  * Define __DIR__ constant for PHP 5.2.x
@@ -28,38 +28,38 @@ if ( ! defined('__DIR__')) {
 }
 
 /**
- * Display Gelato Errors or not ?
+ * Display pGelato Errors or not ?
  */
-if ( ! defined('GELATO_DEVELOPMENT')) {
-    define('GELATO_DEVELOPMENT', true);
+if ( ! defined('PGELATO_DEVELOPMENT')) {
+    define('PGELATO_DEVELOPMENT', true);
 }
 
 /**
- * Use Gelato Class Loader or not ?
+ * Use pGelato Class Loader or not ?
  */
-if ( ! defined('GELATO_CLASS_LOADER')) {
-    define('GELATO_CLASS_LOADER', true);
+if ( ! defined('PGELATO_CLASS_LOADER')) {
+    define('PGELATO_CLASS_LOADER', true);
 }
 
 /**
- * Load Gelato Logger
+ * Load pGelato Logger
  */
 require_once __DIR__ . '/Log/Log.php';
 
 /**
- * Use Gelato Logger default path or not ?
+ * Use pGelato Logger default path or not ?
  */
-if ( ! defined('GELATO_LOGS_PATH')) {
-    define('GELATO_LOGS_PATH', __DIR__. '/_logs');
+if ( ! defined('PGELATO_LOGS_PATH')) {
+    define('PGELATO_LOGS_PATH', __DIR__. '/_logs');
 }
 
 /**
- * Configure Gelato Logger
+ * Configure pGelato Logger
  */
-Log::configure('path', GELATO_LOGS_PATH);
+Log::configure('path', PGELATO_LOGS_PATH);
 
 /**
- * Load Gelato Error Handler
+ * Load pGelato Error Handler
  */
 require_once __DIR__ . '/ErrorHandler/ErrorHandler.php';
 
@@ -79,12 +79,12 @@ register_shutdown_function('ErrorHandler::fatal');
 set_exception_handler('ErrorHandler::exception');
 
 /**
- * Gelato Class Loader
+ * pGelato Class Loader
  */
 require_once __DIR__ . '/ClassLoader/ClassLoader.php';
 
 /**
- * Map all Gelato Classes
+ * Map all pGelato Classes
  */
 ClassLoader::mapClasses(array(
     'Agent'        => __DIR__.'/Agent/Agent.php',
@@ -117,8 +117,8 @@ ClassLoader::mapClasses(array(
 ));
 
 /**
- * Register Gelato Class Loader
+ * Register pGelato Class Loader
  */
-if (GELATO_CLASS_LOADER) {
+if (PGELATO_CLASS_LOADER) {
     ClassLoader::register();
 }

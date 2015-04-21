@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Gelato Library
+ * pGelato Library
  *
- * This source file is part of the Gelato Library. More information,
+ * This source file is part of the pGelato Library. More information,
  * documentation and tutorials can be found at http://gelato.monstra.org
  *
- * @package     Gelato
+ * @package     pGelato
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
  * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
@@ -199,7 +199,7 @@ class Valid
     public static function regexp($regexp)
     {
         // dummy string
-        $dummy = 'Gelato is a PHP5 library for kickass Web Applications.';
+        $dummy = 'pGelato is a PHP5 library for kickass Web Applications.';
 
         // validate
         return (@preg_match((string) $regexp, $dummy) !== false);

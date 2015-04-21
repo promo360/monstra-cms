@@ -3,7 +3,7 @@
 /**
  *	MarkItUp! plugin
  *
- *	@package Monstra
+ *	@package Promo
  *  @subpackage Plugins
  *	@author Romanenko Sergey / Awilum
  *	@copyright 2012-2014 Romanenko Sergey / Awilum

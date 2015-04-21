@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Gelato Library
+ * pGelato Library
  *
- * This source file is part of the Gelato Library. More information,
+ * This source file is part of the pGelato Library. More information,
  * documentation and tutorials can be found at http://gelato.monstra.org
  *
- * @package     Gelato
+ * @package     pGelato
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
  * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
@@ -23,7 +23,7 @@ class Curl
      * @var array
      */
     protected static $default_options = array(
-        CURLOPT_USERAGENT      => 'Mozilla/5.0 (compatible; Monstra CMS; +http://monstra.org)',
+        CURLOPT_USERAGENT      => 'Mozilla/5.0 (compatible; Promo CMS; +http://cms.promo360.ru)',
         CURLOPT_RETURNTRANSFER => true
     );
 

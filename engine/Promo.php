@@ -1,16 +1,16 @@
 <?php defined('PROMO_ACCESS') or die('No direct script access.');
 
 /**
- * Monstra Engine
+ * Promo Engine
  *
- *  Monstra - Content Management System.
- *  Site: www.mostra.org
- *  Copyright (C) 2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
+ *  Promo - Content Management System.
+ *  Site: cma.promo360.ru
+ *  Copyright (C) 2014-2015 Yudin Evgeniy / JINN <info@promo360.ru>
  *
- * This source file is part of the Monstra Engine. More information,
- * documentation and tutorials can be found at http://monstra.org
+ * This source file is part of the Promo Engine. More information,
+ * documentation and tutorials can be found at http://cms.promo360.ru
  *
- * @package     Monstra
+ * @package     Promo
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
  * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
@@ -111,16 +111,16 @@ class Promo
         }
 
         /**
-         * Set Gelato Display Errors to False for Production environment.
+         * Set pGelato Display Errors to False for Production environment.
          */
         if (Promo::$environment == Promo::PRODUCTION) {
-            define('GELATO_DEVELOPMENT', false);
+            define('PGELATO_DEVELOPMENT', false);
         }
 
         /**
-         * Define Promo Folder for Gelato Logs
+         * Define Promo Folder for pGelato Logs
          */
-        define ('GELATO_LOGS_PATH', LOGS);
+        define ('PGELATO_LOGS_PATH', LOGS);
 
         /**
          * Include pGelato Library

@@ -9,7 +9,7 @@ body {
     padding: 0;
     margin: 0;
 }
-#gelato-error {
+#pgelato-error {
     background:#F5F5F5;
     color:0;
     width:100%;
@@ -17,19 +17,19 @@ body {
     font-family:Verdana, Arial, Helvetica, "Nimbus Sans", FreeSans, Malayalam, sans-serif;
 }
 
-#gelato-error pre {
+#pgelato-error pre {
     font-family:"Andale Mono", "Courier New", Courier;
     font-size:12px;
     margin:0;
     padding:0;
 }
 
-#gelato-error a {
+#pgelato-error a {
     color:#DC143C;
     text-decoration:none;
 }
 
-#gelato-error .error {
+#pgelato-error .error {
     background:#DC143C;
     color:#fff;
     font-size:24px;
@@ -38,18 +38,18 @@ body {
 
 }
 
-#gelato-error .body {
+#pgelato-error .body {
     border:0 solid #ccc;
     padding:10px;
 }
 
-#gelato-error .code {
+#pgelato-error .code {
     background:#fff;
     border:1px solid #ccc;
     overflow:auto;
 }
 
-#gelato-error .heading {
+#pgelato-error .heading {
     background:#444;
     color:#fff;
     font-size:18px;
@@ -57,31 +57,31 @@ body {
     padding:10px;
 }
 
-#gelato-error .line {
+#pgelato-error .line {
     background:#777;
     color:#fff;
     padding-left:4px;
     padding-right:4px;
 }
 
-#gelato-error .highlighted {
+#pgelato-error .highlighted {
     background:#fceb71;
     border-top:1px solid #ccc;
     border-bottom:1px solid #ccc;
 }
 
-#gelato-error .backtrace {
+#pgelato-error .backtrace {
     background:#fff;
     margin-bottom:10px;
     border:1px solid #ccc;
     padding:10px;
 }
 
-#gelato-error .backtrace ol {
+#pgelato-error .backtrace ol {
     padding-left:40px;
 }
 
-#gelato-error table {
+#pgelato-error table {
     border-spacing:0;
     border-collapse:collapse;
     border-color:#ddd;
@@ -89,7 +89,7 @@ body {
     border-width:0 0 1px 1px;
 }
 
-#gelato-error td {
+#pgelato-error td {
     font-size:14px;
     background:#fff;
     border-color:#ddd;
@@ -104,11 +104,11 @@ body {
 }
 </style>
 <body>
-<div id="gelato-error">
+<div id="pgelato-error">
 
     <div class="error">
     <?php echo $error['type']; ?><?php if(isset($error['code'])): ?> <span style="color:#e1e1e1;padding:0px">[<?php echo $error['code']; ?>]</span><?php endif; ?>
-    <span class="pull-right">Gelato</span>
+    <span class="pull-right">pGelato</span>
     </div>
     <div class="body">
     <strong>Message:</strong> <?php echo htmlspecialchars($error['message'], ENT_COMPAT, 'UTF-8', false); ?>

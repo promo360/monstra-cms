@@ -3,7 +3,7 @@
 /**
  *  Markdown plugin
  *
- *  @package Monstra
+ *  @package Promo
  *  @subpackage Plugins
  *  @author Romanenko Sergey / Awilum
  *  @copyright 2014 Romanenko Sergey / Awilum

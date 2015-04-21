@@ -3,7 +3,7 @@
 /**
  *	Users plugin
  *
- *	@package Monstra
+ *	@package Promo
  *  @subpackage Plugins
  *	@author Romanenko Sergey / Awilum
  *	@copyright 2012-2014 Romanenko Sergey / Awilum
@@ -493,7 +493,7 @@ class Users extends Frontend
      * Get Gravatar
      *
      *  <code>
-     *      <img src="<?php echo Users::getGravatarURL('promo@promo360.ru', 64); ?>" alt="">
+     *      <img src="<?php echo Users::getGravatarURL('mail@example.org', 64); ?>" alt="">
      *  </code>
      *
      * @param string  $email  Email

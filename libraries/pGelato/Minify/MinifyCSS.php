@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Gelato Library
+ * pGelato Library
  *
- * This source file is part of the Gelato Library. More information,
+ * This source file is part of the pGelato Library. More information,
  * documentation and tutorials can be found at http://gelato.monstra.org
  *
- * @package     Gelato
+ * @package     pGelato
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
  * @author      Stephen Clay <steve@mrclay.org>

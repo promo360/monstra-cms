@@ -1,32 +1,7 @@
-﻿pGelato 1.0.1, 2015-04-20
+﻿pGelato 1.0.0, 2015-04-21
 ------------------------
+- Форк Gelato 3.0.1 + Внесены последние правки из Gelato для Monstra CMS
 - Формат даты по умолчанию теперь d.m.Y
-- Внесены последние правки из Gelato для Monstra CMS
-
-pGelato 1.0.0, 2015-04-20
-------------------------
-- Адаптирована по Promo CMS (заменены переменные MONSTRA_DATE_FORMAT на PROMO_DATE_FORMAT
+- Адаптирована по Promo CMS (заменены переменные MONSTRA_DATE_FORMAT на PROMO_DATE_FORMAT)
 - Страница с ошибкой переведена на русский \ErrorHandler\Resources\Views\Errors\production.php
 - Добавлена функция Text::ending()
-
-Gelato 1.0.3, 2013-04-03
-------------------------
-- Html Class: obfuscate() method added.
-- Html Class: email() method added.
-- Html Class: missing $macros var added.
-
-Gelato 1.0.2, 2013-03-17
-------------------------
-- Added support for PHP 5.2.3
-
-Gelato 1.0.1, 2013-03-05
-------------------------
-- New constant GELATO_CLASS_LOADER instead of GELATO_AUTOLOADER
-- ErrorHanler Class Improvements.
-- Log Class Improvements.
-- ClassLoader: new method register() added.
-- Define __DIR__ constant for PHP 5.2.x
-
-Gelato 1.0.0, 2013-02-26
-------------------------
-- Initial release

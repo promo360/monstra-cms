@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Gelato Library
+ * pGelato Library
  *
- * This source file is part of the Gelato Library. More information,
+ * This source file is part of the pGelato Library. More information,
  * documentation and tutorials can be found at http://gelato.monstra.org
  *
- * @package     Gelato
+ * @package     pGelato
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
  * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
@@ -107,7 +107,7 @@ class ErrorHandler
             /**
              * Dont thow NOTICE exception for PRODUCTION Environment. Just write to log.
              */
-            if (GELATO_DEVELOPMENT == false && $code == 8) {
+            if (PGELATO_DEVELOPMENT == false && $code == 8) {
 
                 // Get exception info
                 $error['code']    = $code;
@@ -277,7 +277,7 @@ class ErrorHandler
             // Send headers and output
             @header('Content-Type: text/html; charset=UTF-8');
 
-            if (GELATO_DEVELOPMENT) {
+            if (PGELATO_DEVELOPMENT) {
 
                 $error['backtrace'] = $exception->getTrace();
 

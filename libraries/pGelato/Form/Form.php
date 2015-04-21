@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Gelato Library
+ * pGelato Library
  *
- * This source file is part of the Gelato Library. More information,
+ * This source file is part of the pGelato Library. More information,
  * documentation and tutorials can be found at http://gelato.monstra.org
  *
- * @package     Gelato
+ * @package     pGelato
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
  * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
@@ -54,7 +54,7 @@ class Form
      *      });
      *
      *      // Calling a custom Form macro with parameters
-     *      echo Form::my_field('Monstra');
+     *      echo Form::my_field('Promo');
      *
      *  </code>
      *
