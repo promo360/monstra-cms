@@ -8,7 +8,9 @@ Promo CMS является форком Monstra CMS 3.0.1
 
 ## Системные требования
 Хостинг: операционная система Unix, Linux, Windows
+
 Веб-сервер: Apache с [Mod Rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) или Ngnix с [Rewrite Module](http://wiki.nginx.org/HttpRewriteModule)
+
 PHP 5.3.0 или выше с [SimpleXML модулем](http://php.net/simplexml) и [Multibyte String модулем](http://php.net/mbstring)   
 
 
