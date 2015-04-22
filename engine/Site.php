@@ -218,7 +218,7 @@ class Site
      */
     public static function powered()
     {
-        return __('Powered by', 'system').' <a href="http://cms.promo360.ru" target="_blank">Promo</a> ' . Promo::VERSION;
+        return __('Powered by', 'system').' <a href="http://cms.promo360.ru" target="_blank">Promo CMS</a> ' . Promo::VERSION;
     }
 
 }
