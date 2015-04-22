@@ -9,6 +9,7 @@
  * @package     pGelato
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
+ * @author      Yudin Evgeniy / JINN <info@promo360.ru>
  * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
  *
  * For the full copyright and license information, please view the LICENSE
