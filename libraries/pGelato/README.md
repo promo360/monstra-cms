@@ -4,8 +4,4 @@ pGelato форк Gelato адаптированный под Promo CMS
 
 pGelato is a PHP5 library for kickass Web Applications.
 
-## Links Gelato
-- [Site](http://gelato.monstra.org)
-- [Github Repository](https://github.com/MonstrLab/gelato)
-
-Copyright (C) 2013 Romanenko Sergey / Awilum [awilum@msn.com]
+Copyright (C) 2015 Yudin Evgeniy / JINN [info@promo360.ru]

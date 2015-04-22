@@ -18,7 +18,7 @@
 /**
  * The version of pGelato
  */
-define('PGELATO_VERSION', '1.0.0');
+define('PGELATO_VERSION', '1.0.2');
 
 /** 
  * Define __DIR__ constant for PHP 5.2.x
