@@ -39,7 +39,7 @@ class Promo
     /**
      * The version of Promo
      */
-    const VERSION = '0.9.0';
+    const VERSION = '0.9.1';
 
 
     /**
@@ -47,7 +47,7 @@ class Promo
      *
      * @var string
      */
-    public static $environment = Promo::PRODUCTION;
+    public static $environment = Promo::DEVELOPMENT;
 
     /**
      * Promo environment names
