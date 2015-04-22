@@ -105,8 +105,10 @@ class Dir
      *
      * @author Romanenko Sergey / Awilum <awilum@msn.com>
      * @author Yudin Evgeniy / JINN <info@promo360.ru>
+     * @author Yakovlev Dmitry / <web-dimayakovlev@outlook.com>
      *
      * @param string $dir Name of directory to delete
+     * @return boolean
      */
     public static function delete($dir)
     {
@@ -125,7 +127,9 @@ class Dir
                 }
             }
             reset($ob); 
-            rmdir($dir);
+            return rmdir($dir);
+        } else {
+            return false;
         }
     }
 
