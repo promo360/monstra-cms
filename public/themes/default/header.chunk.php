@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link rel="dns-prefetch" href="<?php echo Site::url(); ?>" />
-    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    <meta charset="utf-8">    
     
     <title><?php echo Site::name() . ' - ' . Site::title(); ?></title>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo Site::description(); ?>">
     <meta name="keywords" content="<?php echo Site::keywords(); ?>">
@@ -35,12 +33,6 @@
 
     <?php Action::run('theme_header'); ?>
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav-icons -->
     <link rel="icon" href="<?php echo Site::url(); ?>/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="<?php echo Site::url(); ?>/favicon.ico" type="image/x-icon">
   </head>
