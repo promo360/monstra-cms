@@ -481,11 +481,13 @@ class Text
     *       echo Text::ending($number, array('день', 'дня', 'дней'));
     *   </code>
     *
+    * @author Неизвестен. Найдено в интернете, оригинальное название функции human_plural_form
+    *
     * @param $number int число чего-либо
     * @param $titles array варианты написания для количества 1, 2 и 5
     * @return string
     */
-    function ending($number, $titles=array('комментарий','комментария','комментариев')){
+    public static function ending($number, $titles=array('комментарий','комментария','комментариев')){
         $cases = array (2, 0, 1, 1, 1, 2);
         return $number.' '.$titles[ ($number%100 >4 && $number%100< 20)? 2 : $cases[min($number%10, 5)] ];
     }
