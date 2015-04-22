@@ -4,7 +4,7 @@
  * pGelato Library
  *
  * This source file is part of the pGelato Library. More information,
- * documentation and tutorials can be found at http://gelato.monstra.org
+ * documentation and tutorials can be found at http://cms.promo360.ru
  *
  * @package     pGelato
  *
