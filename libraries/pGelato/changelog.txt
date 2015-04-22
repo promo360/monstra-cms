@@ -1,7 +1,8 @@
-﻿pGelato 1.0.2, 2015-04-21
+﻿pGelato 1.0.4, 2015-04-21
 ------------------------
 - Форк Gelato 3.0.1 + Внесены последние правки из Gelato для Monstra CMS
 - Формат даты по умолчанию теперь d.m.Y
 - Адаптирована по Promo CMS (заменены переменные MONSTRA_DATE_FORMAT на PROMO_DATE_FORMAT)
 - Страница с ошибкой переведена на русский \ErrorHandler\Resources\Views\Errors\production.php
 - Добавлена функция Text::ending()
+- Исправлена функция Dir::delete()

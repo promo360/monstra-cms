@@ -482,7 +482,6 @@ class Text
     *   </code>
     *
     * @author Неизвестен. Найдено в интернете, оригинальное название функции human_plural_form
-    *
     * @param $number int число чего-либо
     * @param $titles array варианты написания для количества 1, 2 и 5
     * @return string

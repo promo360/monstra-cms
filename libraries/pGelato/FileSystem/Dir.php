@@ -9,6 +9,7 @@
  * @package     pGelato
  *
  * @author      Romanenko Sergey / Awilum <awilum@msn.com>
+ * @author      Yudin Evgeniy / JINN <info@promo360.ru>
  * @copyright   2012-2014 Romanenko Sergey / Awilum <awilum@msn.com>
  *
  * For the full copyright and license information, please view the LICENSE
@@ -102,6 +103,9 @@ class Dir
      *      Dir::delete('folder1');
      *  </code>
      *
+     * @author Romanenko Sergey / Awilum <awilum@msn.com>
+     * @author Yudin Evgeniy / JINN <info@promo360.ru>
+     *
      * @param string $dir Name of directory to delete
      */
     public static function delete($dir)
@@ -110,8 +114,19 @@ class Dir
         $dir = (string) $dir;
 
         // Delete dir
-        if (is_dir($dir)){$ob=scandir($dir);foreach ($ob as $o) {if ($o!='.'&&$o!='..') {if(filetype($dir.'/'.$o)=='dir')Dir::delete($dir.'/'.$o); else unlink($dir.'/'.$o);}}}
-        reset($ob); rmdir($dir);
+        if (is_dir($dir)) {
+            $ob = scandir($dir);
+            foreach ($ob as $o) {
+                if ($o != '.' && $o != '..') {
+                    if (filetype($dir.'/'.$o) == 'dir')
+                        Dir::delete($dir.'/'.$o); 
+                    else 
+                        unlink($dir.'/'.$o);
+                }
+            }
+            reset($ob); 
+            rmdir($dir);
+        }
     }
 
 
