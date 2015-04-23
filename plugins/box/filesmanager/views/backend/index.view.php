@@ -94,7 +94,7 @@
             $dimension = '';
             if (in_array(strtolower($ext), $image_types)) {
                 $dim = getimagesize($files_path. DS .$file);
-                if (isset($dim[0]) && isset($dim[1])) { $dimension = $dim[1] .'x'. $dim[0] .' px'; }
+                if (isset($dim[0]) && isset($dim[1])) { $dimension = $dim[0] .'x'. $dim[1] .' px'; }
             }
         ?>
         <tr>
