@@ -6,22 +6,22 @@
  *  @package Promo
  *  @subpackage Plugins
  *  @author Yudin Evgeniy / JINN
- *  @copyright 2014 Yudin Evgeniy / JINN
+ *  @copyright 2014-2015 Yudin Evgeniy / JINN
  *  @version 1.0.0
  *
  */
 
 // Register plugin
 Plugin::register( __FILE__,
-                __('Breadcrumbs', 'forms'),
-                __('Breadcrumbs plugin for Promo', 'forms'),
+                __('Breadcrumbs', 'breadcrumbs'),
+                __('Breadcrumbs plugin for Promo CMS', 'breadcrumbs'),
                 '1.0.0',
                 'JINN',
                 'http://cms.promo360.ru',
                 null,
                 'box');
 
-// Load Forms Admin for Editor and Admin
+// Load Breadcrumbs Admin for Editor and Admin
 if (Session::exists('user_role') && in_array(Session::get('user_role'), array('admin', 'editor'))) {
     Plugin::admin('breadcrumbs', 'box');
 }
