@@ -94,7 +94,7 @@ class Action
                 if ($action['action_name'] == $action_name) {
 
                     // isset arguments ?
-                    if (isset($args)) {
+                    if (!empty($args)) {
 
                         // Return or Render specific action results ?
                         if ($return) {
