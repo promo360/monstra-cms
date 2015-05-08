@@ -93,26 +93,18 @@ class Action
                 // Execute specific action
                 if ($action['action_name'] == $action_name) {
 
-                    // isset arguments ?
-                    if (!empty($args)) {
-
-                        // Return or Render specific action results ?
-                        if ($return) {
-                            return call_user_func_array($action['function'], $args);
-                        } else {
-                            call_user_func_array($action['function'], $args);
-                        }
-
-                    } else {
-
-                        if ($return) {
-                            return call_user_func_array($action['function'], $action['args']);
-                        } else {
-                            call_user_func_array($action['function'], $action['args']);
-                        }
-
+                    // empty arguments ?
+                    if (empty($args)) {
+                        $args = (empty($action['args'])) ? array() : $action['args'];
                     }
 
+                    // Return or Render specific action results ?
+                    if ($return) {
+                        return call_user_func_array($action['function'], $args);
+                    } else {
+                        call_user_func_array($action['function'], $args);
+                    }
+                    
                 }
 
             }
